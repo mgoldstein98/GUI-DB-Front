@@ -1,0 +1,12 @@
+.login_button {
+    text-align: center;
+}
+
+#login {
+    position: absolute;
+    top: 50%;
+}
+
+.p-3 {
+    padding: spacer !important;
+}
