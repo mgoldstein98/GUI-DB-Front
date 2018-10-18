@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AccountCreationComponent } from './account-creation/account-creation.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccountCreationComponent
+    AccountCreationComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
