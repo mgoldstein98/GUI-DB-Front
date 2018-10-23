@@ -1,16 +1,7 @@
-#login {
-   
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-
-}
-
 
 body, html{
     height: 100%;
 }
-
 
 .p-3 {
     padding: spacer !important;
