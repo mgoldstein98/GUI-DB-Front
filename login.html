@@ -19,10 +19,10 @@
 
     
     <div class="User_interaction">
-        <h2>Welcome!</h2>
-        <p>If you are a new user click, New User.</p>
+        <h1>Welcome!</h1>
+        <p id="sign_text">If you are a new user, click New User.</p>
         <button id="NewUser" type="button" class="btn btn-primary">New User</button>
-        <p>If not, click Login.</p>
+        <p id="sign_text">If not, click Login.</p>
         <button id="login" type="button" class="btn btn-primary" data-toggle="modal" data-target="#LoginModal">Login</button>
     </div>
 
@@ -42,28 +42,28 @@
 
                 <div class="modal-body">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary active">
-                                    <input type="radio" name="options" id="option1" autocomplete="off" checked> Manager
-                                </label>
-                                <label class="btn btn-secondary">
-                                    <input type="radio" name="options" id="option2" autocomplete="off"> Anchor
-                                </label>
-                            </div>
-                    </div>
+                            <label class="btn btn-secondary active">
+                                <input type="radio" name="options" id="option1" autocomplete="off" checked> Manager
+                            </label>
+                            <label class="btn btn-secondary">
+                                <input type="radio" name="options" id="option2" autocomplete="off"> Anchor
+                            </label>
+                        </div>
                     <div class="login">
-                        <form>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-                            </div>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Password" aria-label="Password">
-                            </div>
-                        </form>
+                        <div class="col-sm-15">
+                            <form>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Password" aria-label="Password">
+                                </div>
+                            </form>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-primary">Login</button>
                     </div>
-
                 </div>
             </div>
         </div>

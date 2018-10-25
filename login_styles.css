@@ -3,7 +3,7 @@ body, html{
     height: 100%;
 }
 
-.p-3 {
+.modal-body {
     padding: spacer !important;
 }
 
@@ -25,4 +25,8 @@ body, html{
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+}
+
+#sign_text{
+    text-underline-position: 
 }
