@@ -1,0 +1,44 @@
+nav{
+  height:10vh;
+  background-color: lightgray;
+}
+.navbar{
+  height:inherit;
+}
+
+.overlay {
+  background: black;
+  position: absolute;
+  opacity: 0.4;
+  width: 100vw;
+  z-index: 1;
+  height: 100vh;
+}
+#blueHomeCenter {
+  background-image: url("../../assets/newsreporter.png");
+  height: 100vh;
+  background-size: cover;
+}
+
+
+#events-header {
+  text-align: center;
+
+  height: 3em;
+}
+
+span {
+  display: inline;
+  vertical-align: middle;
+}
+
+a, h4, th, td {
+  color: #FFFFFF;
+  position: relative;
+  z-index: 10;
+}
+
+#table {
+  border: 1em;
+  border-color: #FFFFFF;
+}
