@@ -12,3 +12,5 @@ Add and commit your changes as you work
 git push origin (may have to set upstream) before stopping your work for the day
 
 Once your feature/view is complete, go to github.com and create pull request for your branch into dev, another team member should/will pull your work into dev during sprint review
+
+Fun note for the Andrew part of this project: If, at any point, you need to access the calendar page, make sure to run "npm install --save-dev @types/jquery, or else it won't work. If you don't need to access the calendar, it will spam your terminal with a bunch of errors if you don't run the command, but any other page you access should still work. For more information on this topic, read at https://fullcalendar.io/docs/typescript
