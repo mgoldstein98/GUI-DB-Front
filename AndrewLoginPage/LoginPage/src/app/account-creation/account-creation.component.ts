@@ -20,8 +20,8 @@ export class AccountCreationComponent implements OnInit {
     };
 
     this.jobTitles = [
-      { id: 1, name: 'Manager' },
-      { id: 2, name: 'Anchor' }
+      { id: 0, name: 'Manager' },
+      { id: 1, name: 'Anchor' }
     ];
   }
 
