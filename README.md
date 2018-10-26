@@ -3,13 +3,13 @@
 
 Werk flow
 
-1) ALWAYS git pull and npm install before starting your work/branching
+1) ALWAYS '''git pull''' and '''npm install''' before starting your work/branching
 
-2) Before working on your feature/view --> git checkout -b yourinitials-viewdescription
+2) Before working on your feature/view --> '''git checkout -b yourinitials-viewdescription'''
 
 3) Add and commit your changes as you work 
 
-4) git push origin (may have to set upstream) before stopping your work for the day
+4) '''git push origin''' (may have to set upstream) before stopping your work for the day
 
 5) Once your feature/view is complete, go to github.com and click create pull request or compare and pull requet for your branch into dev (base should be dev and the other branch should be yours). Add comments on what functionality you added. Create pull request. 
 
