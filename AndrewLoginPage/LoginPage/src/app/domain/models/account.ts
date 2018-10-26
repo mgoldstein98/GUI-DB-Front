@@ -4,4 +4,5 @@ export class Account {
   jobTitle?: number;
   email?: string;
   points?: number;
+  managedBy?: string;
 }
