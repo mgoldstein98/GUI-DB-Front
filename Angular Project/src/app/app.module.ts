@@ -8,6 +8,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 
 import { CalendarComponent } from './calendar/calendar.component';
 import { EventComponent } from './event/event.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { EventComponent } from './event/event.component';
     AccountCreationComponent,
     HomepageComponent,
     CalendarComponent,
-    EventComponent
+    EventComponent,
+    VehicleComponent
   ],
   imports: [
     BrowserModule,
