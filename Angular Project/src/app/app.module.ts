@@ -8,9 +8,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 
 import { CalendarComponent } from './calendar/calendar.component';
 import { EventComponent } from './event/event.component';
-import { RentalComponent } from './rental/rental.component';
-
-
+import { VehicleComponent } from './vehicle/vehicle.component';
 
 
 @NgModule({
@@ -20,7 +18,7 @@ import { RentalComponent } from './rental/rental.component';
     HomepageComponent,
     CalendarComponent,
     EventComponent,
-    RentalComponent
+    VehicleComponent
   ],
   imports: [
     BrowserModule,
