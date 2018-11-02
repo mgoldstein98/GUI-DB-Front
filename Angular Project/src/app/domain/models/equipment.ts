@@ -1,6 +1,6 @@
 export class Equipment{
-    Type?: string;
-    Name?: string;
-    Reserve?: boolean;
-    
+    type?: string;
+    name?: string;
+    reserve?: boolean;
+
 }
