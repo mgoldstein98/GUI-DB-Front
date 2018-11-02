@@ -5,3 +5,11 @@ nav {
 h1 {
   text-align: center;
 }
+
+#search{
+  float: right;
+  position: relative;
+  top: 30px;
+  right: 10px;
+  z-index: 15000;
+}
