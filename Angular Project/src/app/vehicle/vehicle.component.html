@@ -12,9 +12,14 @@
         </ul>
       </div>
     </nav>
-    <form id="search">
-        <input type="text" placeholder="Search..">
-    </form>
+
+    <div ng-init="vechiles = [{License #:'1234', Make:'Um', Model:'idk'},
+                              {License #:'5678', Make:'Anotha', Model:'one'}]"></div>
+
+    <div id="search">
+      <label> Search: <input ngModel="Search..." ></label>
+    </div>
+
     <a class="dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vechicles</a>
       <!--Menu-->
       <div class="dropdown-menu dropdown-primary">
@@ -23,6 +28,7 @@
         <a class="dropdown-item" href="#">Item#3</a>
         <a class="dropdown-item" href="#">Item#4</a>
       </div>
+
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
