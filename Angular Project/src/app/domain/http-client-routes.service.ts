@@ -18,12 +18,12 @@ export class HttpClientRoutes {
     protected httpClient: HttpClient
   ) {}
 
-
-  login(email: string, pass: string): Observable<Account> {
-    return this.httpClient
-      .post<Account>(`${this.endPoint}/login`, email, pass, this.httpOptions)
-      .pipe(catchError(this.handleException));
-  }
+    /*
+  //login(email: string, pass: string): Observable<Account> {
+    //return this.httpClient
+    //  .post<Account>(`${this.endPoint}/login`, email, pass, this.httpOptions)
+     // .pipe(catchError(this.handleException));
+  //}
 
   signup(name: string, pass: string, jobTitle: number): Observable<Account> {
     return this.httpClient
@@ -90,4 +90,5 @@ export class HttpClientRoutes {
     alert(message);
     return Observable.throw(exception);
   }
+  */
 }
