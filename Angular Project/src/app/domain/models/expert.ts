@@ -1,4 +1,5 @@
 export class Expert {
-    name?: string;
-    specialty?: string;
+    expertID?: number;
+    expertName?: string;
+    expertTopic?: string;
 }

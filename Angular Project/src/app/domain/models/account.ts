@@ -1,8 +1,9 @@
 export class Account {
+  userID?: number;
   name?: string;
   password?: string;
-  jobTitle?: number;
+  jobTitle?: number;//0 (anchor) or 1 (manager)
   email?: string;
   points?: number;
-  managedBy?: string;
+  myAnchors?: Account[];
 }

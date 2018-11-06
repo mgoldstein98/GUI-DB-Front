@@ -4,12 +4,13 @@ import {Equipment} from './equipment';
 import {Account} from './account';
 
 export class Story {
-  category?: string;
-  anchor?: Account;
+  storyID?: number;
+  storyTopic?: string;
+  anchorID?: number;
   date?: Date;
   description?: string;
-  timeStart?: Date;
-  timeEnd?: Date;
+  startTime?: Date;
+  endTime?: Date;
   equipment?: Equipment[];
   vehicle?: Vehicle[];
   expert?: Expert[];
