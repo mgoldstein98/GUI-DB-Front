@@ -3,4 +3,5 @@ export class Vehicle {
     name?: string;
     make?: string;
     model?: string;
+    
 }
