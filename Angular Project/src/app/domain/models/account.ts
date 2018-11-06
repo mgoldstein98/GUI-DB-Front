@@ -1,4 +1,5 @@
 export class Account {
+  userID?: number;
   name?: string;
   password?: string;
   jobTitle?: number;//0 (anchor) or 1 (manager)

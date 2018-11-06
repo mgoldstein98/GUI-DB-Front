@@ -1,6 +1,8 @@
 export class Vehicle {
-    license?: string;
-    name?: string;
-    make?: string;
+    vehicleID?: number;
+    vehicleName?: string;
+    vehicleType?: string;
+    color?: string;
     model?: string;
+    capacity?: string;
 }

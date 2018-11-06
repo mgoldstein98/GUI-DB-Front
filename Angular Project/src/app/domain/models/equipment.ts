@@ -1,4 +1,5 @@
 export class Equipment {
-    type?: string;
-    name?: string;
+    equipID?: number;
+    equpType?: string;
+    equipName?: string;
 }

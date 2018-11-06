@@ -18,7 +18,7 @@ export class HttpClientRoutes {
     protected httpClient: HttpClient
   ) {}
 
-  // NEED BACK TO CREATE ENDPOINT
+
   login(email: string, pass: string): Observable<Account> {
     return this.httpClient
       .post<Account>(`${this.endPoint}/login`, email, pass, this.httpOptions)
@@ -31,25 +31,39 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
-  //Only called by managers
-  getMyAnchors(email: string): Observable<Account[]> {
+  //Called upon click of plus sign in anchor table by manager
+  addAnchor(managerID: number, userID: number): Observable<String> {
     return this.httpClient
-      .get<Account[]>(`${this.endPoint}/getMyAnchors/${email}`, this.httpOptions)
+      .post<String>(`${this.endPoint}/assignAnchor`, managerID, userID, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
+  //Only called by managers to populate dashboard cards
+  getMyAnchors(managerID: number): Observable<Account[]> {
+    return this.httpClient
+      .get<Account[]>(`${this.endPoint}/getMyAnchors/${managerID}`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  //Used to populate 'add an anchor' table in manager component
   getUnmanagedAnchors(): Observable<Account[]> {
     return this.httpClient
       .get<Account[]>(`${this.endPoint}/'getUnmanagedAnchors'/`, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
-  //Only called by anchors
+  //Only called by anchors in profile page
   getMyManager(email: string): Observable<Account> {
     return this.httpClient
       .get<Account>(`${this.endPoint}/getMyManager/${email}`)
   }
 
+  //Return all stories for a given anchor to populate anchor card
+  getStories(userID: number): Observable<Story[]> {
+    return this.httpClient
+      .get<Story>(`${this.endPoint}/myStories/${userID}`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
 
 
   //--------------------------------
