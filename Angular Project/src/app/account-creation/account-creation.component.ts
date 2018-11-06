@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Account } from '../domain/models/account';
-import { JobTitle } from '../domain/models/jobTitle';
+// import { JobTitle } from '../domain/models/jobTitle';
 
 @Component({
   selector: 'app-account-creation',
@@ -10,7 +10,7 @@ import { JobTitle } from '../domain/models/jobTitle';
 export class AccountCreationComponent implements OnInit {
 
   account: Account;
-  jobTitles: JobTitle[];
+  // jobTitles: JobTitle[];
 
   constructor() { }
 
@@ -19,10 +19,10 @@ export class AccountCreationComponent implements OnInit {
       name: 'Bob'
     };
 
-    this.jobTitles = [
-      { id: 0, name: 'Manager' },
-      { id: 1, name: 'Anchor' }
-    ];
+    // this.jobTitles = [
+    //   { id: 0, name: 'Manager' },
+    //   { id: 1, name: 'Anchor' }
+    // ];
   }
 
 }
