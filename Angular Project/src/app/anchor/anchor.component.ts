@@ -21,3 +21,4 @@ export class AnchorComponent implements OnInit {
     });
   }
 }
+

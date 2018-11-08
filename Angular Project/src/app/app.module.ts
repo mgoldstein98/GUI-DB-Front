@@ -13,6 +13,7 @@ import { EventComponent } from './event/event.component';
 import { EquipmentComponent } from './equipment/equipment.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { AnchorComponent } from './anchor/anchor.component';
+import { ExpertComponent } from './expert/expert.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AnchorComponent } from './anchor/anchor.component';
     EventComponent,
     EquipmentComponent,
     VehicleComponent,
-    AnchorComponent
+    AnchorComponent,
+    ExpertComponent
   ],
   imports: [
     BrowserModule,
