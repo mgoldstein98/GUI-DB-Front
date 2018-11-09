@@ -12,14 +12,14 @@
     <div class="card">
       <div class="card-header clearfix">
         <h5 class="card-title mt-2"> {{story.storyTopic}} </h5>
-        <button type="button" class="btn btn-primary float-right" (click)="unassignAnchor()">-</button>
+        <button type="button" class="btn btn-primary float-right" (click)="unassignAnchor()">Remove</button>
       </div>
       <div class="card-body">
         <div class="row">
           <p class="card-text p-3"> {{story.date}}</p>
         </div>
         <div class="row">
-            <p class="card-text p-3"> {{story.startTime}} - {{story.endTime}}</p>
+          <p class="card-text p-3"> {{story.startTime}} - {{story.endTime}}</p>
         </div>
         <div class="row">
           <p class="card-text p-3"> {{story.description}}</p>
@@ -29,10 +29,10 @@
             <div class="card mt-4" style="width: 18rem;">
               <div class="card-header">
                 Vehicles
+                <button type="button" class="btn btn-primary float-right">Edit</button>
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item" *ngFor="let vehicle of vehicles">{{ vehicle.vehicleName }}</li>
-                <button type="button" class="btn btn-primary float-right" (click)="unassignVehicle()">-</button>
+                <li class="list-group-item" *ngFor="let vehicle of vehicles">{{ vehicle.vehicleName }} </li>
               </ul>
             </div>
           </div>
@@ -40,10 +40,11 @@
             <div class="card mt-4" style="width: 18rem;">
               <div class="card-header">
                 Experts
+                <button type="button" class="btn btn-primary float-right">Edit</button>
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item" *ngFor="let expert of experts">{{ expert.expertName }}</li>
-                <button type="button" class="btn btn-primary float-right" (click)="unassignExpert()">-</button>
+                <li class="list-group-item" *ngFor="let expert of experts">{{ expert.expertName }} </li>
+
               </ul>
             </div>
           </div>
@@ -51,10 +52,11 @@
             <div class="card mt-4" style="width: 18rem;">
               <div class="card-header">
                 Equipment
+                <button type="button" class="btn btn-primary float-right">Edit</button>
               </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" *ngFor="let equip of equipment">{{ equip.equipName }}</li>
-                <button type="button" class="btn btn-primary float-right" (click)="unassignEquip()">-</button>
+              <ul class="list-group list-group-flush ">
+                <li class="list-group-item d-inline" *ngFor="let equip of equipment">{{ equip.equipName }} </li>
+
               </ul>
             </div>
           </div>

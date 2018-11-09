@@ -63,18 +63,5 @@ export class StoryComponent implements OnInit {
     this.myHttp.unassignAnchorStory(this.anchor.userID, this.story.storyID).subscribe((str) => {
       console.log(str);
     });
-
-  }
-
-  unassignVehicle() {
-
-  }
-
-  unassignExpert() {
-
-  }
-
-  unassignEquip() {
-
   }
 }
