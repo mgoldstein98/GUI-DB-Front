@@ -4,6 +4,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { Account } from './models/account';
 import { Story } from './models/story';
+import { Vehicle } from './models/vehicle';
+import { Expert } from './models/expert';
+import { Equipment } from './models/equipment';
 
 @Injectable()
 export class HttpClientRoutes {
@@ -40,7 +43,23 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
+  getReservedVehicles(storyID: number): Observable<Vehicle[]> {
+    return this.httpClient
+      .get<Vehicle[]>(`${this.endPoint}/stories/reservedVehicles/${storyID}`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
 
+  getReservedExperts(storyID: number): Observable<Expert[]> {
+    return this.httpClient
+      .get<Expert[]>(`${this.endPoint}/stories/reservedExperts/${storyID}`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  getReservedEquipment(storyID: number): Observable<Equipment[]> {
+    return this.httpClient
+      .get<Equipment[]>(`${this.endPoint}/stories/reservedEquipment/${storyID}`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
 
   // Only called by managers to populate dashboard cards
   getMyAnchors(managerID: number): Observable<Account[]> {
