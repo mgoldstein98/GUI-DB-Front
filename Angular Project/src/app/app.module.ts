@@ -13,6 +13,7 @@ import { EventComponent } from './event/event.component';
 import { EquipmentComponent } from './equipment/equipment.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { StoryComponent } from './story/story.component';
+import { AnchorComponent } from './anchor/anchor.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { StoryComponent } from './story/story.component';
     EventComponent,
     EquipmentComponent,
     VehicleComponent,
-    StoryComponent
+    StoryComponent,
+    AnchorComponent
   ],
   imports: [
     BrowserModule,
