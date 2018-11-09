@@ -65,25 +65,13 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
+  unassignAnchorStory(anchorID: number, storyID: number): Observable<String> {
 
-  //--------------------------------
-  getById(id: number): Observable<Account> {
     return this.httpClient
-      .get<Account>(`${this.endPoint}/${id}`, this.httpOptions)
+      .put<String>(`${this.endPoint}/accounts/unassignFromStory/${storyID}`, anchorID, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
-  add(account: Account): Observable<Account> {
-    return this.httpClient
-      .post<Account>(this.endPoint, account, this.httpOptions)
-      .pipe(catchError(this.handleException));
-  }
-
-  update(id: number, account: Account): Observable<Account> {
-    return this.httpClient
-      .put<Account>(`${this.endPoint}/${id}`, account, this.httpOptions)
-      .pipe(catchError(this.handleException));
-  }
 
   protected handleException(exception: any) {
     const message = `${exception.status} : ${exception.statusText}\r\n${exception.message}`;

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link data-require="bootstrap@*" data-semver="4.1.1" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid m-2">
+    <div class="card">
+      <div class="card-header clearfix">
+        <h5 class="card-title mt-2"> {{story.storyTopic}} </h5>
+        <button type="button" class="btn btn-primary float-right" (click)="unassignAnchor()">-</button>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <p class="card-text p-3"> {{story.date}}</p>
+        </div>
+        <div class="row">
+            <p class="card-text p-3"> {{story.startTime}} - {{story.endTime}}</p>
+        </div>
+        <div class="row">
+          <p class="card-text p-3"> {{story.description}}</p>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mt-4" style="width: 18rem;">
+              <div class="card-header">
+                Vehicles
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let vehicle of vehicles">{{ vehicle.vehicleName }}</li>
+                <button type="button" class="btn btn-primary float-right" (click)="unassignVehicle()">-</button>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mt-4" style="width: 18rem;">
+              <div class="card-header">
+                Experts
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let expert of experts">{{ expert.expertName }}</li>
+                <button type="button" class="btn btn-primary float-right" (click)="unassignExpert()">-</button>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mt-4" style="width: 18rem;">
+              <div class="card-header">
+                Equipment
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let equip of equipment">{{ equip.equipName }}</li>
+                <button type="button" class="btn btn-primary float-right" (click)="unassignEquip()">-</button>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
