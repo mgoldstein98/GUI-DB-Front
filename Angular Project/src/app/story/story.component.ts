@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Account } from './../domain/models/account';
 import { Vehicle } from './../domain/models/vehicle';
 import { Expert } from './../domain/models/expert';
 import { Equipment } from './../domain/models/equipment';
 import { HttpClientRoutes } from './../domain/http-client-routes.service';
+import { Story } from './../domain/models/story';
 
 
 @Component({
