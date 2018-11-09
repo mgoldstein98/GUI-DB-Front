@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Story } from './../domain/models/story';
 import { HttpClientRoutes } from './../domain/http-client-routes.service';
+import { Account } from './../domain/models/account';
 
 @Component({
   selector: 'app-anchor',
@@ -8,6 +9,7 @@ import { HttpClientRoutes } from './../domain/http-client-routes.service';
   styleUrls: ['./anchor.component.css']
 })
 export class AnchorComponent implements OnInit {
+  @Input()
   anchor: Account;
   myStories: Story[];
 
@@ -16,7 +18,7 @@ export class AnchorComponent implements OnInit {
   ngOnInit() {
     // account object passed from login or signup
     // change 1 to this.anchor.userID
-    this.myHttp.getStories(1).subscribe((stories) => {
+    this.myHttp.getStories(this.anchor.userID).subscribe((stories) => {
       this.myStories = stories;
     });
   }
