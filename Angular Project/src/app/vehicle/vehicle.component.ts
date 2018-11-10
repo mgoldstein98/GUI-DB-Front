@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { VehicleService } from './vehicle.service';
-import { Observable } from 'rxjs';
+import { VehicleService } from './vehicle.service'; 
+import { Vehicle } from '../domain/models/vehicle';
+
 
 @Component({
   selector: 'app-vehicle',
@@ -8,17 +9,35 @@ import { Observable } from 'rxjs';
   styleUrls: ['./vehicle.component.css']
 })
 export class VehicleComponent implements OnInit {
-  vehicles: Observable<any[]>;
-  columns: string[];
-
+  
+  vechiles: Vehicle[];
+  
   constructor(private atService: VehicleService) { }
 
   ngOnInit() {
-    this.columns = this.atService.getColumns();
-    this.vehicles = this.atService.getVechiles();
+    this.vechiles = [
+      {
+        vehicleName: 'name1',
+        vehicleType: 'type1',
+        color: 'color1',
+        model: 'model1',
+        capacity: '5000'
+
+
+    },
+    {
+        vehicleName: 'name2',
+        vehicleType: 'type2',
+        color: 'color2',
+        model: 'model2',
+        capacity: '5003'
+    }
+    ]
+
+    
+    
   }
 
-  addEquipment(){
-
-  }
+  
+  
 }

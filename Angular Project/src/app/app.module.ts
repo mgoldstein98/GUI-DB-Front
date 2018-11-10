@@ -13,6 +13,9 @@ import { EventComponent } from './event/event.component';
 import { EquipmentComponent } from './equipment/equipment.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { AnchorComponent } from './anchor/anchor.component';
+import {MockBackend} from '@angular/http/testing';
+import {BaseRequestOptions, Http} from '@angular/http';
+
 
 
 @NgModule({
@@ -31,7 +34,14 @@ import { AnchorComponent } from './anchor/anchor.component';
     FormsModule
   ],
   providers: [
-    HttpClientRoutes
+    MockBackend,
+    BaseRequestOptions,
+    {
+      provide: Http,
+      deps: [MockBackend, BaseRequestOptions],
+      useFactory: (backend: MockBackend, options: BaseRequestOptions) => { return new Http(backend, options); }
+  }
+    //HttpClientRoutes
   ],
   bootstrap: [AppComponent]
 })
