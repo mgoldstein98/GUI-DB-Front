@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { Account } from './models/account';
@@ -61,24 +61,27 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
+  // Not in backend
   // Only called by managers to populate dashboard cards
   getMyAnchors(managerID: number): Observable<Account[]> {
     return this.httpClient
-      .get<Account[]>(`${this.endPoint}/getMyAnchors/${managerID}`, this.httpOptions)
+      .get<Account[]>(`${this.endPoint}/myAnchors/${managerID}`, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
+  // Not in backend
   // Used to populate 'add an anchor' table in manager component
   getUnmanagedAnchors(): Observable<Account[]> {
     return this.httpClient
-      .get<Account[]>(`${this.endPoint}/'getUnmanagedAnchors'/`, this.httpOptions)
+      .get<Account[]>(`${this.endPoint}/unmanagedAnchors/`, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
+  // Not in backend
   // Only called by anchors in profile page
   getMyManager(email: string): Observable<Account> {
     return this.httpClient
-      .get<Account>(`${this.endPoint}/getMyManager/${email}`);
+      .get<Account>(`${this.endPoint}/myManager/${email}`);
   }
 
   // Return all stories for a given anchor to populate anchor card
@@ -89,7 +92,6 @@ export class HttpClientRoutes {
   }
 
   unassignAnchorStory(anchorID: number, storyID: number): Observable<String> {
-
     return this.httpClient
       .put<String>(`${this.endPoint}/accounts/unassignFromStory/${storyID}`, anchorID, this.httpOptions)
       .pipe(catchError(this.handleException));
