@@ -15,10 +15,6 @@ export class ManagerComponent implements OnInit {
   constructor(private myHttp: HttpClientRoutes) { }
 
   ngOnInit() {
-    this.manager = {
-      userID: 0,
-
-    }
     this.getAnchors(this.manager.userID);
   }
 
