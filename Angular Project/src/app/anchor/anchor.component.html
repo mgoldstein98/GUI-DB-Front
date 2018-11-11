@@ -1,6 +1,8 @@
 <!-- <app-navbar></app-navbar>
-<app-welcome></app-welcome>
-<app-story [anchor]='anchor' *ngFor="let story of myStories"></app-story> -->
+<app-welcome></app-welcome> -->
+<div *ngFor="let story of myStories">
+  <app-story [anchor]='anchor' [story]="story"></app-story>
+</div>
 
 
 <!-- MIGHT NEED

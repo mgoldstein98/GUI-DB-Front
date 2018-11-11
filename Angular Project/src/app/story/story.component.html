@@ -1,4 +1,4 @@
-<div class="container-fluid m-2">
+<div class="container-fluid m-2" *ngIf="vehicles && experts && equipment">
   <div class="card">
     <div class="card-header clearfix">
       <h5 class="card-title mt-2"> {{story.storyTopic}} </h5>
@@ -6,7 +6,7 @@
     </div>
     <div class="card-body">
       <div class="row">
-        <p class="card-text p-3"> {{story.date}}</p>
+        <p class="card-text p-3"> {{story.storyDate}}</p>
       </div>
       <div class="row">
         <p class="card-text p-3"> {{story.startTime}} - {{story.endTime}}</p>
@@ -33,8 +33,9 @@
               <button type="button" class="btn btn-primary float-right">Edit</button>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item" *ngFor="let expert of experts">{{ expert.expertName }} </li>
-
+              <li class="list-group-item" *ngFor="let expert of experts">
+                {{ expert.expertName }}
+              </li>
             </ul>
           </div>
         </div>
