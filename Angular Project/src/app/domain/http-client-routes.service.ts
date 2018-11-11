@@ -10,7 +10,7 @@ import { Equipment } from './models/equipment';
 
 @Injectable()
 export class HttpClientRoutes {
-
+  
   protected endPoint = 'http://54.203.53.152:8080';
 
   protected httpOptions = {
@@ -23,21 +23,12 @@ export class HttpClientRoutes {
     protected httpClient: HttpClient
   ) { }
 
-<<<<<<< HEAD
-    /*
-  //login(email: string, pass: string): Observable<Account> {
-    //return this.httpClient
-    //  .post<Account>(`${this.endPoint}/login`, email, pass, this.httpOptions)
-     // .pipe(catchError(this.handleException));
-  //}
-=======
 
   login(email: string, pass: string): Observable<Account> {
     return this.httpClient
       .post<Account>(`${this.endPoint}/login`, { email, pass }, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
->>>>>>> d497c910f415615d5b98fb50553bffdd3e4af34a
 
   signup(name: string, pass: string, jobTitle: number): Observable<Account> {
     return this.httpClient
@@ -70,24 +61,27 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
+  // Not in backend
   // Only called by managers to populate dashboard cards
   getMyAnchors(managerID: number): Observable<Account[]> {
     return this.httpClient
-      .get<Account[]>(`${this.endPoint}/getMyAnchors/${managerID}`, this.httpOptions)
+      .get<Account[]>(`${this.endPoint}/myAnchors/${managerID}`, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
+  // Not in backend
   // Used to populate 'add an anchor' table in manager component
   getUnmanagedAnchors(): Observable<Account[]> {
     return this.httpClient
-      .get<Account[]>(`${this.endPoint}/'getUnmanagedAnchors'/`, this.httpOptions)
+      .get<Account[]>(`${this.endPoint}/unmanagedAnchors/`, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
+  // Not in backend
   // Only called by anchors in profile page
   getMyManager(email: string): Observable<Account> {
     return this.httpClient
-      .get<Account>(`${this.endPoint}/getMyManager/${email}`);
+      .get<Account>(`${this.endPoint}/myManager/${email}`);
   }
 
   // Return all stories for a given anchor to populate anchor card
@@ -98,7 +92,6 @@ export class HttpClientRoutes {
   }
 
   unassignAnchorStory(anchorID: number, storyID: number): Observable<String> {
-
     return this.httpClient
       .put<String>(`${this.endPoint}/accounts/unassignFromStory/${storyID}`, anchorID, this.httpOptions)
       .pipe(catchError(this.handleException));
@@ -110,5 +103,5 @@ export class HttpClientRoutes {
     alert(message);
     return Observable.throw(exception);
   }
-  */
+  
 }

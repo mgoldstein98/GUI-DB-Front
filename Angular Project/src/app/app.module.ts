@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { HttpClientRoutes } from './domain/http-client-routes.service';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { AccountCreationComponent } from './account-creation/account-creation.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -13,6 +15,7 @@ import { VehicleComponent } from './vehicle/vehicle.component';
 import { StoryComponent } from './story/story.component';
 import { AnchorComponent } from './anchor/anchor.component';
 import { ManagerComponent } from './manager/manager.component';
+import { MatableComponent } from './matable/matable.component';
 
 
 @NgModule({
@@ -26,12 +29,13 @@ import { ManagerComponent } from './manager/manager.component';
     VehicleComponent,
     StoryComponent,
     AnchorComponent,
-    ManagerComponent
+    ManagerComponent,
+    MatableComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppModule
+    HttpClientModule
   ],
   providers: [
    HttpClientRoutes

@@ -1,9 +1,9 @@
 <div class="container col-xs-6">
-  <h2 class="sub-header">Equipment
+  <h2 class="sub-header">Expert
   </h2>
-  <div [ngSwitch]="myVehicles?.length">
+  <div [ngSwitch]="myExpert?.length">
     <div *ngSwitchCase=0>
-      No Equipment claimed Found.
+      No Experts claimed Found.
     </div>
     <table *ngSwitchDefault class="table table-striped table-condensed">
       <thead>
@@ -12,18 +12,18 @@
             Name
           </th>
           <th>
-            Type
+            Topic
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let equip of myEquipment; let i = index">
+        <tr *ngFor="let exp of myExpert; let i = index">
           <td>
-            {{equip.equipName}}
+            {{exp.expertName}}
           </td>
           <td>
-            {{equip.equipType}}
-            <button (click)="removeEquipment(i)" class="btn btn-danger font-weight-bold text-white float-right w-25">Remove</button>
+            {{exp.expertTopic}}
+            <button (click)="removeExpert(i)" class="btn btn-danger font-weight-bold text-white float-right w-25">Remove</button>
           </td>
         </tr>
       </tbody>
@@ -31,10 +31,10 @@
   </div>
 </div>
 <div class="container col-xs-6">
-  <h2 class="sub-header">Available Equipment</h2>
-  <div [ngSwitch]="availableEquipment?.length">
+  <h2 class="sub-header">Available Experts</h2>
+  <div [ngSwitch]="availableExperts?.length">
     <div *ngSwitchCase=0>
-      No Equipment Available.
+      No Experts Available.
     </div>
     <table *ngSwitchDefault class="table table-striped table-condensed">
       <thead>
@@ -43,18 +43,18 @@
             Name
           </th>
           <th>
-            Type
+            Topic
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let equip of availableEquipment; let i = index">
+        <tr *ngFor="let exp of availableExpert; let i = index">
           <td>
-            {{equip.equipName}}
+            {{exp.expertName}}
           </td>
           <td>
-            {{equip.equipType}}
-            <button (click)="addEquipment(i)" class="btn btn-success font-weight-bold text-white float-right w-25">Add</button>
+            {{exp.expertTopic}}
+            <button (click)="addExpert(i)" class="btn btn-success font-weight-bold text-white float-right w-25">Add</button>
           </td>
         </tr>
       </tbody>

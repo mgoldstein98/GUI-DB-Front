@@ -10,32 +10,55 @@ import { Vehicle } from '../domain/models/vehicle';
 })
 export class VehicleComponent implements OnInit {
   
-  vechiles: Vehicle[];
+  myVehicles: Vehicle [];
+  availableVehicles: Vehicle [];
   
   constructor(private atService: VehicleService) { }
 
   ngOnInit() {
-    this.vechiles = [
+    this.myVehicles = [
       {
-        vehicleName: 'name1',
-        vehicleType: 'type1',
-        color: 'color1',
-        model: 'model1'
-
-
-    },
-    {
-        vehicleName: 'name2',
-        vehicleType: 'type2',
-        color: 'color2',
-        model: 'model2'
-    }
+        vehicleName:'Name1',
+        vehicleType:'type1',
+        color:'black',
+        model:'model_1'
+      },
+      {
+        vehicleName:'Name2',
+        vehicleType:'type2',
+        color:'red',
+        model:'model_2'
+      },
+      {
+        vehicleName:'Name1',
+        vehicleType:'type1',
+        color:'black',
+        model:'model_1'
+      }
     ]
 
-    
-    
+    this.availableVehicles = [
+      {
+        vehicleName:'AName',
+        vehicleType:'Atype',
+        color:'some color',
+        model:'its a model'
+      }
+  ]
   }
 
-  
-  
+  addVehicle(index:number){
+    this.myVehicles.push(this.availableVehicles[index]);
+    this.availableVehicles.splice(index, 1);
+  }
+
+  removeVehicle(index: number) {
+    this.availableVehicles.push(this.myVehicles[index]);
+    this.myVehicles.splice(index, 1);
+  }
 }
+
+    
+
+    
+ 

@@ -1,48 +1,88 @@
-
-
-<div class="container mt-4">
-  <a class="btn btn-sm btn-success"
-      routerLink="new">
-      Add New Account
-  </a>
-  <div [ngSwitch]="accounts?.length">
-    <div class="alert" *ngSwitchCase="0">
-      No accounts found.
+<div class="container col-xs-6">
+  <h2 class="sub-header">Vehicles
+  </h2>
+  <div [ngSwitch]="myVehicles?.length">
+    <div *ngSwitchCase=0>
+      No Vehicles claimed Found.
     </div>
     <table *ngSwitchDefault class="table table-striped table-condensed">
-        <thead>
-          <tr>
-            <th>
-              Name
-            </th>
-            <th>
-              Type
-            </th>
-            <th>
-              color
-            </th>
-            <th>
-              model
-            </th>
-            <th>
-              capacity
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let v of vehicles; let index = i">
-            <td>{{v.vehicleName}}</td>
-            <td>{{ v.vehicleType }}</td>
-            <td>{{ v.color }}</td>
-            <td>{{v.model}}</td>
-            <td>{{v.capacity}}</td>
-            <td>
-              <button class="btn btn-sm btn-success" (click)=delete(vehicle.id,i)>
-                Add
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <thead>
+        <tr>
+          <th class="w-50">
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Color
+          </th>
+          <th>
+            Model
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehicle of myVehicles; let i = index">
+          <td>
+            {{vehicle.vehicleName}}
+          </td>
+          <td>
+            {{vehicle.vehicleType}}
+          </td>
+          <td>
+            {{vehicle.color}}
+          </td>
+          <td>
+            {{vehicle.model}}
+            <button (click)="removeVehicle(i)" class="btn btn-danger font-weight-bold text-white float-right w-25">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
+<div class="container col-xs-6">
+  <h2 class="sub-header">Available Vehicles</h2>
+  <div [ngSwitch]="availableVehicle?.length">
+    <div *ngSwitchCase=0>
+      No Vehicles claimed.
+    </div>
+    <table *ngSwitchDefault class="table table-striped table-condensed">
+      <thead>
+        <tr>
+          <th class="w-50">
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Color
+          </th>
+          <th>
+            Model
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehicle of availableVehicles; let i = index">
+          <td>
+            {{vehicle.vehicleName}}
+          </td>
+          <td>
+            {{vehicle.vehicleType}}
+          </td>
+          <td>
+            {{vehicle.color}}
+          </td>
+          <td>
+            {{vehicle.model}}
+            <button (click)="addVehicle(i)" class="btn btn-success font-weight-bold text-white float-right w-25">Add</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
