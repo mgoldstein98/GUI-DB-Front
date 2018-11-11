@@ -11,7 +11,7 @@ export class VehicleComponent implements OnInit {
 
   ngOnInit() {
 
-    
+
 
   }
 
