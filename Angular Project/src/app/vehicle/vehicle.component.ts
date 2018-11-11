@@ -20,8 +20,7 @@ export class VehicleComponent implements OnInit {
         vehicleName: 'name1',
         vehicleType: 'type1',
         color: 'color1',
-        model: 'model1',
-        capacity: '5000'
+        model: 'model1'
 
 
     },
@@ -29,8 +28,7 @@ export class VehicleComponent implements OnInit {
         vehicleName: 'name2',
         vehicleType: 'type2',
         color: 'color2',
-        model: 'model2',
-        capacity: '5003'
+        model: 'model2'
     }
     ]
 
