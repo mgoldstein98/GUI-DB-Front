@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Account } from './../domain/models/account';
 import { HttpClientRoutes } from './../domain/http-client-routes.service';
 
@@ -9,12 +9,21 @@ import { HttpClientRoutes } from './../domain/http-client-routes.service';
 })
 export class ManagerComponent implements OnInit {
 
+  // @Input()
   manager: Account;
   // myAnchors: Account[];
 
   constructor(private myHttp: HttpClientRoutes) { }
 
   ngOnInit() {
+    this.manager = {
+      userID: 3,
+      userName: "Manager Man",
+      email: "mgmt@anchormanagement.com",
+      typeFlag: 0,
+      pass: "manager",
+
+    }
     this.getAnchors(this.manager.userID);
   }
 

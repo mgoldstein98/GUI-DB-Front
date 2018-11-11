@@ -7,11 +7,12 @@ export class Story {
   storyID?: number;
   storyTopic?: string;
   anchorID?: number;
-  date?: Date;
+  storyDate?: Date;
   description?: string;
   startTime?: Date;
   endTime?: Date;
   equipment?: Equipment[];
   vehicle?: Vehicle[];
   expert?: Expert[];
+  points?: number;
 }

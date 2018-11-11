@@ -24,7 +24,7 @@ export class AccountCreationComponent implements OnInit {
 
   ngOnInit() {
     this.account = {
-      name: 'Bob'
+      userName: 'Bob'
     };
 
 <<<<<<< HEAD

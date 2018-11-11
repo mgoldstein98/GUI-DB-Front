@@ -37,14 +37,8 @@ export class VehicleComponent implements OnInit {
       }
     ]
 
-    this.availableVehicles = [
-      {
-        vehicleName:'AName',
-        vehicleType:'Atype',
-        color:'some color',
-        model:'its a model'
-      }
-  ]
+
+
   }
 
   addVehicle(index:number){

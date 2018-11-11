@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { Account } from './models/account';
@@ -65,7 +65,11 @@ export class HttpClientRoutes {
   // Only called by managers to populate dashboard cards
   getMyAnchors(managerID: number): Observable<Account[]> {
     return this.httpClient
+<<<<<<< HEAD
       .get<Account[]>(`${this.endPoint}/myAnchors/${managerID}`, this.httpOptions)
+=======
+      .get<Account[]>(`${this.endPoint}/accounts/myAnchors/${managerID}`, this.httpOptions)
+>>>>>>> 5c6482835e65d7918e580ba3ea751e3cc7150d81
       .pipe(catchError(this.handleException));
   }
 
@@ -73,7 +77,11 @@ export class HttpClientRoutes {
   // Used to populate 'add an anchor' table in manager component
   getUnmanagedAnchors(): Observable<Account[]> {
     return this.httpClient
+<<<<<<< HEAD
       .get<Account[]>(`${this.endPoint}/unmanagedAnchors/`, this.httpOptions)
+=======
+      .get<Account[]>(`${this.endPoint}/accounts/unmanagedAnchors`, this.httpOptions)
+>>>>>>> 5c6482835e65d7918e580ba3ea751e3cc7150d81
       .pipe(catchError(this.handleException));
   }
 
@@ -81,13 +89,17 @@ export class HttpClientRoutes {
   // Only called by anchors in profile page
   getMyManager(email: string): Observable<Account> {
     return this.httpClient
+<<<<<<< HEAD
       .get<Account>(`${this.endPoint}/myManager/${email}`);
+=======
+      .get<Account>(`${this.endPoint}/accounts/myManager/${email}`);
+>>>>>>> 5c6482835e65d7918e580ba3ea751e3cc7150d81
   }
 
   // Return all stories for a given anchor to populate anchor card
   getStories(userID: number): Observable<Story[]> {
     return this.httpClient
-      .get<Story[]>(`${this.endPoint}/myStories/${userID}`, this.httpOptions)
+      .get<Story[]>(`${this.endPoint}/stories/myStories/${userID}`, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
