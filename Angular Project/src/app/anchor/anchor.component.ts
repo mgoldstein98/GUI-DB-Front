@@ -18,7 +18,6 @@ export class AnchorComponent implements OnInit {
   ngOnInit() {
     // account object passed from login or signup
     // change 1 to this.anchor.userID
-    console.log(this.anchor)
     this.myHttp.getStories(this.anchor.userID).subscribe((stories) => {
       this.myStories = stories;
     });
