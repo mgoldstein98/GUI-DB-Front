@@ -8,7 +8,7 @@ import { Account } from '../domain/models/account';
   styleUrls: ['./matable.component.css']
 })
 export class MatableComponent implements OnInit {
-  managerAccId = 2
+  managerAccId = 3
   managerAcc: Account
   myAnchors: Account[]
   availableAnchors: Account[]
@@ -18,6 +18,7 @@ export class MatableComponent implements OnInit {
 
   ngOnInit() {
     this.myHttp.getMyAnchors(this.managerAccId).subscribe((anchors) => {
+      console.log(anchors);
       this.myAnchors = anchors;
     })
     this.myHttp.getUnmanagedAnchors().subscribe((anchors) => {

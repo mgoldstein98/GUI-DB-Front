@@ -14,7 +14,7 @@
             <input type="text"
                    id="account_name"
                    class="form-control"
-                   [(ngModel)]="account.name" />
+                   [(ngModel)]="account.userName" />
           </div>
           <div class="form-group">
             <label for="account_password">
@@ -23,7 +23,7 @@
             <input type="password"
                    id="account_password"
                    class="form-control"
-                   [(ngModel)] = "account.password" />
+                   [(ngModel)] = "account.pass" />
           </div>
           <div class = "form-group">
             <label for="account_email">
@@ -40,7 +40,7 @@
             </label>
             <select id="account_jobTitle"
                     class="form-control"
-                    [(ngModel)] = "account.jobTitle">
+                    [(ngModel)] = "account.typeFlag">
               <option></option>
               <!-- <option *ngFor="let job of jobTitles"
                       [value]="job.id">
