@@ -1,9 +1,9 @@
 <div *ngIf="this.user">
   <!--ADD NAV BAR HERE-->
-  <div class=container *ngIf="this.user.typeFlag == 1">
+  <div class=container *ngIf="user.typeFlag">
     <app-manager></app-manager>
   </div>
-  <div class=container *ngIf="this.user.typeFlag == 0">
+  <div class=container *ngIf="user.typeFlag">
     <app-anchor></app-anchor>
   </div>
 </div>

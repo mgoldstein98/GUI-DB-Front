@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Account } from './../domain/models/account';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomepageComponent implements OnInit {
 
   // take in from login or sign up
-  user: Account;
+  user: Account = {};
 
   // some injectable service here to populate user
   constructor() { }
