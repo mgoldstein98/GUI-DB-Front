@@ -17,6 +17,7 @@ import { StoryComponent } from './story/story.component';
 import { AnchorComponent } from './anchor/anchor.component';
 import { ManagerComponent } from './manager/manager.component';
 import { MatableComponent } from './matable/matable.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { MatableComponent } from './matable/matable.component';
     StoryComponent,
     AnchorComponent,
     ManagerComponent,
-    MatableComponent
+    MatableComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
