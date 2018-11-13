@@ -1,7 +1,7 @@
 <div class="container col-xs-6">
-  <h2 class="sub-header">Equipment
+  <h2 class="sub-header">Stories
   </h2>
-  <div [ngSwitch]="myEquipment?.length">
+  <div [ngSwitch]="myStories?.length">
     <div *ngSwitchCase=0>
       No Equipment claimed Found.
     </div>
@@ -12,18 +12,18 @@
             Name
           </th>
           <th>
-            Type
+            Date
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let equip of myEquipment; let i = index">
+        <tr *ngFor="let story of myStories; let i = index">
           <td>
-            {{equip.equipName}}
+            {{story.storyTopic}}
           </td>
           <td>
-            {{equip.equipType}}
-            <button (click)="removeEquipment(i)" class="btn btn-danger font-weight-bold text-white float-right w-25">Remove</button>
+            {{story.storyDate}}
+            <button (click)="removeStory(i)" class="btn btn-danger font-weight-bold text-white float-right w-25">Remove</button>
           </td>
         </tr>
       </tbody>
@@ -31,8 +31,8 @@
   </div>
 </div>
 <div class="container col-xs-6">
-  <h2 class="sub-header">Available Equipment</h2>
-  <div [ngSwitch]="availableEquipment?.length">
+  <h2 class="sub-header">Available Stories</h2>
+  <div [ngSwitch]="availableStories?.length">
     <div *ngSwitchCase=0>
       No Equipment Available.
     </div>
@@ -48,17 +48,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let equip of availableEquipment; let i = index">
+        <tr *ngFor="let story of availableStories; let i = index">
           <td>
-            {{equip.equipName}}
+            {{story.storyTopic}}
           </td>
           <td>
-            {{equip.equipType}}
-            <button (click)="addEquipment(i)" class="btn btn-success font-weight-bold text-white float-right w-25">Add</button>
+            {{story.storyDate}}
+            <button (click)="addStory(i)" class="btn btn-success font-weight-bold text-white float-right w-25">Add</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-

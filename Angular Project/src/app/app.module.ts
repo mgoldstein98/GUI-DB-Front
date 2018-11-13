@@ -16,21 +16,26 @@ import { StoryComponent } from './story/story.component';
 import { AnchorComponent } from './anchor/anchor.component';
 import { ManagerComponent } from './manager/manager.component';
 import { MatableComponent } from './matable/matable.component';
+import { ExpertComponent } from './expert/expert.component';
+import { AnStoryComponent } from './an-story/an-story.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountCreationComponent,
+    AnStoryComponent,
     HomepageComponent,
     CalendarComponent,
     EventComponent,
+    ExpertComponent,
     EquipmentComponent,
     VehicleComponent,
     StoryComponent,
     AnchorComponent,
     ManagerComponent,
-    MatableComponent
+    MatableComponent,
+    AnStoryComponent
   ],
   imports: [
     BrowserModule,
