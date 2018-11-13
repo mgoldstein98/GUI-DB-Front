@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Equipment } from '../domain/models/Equipment';
+import { Story } from '../domain/models/story';
+import { HttpClientRoutes } from '../domain/http-client-routes.service';
 
 @Component({
   selector: 'app-equipment',
@@ -8,44 +10,47 @@ import { Equipment } from '../domain/models/Equipment';
 })
 export class EquipmentComponent implements OnInit {
 
+  // @Input()
+  thisStory: Story;
+
   myEquipment: Equipment [];
   availableEquipment: Equipment [];
 
-  constructor() { }
+  constructor(private myHttp: HttpClientRoutes) { }
 
   ngOnInit() {
+    this.thisStory = {
+      "storyID": 2,
+    }
+    this.getAvailableEquipment(this.thisStory.storyID);
+    this.getCurrEquipment(this.thisStory.storyID);
 
-    this.myEquipment = [
-      {
-        equipName:'e-1',
-        equipType:'type-1'
-      },
-      {
-        equipName:'e-2',
-        equipType:'type-2'
-      }
-    ]
-
-    this.availableEquipment = [
-      {
-        equipName:'other',
-        equipType:'something else'
-      },
-      {
-        equipName:'other 2',
-        equipType:'anything else'
-      }
-    ]
   }//end of ng
 
   addEquipment(index:number){
-    this.myEquipment.push(this.availableEquipment[index]);
-    this.availableEquipment.splice(index, 1);
+    this.myHttp.claimEquipment(this.availableEquipment[index].equipID, this.thisStory.storyID).subscribe((equipment) => {
+      this.myEquipment.push(this.availableEquipment[index]);
+      this.availableEquipment.splice(index, 1);
+    })
   }
 
   removeEquipment(index: number){
-    this.availableEquipment.push(this.myEquipment[index]);
-    this.myEquipment.splice(index, 1);
+    this.myHttp.unclaimEquipment(this.thisStory.storyID, this.myEquipment[index].equipID).subscribe((equipment) => {
+      this.availableEquipment.push(this.myEquipment[index]);
+      this.myEquipment.splice(index, 1);
+    })
+  }
+
+  getCurrEquipment(storyID: number) {
+    this.myHttp.getReservedEquipment(storyID).subscribe((equipment) => {
+      this.myEquipment = equipment;
+    })
+  }
+
+  getAvailableEquipment(storyID: number) {
+    this.myHttp.getAvailableEquipment(storyID).subscribe((equipment) => {
+      this.availableEquipment = equipment;
+    })
   }
 
 }

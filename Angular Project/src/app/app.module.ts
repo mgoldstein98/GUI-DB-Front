@@ -17,22 +17,32 @@ import { AnchorComponent } from './anchor/anchor.component';
 import { ManagerComponent } from './manager/manager.component';
 import { MatableComponent } from './matable/matable.component';
 import { ExpertComponent } from './expert/expert.component';
+<<<<<<< HEAD
+=======
+import { AnStoryComponent } from './an-story/an-story.component';
+>>>>>>> 2157bae12f2f74b45b1e9adf4a4386c2713f37c7
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountCreationComponent,
+    AnStoryComponent,
     HomepageComponent,
     CalendarComponent,
     EventComponent,
+    ExpertComponent,
     EquipmentComponent,
     VehicleComponent,
     StoryComponent,
     AnchorComponent,
     ManagerComponent,
     MatableComponent,
+<<<<<<< HEAD
     ExpertComponent
+=======
+    AnStoryComponent
+>>>>>>> 2157bae12f2f74b45b1e9adf4a4386c2713f37c7
   ],
   imports: [
     BrowserModule,

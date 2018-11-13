@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Expert } from '../domain/models/Expert';
+import { Story } from '../domain/models/story';
+import { HttpClientRoutes } from '../domain/http-client-routes.service';
 
 @Component({
   selector: 'app-expert',
@@ -8,40 +10,45 @@ import { Expert } from '../domain/models/Expert';
 })
 export class ExpertComponent implements OnInit {
 
+  // @Input()
+  thisStory: Story
+
   myExpert: Expert [];
   availableExpert: Expert [];
-  constructor() { }
+  constructor(private myHttp: HttpClientRoutes) { }
 
   ngOnInit() {
+    this.thisStory = {
+      "storyID": 2,
+    }
+    this.getAvailableVehicles(this.thisStory.storyID);
+    this.getCurrVehicles(this.thisStory.storyID);
 
-    this.myExpert = [
-      {
-        expertName:'CS',
-        expertTopic:'Disney'
-      },
-      {
-        expertName:'AB',
-        expertTopic:'memes'
-      }
-    ]
-
-    this.availableExpert = [
-      {
-        expertName:'SA',
-        expertTopic:'github problems'
-      }
-    ]
   }
 
-  addExpert(index: number){
-    this.myExpert.push(this.availableExpert[index]);
-    this.availableExpert.splice(index, 1);
+  addExpert(index:number){
+    this.myHttp.claimExpert(this.availableExpert[index].expertID, this.thisStory.storyID).subscribe((expert) => {
+      this.myExpert.push(this.availableExpert[index]);
+      this.availableExpert.splice(index, 1);
+    })
   }
 
-  removeExpert(index: number)
-  {
-    this.availableExpert.push(this.myExpert[index]);
-    this.myExpert.splice(index, 1);
+  removeExpert(index: number) {\
+    this.myHttp.unclaimExpert(this.thisStory.storyID, this.myExpert[index].expertID).subscribe((expert) => {
+      this.availableExpert.push(this.myExpert[index]);
+      this.myExpert.splice(index, 1);
+    })
   }
 
+  getCurrVehicles(storyID: number) {
+    this.myHttp.getReservedExperts(storyID).subscribe((experts) => {
+      this.myExpert = experts;
+    })
+  }
+
+  getAvailableVehicles(storyID: number) {
+    this.myHttp.getAvailableExperts(storyID).subscribe((experts) => {
+      this.availableExpert = experts;
+    })
+  }
 }
