@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VehicleService } from './vehicle.service'; 
-import { Vehicle } from '../domain/models/vehicle';
-
+import { Vehicle } from '../domain/models/Vehicle';
 
 @Component({
   selector: 'app-vehicle',
@@ -9,13 +7,14 @@ import { Vehicle } from '../domain/models/vehicle';
   styleUrls: ['./vehicle.component.css']
 })
 export class VehicleComponent implements OnInit {
-  
   myVehicles: Vehicle [];
   availableVehicles: Vehicle [];
   
-  constructor(private atService: VehicleService) { }
+
+  constructor() { }
 
   ngOnInit() {
+
     this.myVehicles = [
       {
         vehicleName:'Name1',
@@ -37,8 +36,27 @@ export class VehicleComponent implements OnInit {
       }
     ]
 
+    this.availableVehicles = [
+      {
+        vehicleName:'AName',
+        vehicleType:'Atype',
+        color:'some color',
+        model:'its a model'
+      },
+      {
+        vehicleName:'BName',
+        vehicleType:'Btype',
+        color:'green',
+        model:'its a model' 
+      },
+      {
+        vehicleName:'CName',
+        vehicleType:'Ctype',
+        color:'red',
+        model:'its a model'
+      }
 
-
+  ]
   }
 
   addVehicle(index:number){
@@ -50,9 +68,7 @@ export class VehicleComponent implements OnInit {
     this.availableVehicles.push(this.myVehicles[index]);
     this.myVehicles.splice(index, 1);
   }
+
+  
+  
 }
-
-    
-
-    
- 
