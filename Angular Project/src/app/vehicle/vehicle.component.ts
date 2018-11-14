@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { VehicleService } from './vehicle.service';
+//import { VehicleService } from './vehicle.service';
 import { Vehicle } from '../domain/models/vehicle';
 import { Story } from '../domain/models/story';
 import { HttpClientRoutes } from '../domain/http-client-routes.service';

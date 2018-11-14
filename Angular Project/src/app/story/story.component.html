@@ -1,4 +1,4 @@
-<div class="container-fluid m-2">
+<div class="container-fluid m-2" *ngIf="vehicles && experts && equipment">
   <div class="card">
     <div class="card-header clearfix">
       <h5 class="card-title mt-2"> {{story.storyTopic}} </h5>
@@ -21,9 +21,14 @@
               Vehicles
               <button type="button" class="btn btn-primary float-right">Edit</button>
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item" *ngFor="let vehicle of vehicles">{{ vehicle.vehicleName }} </li>
-            </ul>
+            <div *ngIf="vehicles.length">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let vehicle of vehicles">{{ vehicle.vehicleName }} </li>
+              </ul>
+            </div>
+            <div *ngIf="!vehicles.length">
+              <p>There are no vehicles for this story.</p>
+            </div>
           </div>
         </div>
         <div class="col-md-4">
@@ -32,10 +37,16 @@
               Experts
               <button type="button" class="btn btn-primary float-right">Edit</button>
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item" *ngFor="let expert of experts">{{ expert.expertName }} </li>
-
-            </ul>
+            <div *ngIf="experts.length">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let expert of experts">
+                  {{ expert.expertName }}
+                </li>
+              </ul>
+            </div>
+            <div *ngIf="!experts.length">
+              <p>There are no experts for this story.</p>
+            </div>
           </div>
         </div>
         <div class="col-md-4">
@@ -44,10 +55,15 @@
               Equipment
               <button type="button" class="btn btn-primary float-right">Edit</button>
             </div>
-            <ul class="list-group list-group-flush ">
-              <li class="list-group-item d-inline" *ngFor="let equip of equipment">{{ equip.equipName }} </li>
+            <div *ngIf="equipment.length">
+              <ul class="list-group list-group-flush ">
+                <li class="list-group-item d-inline" *ngFor="let equip of equipment">{{ equip.equipName }} </li>
 
-            </ul>
+              </ul>
+            </div>
+            <div *ngIf="!equipment.length">
+              <p>There is no equipment for this story.</p>
+            </div>
           </div>
         </div>
       </div>
