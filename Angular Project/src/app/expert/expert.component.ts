@@ -33,7 +33,7 @@ export class ExpertComponent implements OnInit {
     })
   }
 
-  removeExpert(index: number) {\
+  removeExpert(index: number) {
     this.myHttp.unclaimExpert(this.thisStory.storyID, this.myExpert[index].expertID).subscribe((expert) => {
       this.availableExpert.push(this.myExpert[index]);
       this.myExpert.splice(index, 1);
