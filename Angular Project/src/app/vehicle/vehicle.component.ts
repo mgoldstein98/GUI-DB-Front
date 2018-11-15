@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-//import { VehicleService } from './vehicle.service';
 import { Vehicle } from '../domain/models/vehicle';
 import { Story } from '../domain/models/story';
 import { HttpClientRoutes } from '../domain/http-client-routes.service';
+import { MatTableDataSource } from '@angular/material';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 
 @Component({
@@ -12,15 +13,22 @@ import { HttpClientRoutes } from '../domain/http-client-routes.service';
 })
 export class VehicleComponent implements OnInit {
 
-  // @Input()
+  //@Input()
   thisStory: Story;
 
   myVehicles: Vehicle [];
   availableVehicles: Vehicle [];
+  displayedColumns: string[] = ['Type', 'Name', 'Color', 'Model','actionColumn'];
+
+  dataSource = new MatTableDataSource();
+  dataSource_2 = new MatTableDataSource();  
+  
+
+  dataChange: BehaviorSubject<Vehicle[]>
 
   constructor(private myHttp: HttpClientRoutes) { }
-
   ngOnInit() {
+    this.displayedColumns;
     this.thisStory = {
       "storyID": 2,
     }
@@ -30,9 +38,11 @@ export class VehicleComponent implements OnInit {
 
   addVehicle(index:number){
     this.myHttp.claimVehicle(this.availableVehicles[index].vehicleID, this.thisStory.storyID).subscribe((vehicle) => {
-      console.log(vehicle);
+      
       this.myVehicles.push(this.availableVehicles[index]);
       this.availableVehicles.splice(index, 1);
+      this.dataSource._updateChangeSubscription();
+      this.dataSource_2._updateChangeSubscription();
     })
   }
 
@@ -40,20 +50,30 @@ export class VehicleComponent implements OnInit {
     this.myHttp.unclaimVehicle(this.thisStory.storyID, this.myVehicles[index].vehicleID).subscribe((vehicle)=> {
       this.availableVehicles.push(this.myVehicles[index]);
       this.myVehicles.splice(index, 1);
+      this.dataSource._updateChangeSubscription();
+      this.dataSource_2._updateChangeSubscription();
     })
   }
 
   getCurrVehicles(storyID: number) {
     this.myHttp.getReservedVehicles(storyID).subscribe((vehicles) => {
       this.myVehicles = vehicles;
-      console.log("My Vehicles: " , this.myVehicles);
+      this.dataSource_2.data = vehicles;
     })
   }
 
   getAvailableVehicles(storyID: number) {
     this.myHttp.getAvailableVehicles(storyID).subscribe((vehicles) => {
       this.availableVehicles = vehicles;
-      console.log("Available Vehicles", this.availableVehicles);
+      this.dataSource.data = vehicles;
     })
   }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+
+
+  
 }

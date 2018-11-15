@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {MatFormFieldModule, MatInputModule, MatTableModule, MatButtonModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientRoutes } from './domain/http-client-routes.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,6 +22,24 @@ import { LoginComponent } from './login/login.component';
 import { ExpertComponent } from './expert/expert.component';
 import { AnStoryComponent } from './an-story/an-story.component';
 
+@NgModule({
+  imports:[
+      MatFormFieldModule,
+      MatInputModule,
+      MatTableModule,
+      MatButtonModule
+  ],
+  exports: [
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatButtonModule
+  ],
+  declarations:[
+    VehicleComponent
+  ]
+})
+export class MaterialModule {};
 
 
 @NgModule({
@@ -42,12 +62,20 @@ import { AnStoryComponent } from './an-story/an-story.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatButtonModule
   ],
   providers: [
    HttpClientRoutes
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+  ]
 })
 
 export class AppModule { }
