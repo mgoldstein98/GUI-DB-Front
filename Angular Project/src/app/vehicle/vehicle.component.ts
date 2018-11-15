@@ -13,7 +13,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 })
 export class VehicleComponent implements OnInit {
 
-  // @Input()
+  //@Input()
   thisStory: Story;
 
   myVehicles: Vehicle [];
@@ -34,12 +34,12 @@ export class VehicleComponent implements OnInit {
     }
     this.getAvailableVehicles(this.thisStory.storyID);
     this.getCurrVehicles(this.thisStory.storyID);
-    
   }
 
   addVehicle(index:number){
     this.myHttp.claimVehicle(this.availableVehicles[index].vehicleID, this.thisStory.storyID).subscribe((vehicle) => {
-      console.log(vehicle);
+      debugger;
+      console.log("hi");
       this.myVehicles.push(this.availableVehicles[index]);
       this.availableVehicles.splice(index, 1);
       this.dataSource._updateChangeSubscription();
@@ -59,16 +59,14 @@ export class VehicleComponent implements OnInit {
   getCurrVehicles(storyID: number) {
     this.myHttp.getReservedVehicles(storyID).subscribe((vehicles) => {
       this.myVehicles = vehicles;
-      this.dataSource.data = this.myVehicles;
-      console.log("My Vehicles: " , this.myVehicles);
+      this.dataSource_2.data = vehicles;
     })
   }
 
   getAvailableVehicles(storyID: number) {
     this.myHttp.getAvailableVehicles(storyID).subscribe((vehicles) => {
       this.availableVehicles = vehicles;
-      this.dataSource_2.data = this.availableVehicles;
-      console.log("Available Vehicles", this.availableVehicles);
+      this.dataSource.data = vehicles;
     })
   }
 

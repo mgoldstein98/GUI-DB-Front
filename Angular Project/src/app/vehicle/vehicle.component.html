@@ -9,7 +9,7 @@
     <mat-table #table [dataSource]="dataSource"  class="table table-striped table-condensed">
       <ng-container matColumnDef="No.">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let vehicle; let i = index">{{i}}</mat-cell>
+        <mat-cell *matCellDef="let vehicle"></mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="Type">
