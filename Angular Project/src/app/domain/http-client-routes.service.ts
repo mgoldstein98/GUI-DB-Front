@@ -61,6 +61,13 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
+  getMyStories(anchorID: number): Observable<Story[]> {
+    return this.httpClient
+      .get<Story[]>(`${this.endPoint}/stories/myStories/${anchorID}`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  // Not in backend
   // Only called by managers to populate dashboard cards
   getMyAnchors(managerID: number): Observable<Account[]> {
     return this.httpClient
@@ -68,6 +75,7 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
+  // Not in backend
   // Used to populate 'add an anchor' table in manager component
   getUnmanagedAnchors(): Observable<Account[]> {
     return this.httpClient
@@ -75,6 +83,7 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
+  // Not in backend
   // Only called by anchors in profile page
   getMyManager(email: string): Observable<Account> {
     return this.httpClient
@@ -94,10 +103,82 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
+  getAvailableVehicles(storyID: number): Observable<Vehicle[]> {
+    return this.httpClient
+      .get<Vehicle[]>(`${this.endPoint}/stories/availableVehicles/${storyID}`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  getAvailableExperts(storyID: number): Observable<Expert[]> {
+    return this.httpClient
+      .get<Expert[]>(`${this.endPoint}/stories/availableExperts/${storyID}`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  getAvailableEquipment(storyID: number): Observable<Equipment[]> {
+    return this.httpClient
+      .get<Equipment[]>(`${this.endPoint}/stories/availableEquipment/${storyID}`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  getAvailableStories(): Observable<Story[]> {
+    return this.httpClient
+      .get<Story[]>(`${this.endPoint}/stories/unclaimed`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  claimStory(anchorID: number, storyID: number): Observable<Story> {
+    return this.httpClient
+      .put<Story>(`${this.endPoint}/stories/assignAnchor`, { anchorID, storyID }, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  claimVehicle(vehicleID: number, storyID: number): Observable<Vehicle> {
+    return this.httpClient
+      .post<Vehicle>(`${this.endPoint}/vehicles/reserve`, {vehicleID, storyID}, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  claimEquipment(equipID: number, storyID: number): Observable<Equipment> {
+    return this.httpClient
+      .put<Equipment>(`${this.endPoint}/equipment/reserve`, {equipID, storyID}, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  claimExpert(expertID: number, storyID: number): Observable<Expert> {
+    return this.httpClient
+      .put<Expert>(`${this.endPoint}/experts/reserve`, {expertID, storyID}, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  unclaimStory(storyID: number): Observable<Story> {
+    return this.httpClient
+      .put<Story>(`${this.endPoint}/accounts/unassignFromStory/${storyID}`, storyID, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  unclaimVehicle(storyID: number, vehicleID: number): Observable<Vehicle> {
+    return this.httpClient
+      .delete<Vehicle>(`${this.endPoint}/vehicles/deleteReservation/${storyID}/${vehicleID}`)
+      .pipe(catchError(this.handleException));
+  }
+
+  unclaimEquipment(storyID: number, equipID: number): Observable<Equipment> {
+    return this.httpClient
+      .delete<Equipment>(`${this.endPoint}/equipment/deleteReservation/${storyID}/${equipID}`)
+      .pipe(catchError(this.handleException));
+  }
+
+  unclaimExpert(storyID: number, expertID: number): Observable<Expert> {
+    return this.httpClient
+      .delete<Expert>(`${this.endPoint}/experts/deleteReservation/${storyID}/${expertID}`)
+      .pipe(catchError(this.handleException));
+  }
 
   protected handleException(exception: any) {
     const message = `${exception.status} : ${exception.statusText}\r\n${exception.message}`;
     alert(message);
     return Observable.throw(exception);
   }
+
 }
