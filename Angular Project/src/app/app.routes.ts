@@ -14,13 +14,13 @@ import { MatableComponent } from './matable/matable.component';
 
 
 export const APP_ROUTES: Routes = [
- // { path: '/', component: Login},
-  { path: '/register', component: AccountCreationComponent },
-  { path: '/login', component: LoginComponent },
-  { path: '/home', component: HomepageComponent },
-  { path: '/manageAnchors', component: MatableComponent }
- // { path: '/manageStories, component: AnstoryComponent }
- // { path: '/manageVehicles', component: VehicleComponent },
- // { path: '/manageEquipment', component: EquipmentComponent },
- // { path: '/manageExperts', component: ExpertComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
+  { path: 'register', component: AccountCreationComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'home/:userID', component: HomepageComponent },
+  { path: 'manageAnchors/:userID', component: MatableComponent }
+ // { path: 'manageStories/:userID', component: AnstoryComponent }
+ // { path: 'manageVehicles/:storyID', component: VehicleComponent },
+ // { path: 'manageEquipment/:storyID', component: EquipmentComponent },
+ // { path: 'manageExperts/:storyID', component: ExpertComponent },
 ];
