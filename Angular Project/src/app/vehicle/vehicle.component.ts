@@ -38,8 +38,7 @@ export class VehicleComponent implements OnInit {
 
   addVehicle(index:number){
     this.myHttp.claimVehicle(this.availableVehicles[index].vehicleID, this.thisStory.storyID).subscribe((vehicle) => {
-      debugger;
-      console.log("hi");
+      
       this.myVehicles.push(this.availableVehicles[index]);
       this.availableVehicles.splice(index, 1);
       this.dataSource._updateChangeSubscription();
