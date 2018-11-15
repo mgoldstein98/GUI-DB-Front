@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Equipment } from '../domain/models/equipment';
+import { Story } from '../domain/models/story';
+import { HttpClientRoutes } from '../domain/http-client-routes.service';
+import { MatTableDataSource } from '@angular/material';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-equipment',
@@ -7,9 +12,67 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EquipmentComponent implements OnInit {
 
-  constructor() { }
+  // @Input()
+  thisStory: Story;
+
+  myEquipment: Equipment [];
+  availableEquipment: Equipment [];
+  displayedColumns: string[] = ['Type', 'Name', 'actionColumn'];
+
+  dataSource = new MatTableDataSource();
+  dataSource_2 = new MatTableDataSource();
+
+
+  dataChange: BehaviorSubject<Equipment[]>;
+
+
+  constructor(private myHttp: HttpClientRoutes) { }
 
   ngOnInit() {
+    this.displayedColumns;
+    this.thisStory = {
+      'storyID': 2,
+    };
+    this.getAvailableEquipment(this.thisStory.storyID);
+    this.getCurrEquipment(this.thisStory.storyID);
+
+  }// end of ng
+
+  addEquipment(index: number) {
+    this.myHttp.claimEquipment(this.availableEquipment[index].equipID, this.thisStory.storyID).subscribe((equipment) => {
+      this.myEquipment.push(this.availableEquipment[index]);
+      this.availableEquipment.splice(index, 1);
+      this.dataSource._updateChangeSubscription();
+      this.dataSource_2._updateChangeSubscription();
+    });
+  }
+
+  removeEquipment(index: number) {
+    this.myHttp.unclaimEquipment(this.thisStory.storyID, this.myEquipment[index].equipID).subscribe((equipment) => {
+      this.availableEquipment.push(this.myEquipment[index]);
+      this.myEquipment.splice(index, 1);
+      this.dataSource._updateChangeSubscription();
+      this.dataSource_2._updateChangeSubscription();
+    });
+  }
+
+  getCurrEquipment(storyID: number) {
+    this.myHttp.getReservedEquipment(storyID).subscribe((equipment) => {
+      this.myEquipment = equipment;
+      this.dataSource_2.data = equipment;
+    });
+  }
+
+  getAvailableEquipment(storyID: number) {
+    this.myHttp.getAvailableEquipment(storyID).subscribe((equipment) => {
+      this.availableEquipment = equipment;
+      this.dataSource.data =  equipment;
+
+    });
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }

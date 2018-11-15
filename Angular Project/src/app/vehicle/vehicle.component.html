@@ -1,67 +1,93 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">AnchorManagement</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-              </li>
-        </ul>
-      </div>
-    </nav>
-
-    <div ng-init="vechiles = [{License #:'1234', Make:'Um', Model:'idk'},
-                              {License #:'5678', Make:'Anotha', Model:'one'}]"></div>
-
-    <div id="search">
-      <label> Search: <input ngModel="Search..." ></label>
-    </div>
-
-    <a class="dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vechicles</a>
-      <!--Menu-->
-      <div class="dropdown-menu dropdown-primary">
-        <a class="dropdown-item" href="#">Item#1</a>
-        <a class="dropdown-item" href="#">Item#2</a>
-        <a class="dropdown-item" href="#">Item#3</a>
-        <a class="dropdown-item" href="#">Item#4</a>
-      </div>
-
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <h1>Available Vehicles</h1>
-      <table class="table table-striped table-responsive-md btn-table">
-        <thead>
-          <tr>
-            <th>License #</th>
-            <th>Make</th>
-            <th>Model</th>
-            <th>Reserve</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1234</th>
-            <td>Um</td>
-            <td>idk</td>
-            <td>
-              <button type="button" class="btn btn-indigo btn-sm m-0">Claim</button>
-            </td>
-          </tr>
-          <tr>
-              <th scope="row">5678</th>
-              <td>Anotha</td>
-              <td>one</td>
-              <td>
-                <button type="button" class="btn btn-indigo btn-sm m-0">Claim</button>
-              </td>
-            </tr>
-        </tbody>
-    </table>
-   </div>
-   <div class="col-md-2"></div>
-  </div>
+<div class="filter-bar">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
 </div>
+
+<div class="row">
+<div class=" container col-md-6">
+  <h2 class="sub-header">Available Vehicles</h2>
+    <mat-table #table id="tables" [dataSource]="dataSource"  class="table table-striped table-condensed" >
+      <ng-container matColumnDef="No.">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let vehicle"></mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Type">
+        <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+        <mat-cell *matCellDef="let vehicle"> {{vehicle.vehicleType}} </mat-cell>
+      </ng-container>
+    
+      
+      <ng-container matColumnDef="Name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let vehicle"> {{vehicle.vehicleName}} </mat-cell>
+      </ng-container>
+    
+      
+      <ng-container matColumnDef="Color">
+        <mat-header-cell *matHeaderCellDef> Color </mat-header-cell>
+        <mat-cell *matCellDef="let vehicle"> {{vehicle.color}} </mat-cell>
+      </ng-container>
+    
+      
+      <ng-container matColumnDef="Model">
+        <mat-header-cell *matHeaderCellDef> Model </mat-header-cell>
+        <mat-cell *matCellDef="let vehicle"> {{vehicle.model}} </mat-cell>
+      </ng-container>
+
+      
+      <ng-container matColumnDef="actionColumn">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row; let i = index">
+            <button class="btn btn-success" (click)="addVehicle(i)">Add</button>
+        </mat-cell>
+    </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+
+  <div class="container col-md-6" >
+    <h2 class="sub-header">My Vehicles</h2>
+      <mat-table #table  [dataSource]="dataSource_2"  class="table table-striped table-condensed">
+        
+
+        <ng-container matColumnDef="Type">
+          <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+          <mat-cell *matCellDef="let vehicle"> {{vehicle.vehicleType}} </mat-cell>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="Name">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let vehicle"> {{vehicle.vehicleName}} </mat-cell>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="Color">
+          <mat-header-cell *matHeaderCellDef> Color </mat-header-cell>
+          <mat-cell *matCellDef="let vehicle"> {{vehicle.color}} </mat-cell>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="Model">
+          <mat-header-cell *matHeaderCellDef> Model </mat-header-cell>
+          <mat-cell *matCellDef="let vehicle"> {{vehicle.model}} </mat-cell>
+        </ng-container>
+  
+        
+        <ng-container matColumnDef="actionColumn">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let row;let i = index">
+              <button class="btn btn-danger" (click)="removeVehicle(i)">Remove</button>
+          </mat-cell>
+      </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+</div>
+

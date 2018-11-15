@@ -3,6 +3,7 @@ import { HttpClientRoutes } from './../domain/http-client-routes.service';
 import { Account } from '../domain/models/account';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-account-creation',
   templateUrl: './account-creation.component.html',
