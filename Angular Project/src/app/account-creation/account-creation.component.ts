@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Account } from '../domain/models/account';
-// import { JobTitle } from '../domain/models/jobTitle';
 
 @Component({
   selector: 'app-account-creation',
@@ -10,7 +9,6 @@ import { Account } from '../domain/models/account';
 export class AccountCreationComponent implements OnInit {
 
   account: Account;
-  // jobTitles: JobTitle[];
 
   constructor() { }
 
@@ -18,11 +16,6 @@ export class AccountCreationComponent implements OnInit {
     this.account = {
       userName: 'Bob'
     };
-
-    // this.jobTitles = [
-    //   { id: 0, name: 'Manager' },
-    //   { id: 1, name: 'Anchor' }
-    // ];
   }
 
 }
