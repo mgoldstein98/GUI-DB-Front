@@ -1,5 +1,5 @@
 export class Equipment {
     equipID?: number;
-    equpType?: string;
+    equipType?: string;
     equipName?: string;
 }
