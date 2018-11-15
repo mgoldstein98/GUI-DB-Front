@@ -29,7 +29,7 @@ export class EquipmentComponent implements OnInit {
   constructor(private myHttp: HttpClientRoutes) { }
 
   ngOnInit() {
-    this.displayedColumns;
+    // this.displayedColumns;
     this.thisStory = {
       'storyID': 2,
     };

@@ -23,12 +23,12 @@ export class ExpertComponent implements OnInit {
   dataSource_2 = new MatTableDataSource();
 
 
-  dataChange: BehaviorSubject<Expert[]>
+  dataChange: BehaviorSubject<Expert[]>;
 
   constructor(private myHttp: HttpClientRoutes) { }
 
   ngOnInit() {
-    this.displayedColumns;
+    // this.displayedColumns;
     this.thisStory = {
       'storyID': 2,
     };
@@ -37,7 +37,7 @@ export class ExpertComponent implements OnInit {
 
   }
 
-  addExpert(index :number) {
+  addExpert(index: number) {
     this.myHttp.claimExpert(this.availableExpert[index].expertID, this.thisStory.storyID).subscribe((expert) => {
       this.myExpert.push(this.availableExpert[index]);
       this.availableExpert.splice(index, 1);

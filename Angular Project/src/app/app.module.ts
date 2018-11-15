@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {MatFormFieldModule, MatInputModule, MatTableModule, MatButtonModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,7 +26,7 @@ import { ExpertComponent } from './expert/expert.component';
 import { AnStoryComponent } from './an-story/an-story.component';
 
 @NgModule({
-  imports:[
+  imports: [
       MatFormFieldModule,
       MatInputModule,
       MatTableModule,
@@ -38,11 +38,11 @@ import { AnStoryComponent } from './an-story/an-story.component';
     MatTableModule,
     MatButtonModule
   ],
-  declarations:[
+  declarations: [
     VehicleComponent
   ]
 })
-export class MaterialModule {};
+export class MaterialModule {}
 
 
 @NgModule({
