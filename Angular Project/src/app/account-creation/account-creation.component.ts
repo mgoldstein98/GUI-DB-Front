@@ -30,6 +30,5 @@ export class AccountCreationComponent implements OnInit {
       this.router.navigateByUrl(`home/${response}`);
 
     });
-
   }
 }

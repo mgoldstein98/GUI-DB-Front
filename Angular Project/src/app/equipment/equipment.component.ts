@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Equipment } from '../domain/models/Equipment';
+import { Equipment } from '../domain/models/equipment';
 import { Story } from '../domain/models/story';
 import { HttpClientRoutes } from '../domain/http-client-routes.service';
 import { MatTableDataSource } from '@angular/material';
@@ -20,12 +20,12 @@ export class EquipmentComponent implements OnInit {
   displayedColumns: string[] = ['Type', 'Name','actionColumn'];
 
   dataSource = new MatTableDataSource();
-  dataSource_2 = new MatTableDataSource();  
-  
+  dataSource_2 = new MatTableDataSource();
+
 
   dataChange: BehaviorSubject<Equipment[]>
 
-  
+
   constructor(private myHttp: HttpClientRoutes) { }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Expert } from '../domain/models/Expert';
+import { Expert } from '../domain/models/expert';
 import { Story } from '../domain/models/story';
 import { HttpClientRoutes } from '../domain/http-client-routes.service';
 import { MatTableDataSource } from '@angular/material';
@@ -21,7 +21,7 @@ export class ExpertComponent implements OnInit {
 
   dataSource = new MatTableDataSource();
   dataSource_2 = new MatTableDataSource();
-  
+
 
   dataChange: BehaviorSubject<Expert[]>
 

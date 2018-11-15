@@ -21,8 +21,8 @@ export class VehicleComponent implements OnInit {
   displayedColumns: string[] = ['Type', 'Name', 'Color', 'Model','actionColumn'];
 
   dataSource = new MatTableDataSource();
-  dataSource_2 = new MatTableDataSource();  
-  
+  dataSource_2 = new MatTableDataSource();
+
 
   dataChange: BehaviorSubject<Vehicle[]>
 
@@ -38,7 +38,7 @@ export class VehicleComponent implements OnInit {
 
   addVehicle(index:number){
     this.myHttp.claimVehicle(this.availableVehicles[index].vehicleID, this.thisStory.storyID).subscribe((vehicle) => {
-      
+
       this.myVehicles.push(this.availableVehicles[index]);
       this.availableVehicles.splice(index, 1);
       this.dataSource._updateChangeSubscription();
@@ -75,5 +75,5 @@ export class VehicleComponent implements OnInit {
 
 
 
-  
+
 }
