@@ -40,62 +40,22 @@
             </label>
             <select id="account_jobTitle"
                     class="form-control"
-                    [(ngModel)] = "account.typeFlag">
-              <option></option>
-              <!-- <option *ngFor="let job of jobTitles"
-                      [value]="job.id">
-                {{ job.name }}
-              </option> -->
+                    [(ngModel)] = "account.typeFlag"
+                    [ngModelOptions]="{standalone: true}">
+              <option value=1>Anchor</option>
+              <option value=0>Manager</option>
             </select>
           </div>
         </div>
       </div>
       <br />
-      <!--
-      <ul class="list-group">
-        <li class="list-group-item bg-light">
-          Phone numbers
-        </li>
-        <li class="list-group-item">
-          PHONE_NUMBER_HERE
-          <span class="badge badge-primary float-right">
-            PHONE_TYPE_HERE
-          </span>
-        </li>
-        <li class="list-group-item">
-          <div class="input-group">
-            <div class="input-group-btn">
-              <div class="dropdown">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li class="dropdown-item">
-                    <a href="javascript:void(0);">
-                      TYPE
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <input type="text" class="form-control" placeholder="Add phone...">
-            <span class="input-group-btn">
-              <button class="btn btn-info" type="button">
-                Add
-              </button>
-            </span>
-          </div>
-        </li>
-      </ul>
-      <br />
-      -->
-      <button class="btn btn-lg btn-success btn-block" type="button">
-        Save
+      <button class="btn btn-lg btn-success btn-block" type="button" (click)="createAccount()">
+        Create Account
       </button>
     </div>
-    <div class="col-md-4">
+    <!-- <div class="col-md-4">
       <pre>{{account|json}}</pre>
-    </div>
+    </div> -->
   </div>
 </div>
 <br />

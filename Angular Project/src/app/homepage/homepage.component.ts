@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Account } from './../domain/models/account';
+
 
 @Component({
   selector: 'app-homepage',
@@ -7,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
+  // take in from login or sign up
+  user: Account = {};
+
+  // some injectable service here to populate user
   constructor() { }
 
   ngOnInit() {
