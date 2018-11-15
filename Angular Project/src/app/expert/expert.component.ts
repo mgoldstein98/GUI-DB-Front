@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Expert } from '../domain/models/Expert';
+import { Expert } from '../domain/models/expert';
 import { Story } from '../domain/models/story';
 import { HttpClientRoutes } from '../domain/http-client-routes.service';
 import { MatTableDataSource } from '@angular/material';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-expert',
@@ -13,7 +13,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class ExpertComponent implements OnInit {
 
   // @Input()
-  thisStory: Story
+  thisStory: Story;
 
   myExpert: Expert [];
   availableExpert: Expert [];
@@ -21,7 +21,7 @@ export class ExpertComponent implements OnInit {
 
   dataSource = new MatTableDataSource();
   dataSource_2 = new MatTableDataSource();
-  
+
 
   dataChange: BehaviorSubject<Expert[]>
 
@@ -30,21 +30,20 @@ export class ExpertComponent implements OnInit {
   ngOnInit() {
     this.displayedColumns;
     this.thisStory = {
-      "storyID": 2,
-    }
+      'storyID': 2,
+    };
     this.getAvailableExperts(this.thisStory.storyID);
     this.getCurrExperts(this.thisStory.storyID);
 
   }
 
-  addExpert(index:number){
+  addExpert(index :number) {
     this.myHttp.claimExpert(this.availableExpert[index].expertID, this.thisStory.storyID).subscribe((expert) => {
       this.myExpert.push(this.availableExpert[index]);
       this.availableExpert.splice(index, 1);
       this.dataSource._updateChangeSubscription();
       this.dataSource_2._updateChangeSubscription();
-
-    })
+    });
   }
 
   removeExpert(index: number) {
@@ -53,21 +52,21 @@ export class ExpertComponent implements OnInit {
       this.myExpert.splice(index, 1);
       this.dataSource._updateChangeSubscription();
       this.dataSource_2._updateChangeSubscription();
-    })
+    });
   }
 
   getCurrExperts(storyID: number) {
     this.myHttp.getReservedExperts(storyID).subscribe((experts) => {
       this.myExpert = experts;
       this.dataSource_2.data = experts;
-    })
+    });
   }
 
   getAvailableExperts(storyID: number) {
     this.myHttp.getAvailableExperts(storyID).subscribe((experts) => {
       this.availableExpert = experts;
       this.dataSource.data = experts;
-    })
+    });
   }
 
   applyFilter(filterValue: string) {
