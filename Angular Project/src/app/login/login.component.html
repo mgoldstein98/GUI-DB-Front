@@ -5,7 +5,7 @@
 <div class="User_interaction">
   <h2>Welcome!</h2>
   <p>If you are a new user click, New User.</p>
-  <button id="NewUser" type="button" class="btn btn-primary">New User</button>
+  <button id="NewUser" type="button" class="btn btn-primary" routerLink='../register'>New User</button>
   <p>If not, click Login.</p>
   <button id="login" type="button" class="btn btn-primary" data-toggle="modal" data-target="#LoginModal">Login</button>
 </div>
@@ -36,10 +36,10 @@
       <div class="login">
         <form>
           <div class="input-group p-3">
-            <input type="text" [value]="email" class="form-control make-smaller" placeholder="Username" aria-label="Username">
+            <input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control make-smaller" placeholder="Email" aria-label="Email">
           </div>
           <div class="input-group p-3">
-            <input type="text" [value]="password" class="form-control make-smaller" placeholder="Password" aria-label="Password">
+            <input type="text" [(ngModel)]="pass" [ngModelOptions]="{standalone: true}" class="form-control make-smaller" placeholder="Password" aria-label="Password">
           </div>
         </form>
       </div>

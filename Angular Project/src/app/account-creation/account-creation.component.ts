@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClientRoutes } from './../domain/http-client-routes.service';
 import { Account } from '../domain/models/account';
-// import { JobTitle } from '../domain/models/jobTitle';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-account-creation',
@@ -10,19 +11,25 @@ import { Account } from '../domain/models/account';
 export class AccountCreationComponent implements OnInit {
 
   account: Account;
-  // jobTitles: JobTitle[];
 
-  constructor() { }
+  constructor(
+    private myHttp: HttpClientRoutes,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.account = {
-      userName: 'Bob'
-    };
-
-    // this.jobTitles = [
-    //   { id: 0, name: 'Manager' },
-    //   { id: 1, name: 'Anchor' }
-    // ];
+    this.account = {};
   }
 
+  createAccount () {
+    console.log(this.account);
+    this.myHttp.signup(this.account.userName, this.account.email, this.account.pass, this.account.typeFlag).subscribe((response) => {
+      console.log(response);
+
+      this.router.navigateByUrl(`home/${response}`);
+
+    });
+
+  }
 }

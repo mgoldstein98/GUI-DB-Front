@@ -26,13 +26,13 @@ export class HttpClientRoutes {
 
   login(email: string, pass: string): Observable<Account> {
     return this.httpClient
-      .post<Account>(`${this.endPoint}/login`, { email, pass }, this.httpOptions)
+      .post<Account>(`${this.endPoint}/accounts/login`, { email, pass }, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
-  signup(name: string, pass: string, jobTitle: number): Observable<Account> {
+  signup(userName: string, email: string, pass: string, typeFlag: number): Observable<String> {
     return this.httpClient
-      .post<Account>(`${this.endPoint}/newAccount`, { name, pass, jobTitle }, this.httpOptions)
+      .post<String>(`${this.endPoint}/accounts/newAccount`, { userName, email, pass, typeFlag }, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
