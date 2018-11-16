@@ -42,6 +42,12 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
+  getStory(id: number): Observable<Story> {
+    return this.httpClient
+      .get<Story>(`${this.endPoint}/stories/story/${id}`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
   // Called upon click of plus sign in anchor table by manager
   addAnchor(managerID: number, userID: number): Observable<String> {
     return this.httpClient
@@ -147,13 +153,13 @@ export class HttpClientRoutes {
 
   claimEquipment(equipID: number, storyID: number): Observable<Equipment> {
     return this.httpClient
-      .put<Equipment>(`${this.endPoint}/equipment/reserve`, {equipID, storyID}, this.httpOptions)
+      .post<Equipment>(`${this.endPoint}/equipment/reserve`, {equipID, storyID}, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
   claimExpert(expertID: number, storyID: number): Observable<Expert> {
     return this.httpClient
-      .put<Expert>(`${this.endPoint}/experts/reserve`, {expertID, storyID}, this.httpOptions)
+      .post<Expert>(`${this.endPoint}/experts/reserve`, {expertID, storyID}, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 

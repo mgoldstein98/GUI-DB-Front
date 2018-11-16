@@ -4,6 +4,7 @@ import { Story } from '../domain/models/story';
 import { HttpClientRoutes } from '../domain/http-client-routes.service';
 import { MatTableDataSource } from '@angular/material';
 import { BehaviorSubject } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-expert',
@@ -12,7 +13,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ExpertComponent implements OnInit {
 
-  // @Input()
+
   thisStory: Story;
 
   myExpert: Expert [];
@@ -25,15 +26,17 @@ export class ExpertComponent implements OnInit {
 
   dataChange: BehaviorSubject<Expert[]>;
 
-  constructor(private myHttp: HttpClientRoutes) { }
+  constructor(private myHttp: HttpClientRoutes, private router: ActivatedRoute) { }
 
   ngOnInit() {
     // this.displayedColumns;
-    this.thisStory = {
-      'storyID': 2,
-    };
-    this.getAvailableExperts(this.thisStory.storyID);
-    this.getCurrExperts(this.thisStory.storyID);
+    this.router.params.subscribe(params => {
+      this.myHttp.getStory(+params['storyID']).subscribe((response) => {
+        this.thisStory = response[0];
+        this.getAvailableExperts(this.thisStory.storyID);
+        this.getCurrExperts(this.thisStory.storyID);
+      });
+    });
 
   }
 

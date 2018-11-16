@@ -56,7 +56,5 @@ export class StoryComponent implements OnInit {
     this.myHttp.getReservedEquipment(this.story.storyID).subscribe((equipment) => {
       this.equipment = equipment;
     });
-
   }
-
 }
