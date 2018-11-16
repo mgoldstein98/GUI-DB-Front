@@ -59,10 +59,4 @@ export class StoryComponent implements OnInit {
 
   }
 
-  unassignAnchor() {
-
-    this.myHttp.unassignAnchorStory(this.anchor.userID, this.story.storyID).subscribe((str) => {
-      console.log(str);
-    });
-  }
 }
