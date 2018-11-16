@@ -1,0 +1,27 @@
+#grad {
+  /* background-image: linear-gradient(to bottom right, rgb(170, 170, 170), rgb(78, 78, 255)); */
+  background-image: './../../assets/new_room.png';
+  height: 90vh;
+  width: 100vw;
+}
+
+.overlay {
+  background: black;
+  position: absolute;
+  opacity: 0.4;
+  width: 100vw;
+  z-index: 1;
+  height: 90vh;
+}
+#everything {
+  background-image: url("../../assets/new_room.png");
+  height: 90vh;
+  width: 100vw;
+  background-size: cover;
+
+}
+button, h1 {
+  z-index: 10;
+  position: relative;
+}
+

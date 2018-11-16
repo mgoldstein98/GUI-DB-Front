@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     console.log('Email sent: ' + this.email);
     console.log('Pass sent:' + this.pass);
     this.myHttp.login(this.email, this.pass).subscribe((response) => {
+
       // response[0] contains status flag
       if (response[0] === 1) {
         // response[1] contains object of user object
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
       } else {
         console.log('INVALID CREDENTIALS. LOGIN FAILED.');
       }
+
     });
   }
 
