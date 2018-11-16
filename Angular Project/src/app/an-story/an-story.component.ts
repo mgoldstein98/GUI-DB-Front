@@ -23,11 +23,10 @@ export class AnStoryComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.myHttp.getUser(+params['userID']).subscribe((response) => {
         this.thisAnchor = response[0];
+        this.getAvailableStories();
+        this.getCurrStories(this.thisAnchor.userID);
       });
     });
-
-    this.getAvailableStories();
-    this.getCurrStories(this.thisAnchor.userID);
 
   }
 
