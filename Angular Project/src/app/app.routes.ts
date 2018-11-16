@@ -3,13 +3,10 @@ import { AccountCreationComponent } from './account-creation/account-creation.co
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { MatableComponent } from './matable/matable.component';
-
-// import { LoginComponent } from './login/login.component';
-// import { VehicleComponent } from './vehicle/vehicle.component';
-// import { ExpertComponent } from './expert/expert.component';
-// import { EquipmentComponent } from './equipment/equipment.component';
-// import { MatableComponent } from './matable/matable.component.ts';
-// import { AnstoryComponent } from './anstory/anstory.component.ts';
+import { AnStoryComponent } from './an-story/an-story.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
+import { ExpertComponent } from './expert/expert.component';
+import { EquipmentComponent } from './equipment/equipment.component';
 
 
 
@@ -18,9 +15,9 @@ export const APP_ROUTES: Routes = [
   { path: 'register', component: AccountCreationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home/:userID', component: HomepageComponent },
-  { path: 'manageAnchors/:userID', component: MatableComponent }
- // { path: 'manageStories/:userID', component: AnstoryComponent }
- // { path: 'manageVehicles/:storyID', component: VehicleComponent },
- // { path: 'manageEquipment/:storyID', component: EquipmentComponent },
- // { path: 'manageExperts/:storyID', component: ExpertComponent },
+  { path: 'manageAnchors/:userID', component: MatableComponent },
+  { path: 'manageStories/:userID', component: AnStoryComponent },
+  { path: 'manageVehicles/:storyID', component: VehicleComponent },
+  { path: 'manageEquipment/:storyID', component: EquipmentComponent },
+  { path: 'manageExperts/:storyID', component: ExpertComponent },
 ];
