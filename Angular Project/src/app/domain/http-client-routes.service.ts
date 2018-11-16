@@ -36,6 +36,12 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
+  getUser(id: number): Observable<Account> {
+    return this.httpClient
+      .get<Account>(`${this.endPoint}/accounts/${id}`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
   // Called upon click of plus sign in anchor table by manager
   addAnchor(managerID: number, userID: number): Observable<String> {
     return this.httpClient
@@ -90,12 +96,12 @@ export class HttpClientRoutes {
       .get<Account>(`${this.endPoint}/accounts/myManager/${email}`);
   }
 
-  // Return all stories for a given anchor to populate anchor card
-  getStories(userID: number): Observable<Story[]> {
-    return this.httpClient
-      .get<Story[]>(`${this.endPoint}/stories/myStories/${userID}`, this.httpOptions)
-      .pipe(catchError(this.handleException));
-  }
+  // // Return all stories for a given anchor to populate anchor card
+  // getStories(userID: number): Observable<Story[]> {
+  //   return this.httpClient
+  //     .get<Story[]>(`${this.endPoint}/stories/myStories/${userID}`, this.httpOptions)
+  //     .pipe(catchError(this.handleException));
+  // }
 
   unassignAnchorStory(anchorID: number, storyID: number): Observable<String> {
     return this.httpClient
