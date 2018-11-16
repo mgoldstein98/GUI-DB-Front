@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     console.log(this.pass);
     this.myHttp.login(this.email, this.pass).subscribe((response) => {
       console.log(response);
-      this.router.navigateByUrl(`home/${response}`);
+      this.router.navigateByUrl(`home/${response[1][0].userID}`);
 
     });
   }

@@ -24,6 +24,8 @@ import { MatableComponent } from './matable/matable.component';
 import { LoginComponent } from './login/login.component';
 import { ExpertComponent } from './expert/expert.component';
 import { AnStoryComponent } from './an-story/an-story.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   imports: [
@@ -39,7 +41,9 @@ import { AnStoryComponent } from './an-story/an-story.component';
     MatButtonModule
   ],
   declarations: [
-    VehicleComponent
+    VehicleComponent,
+    LandingpageComponent,
+    NavbarComponent
   ]
 })
 export class MaterialModule {}
@@ -60,7 +64,9 @@ export class MaterialModule {}
     AnchorComponent,
     ManagerComponent,
     MatableComponent,
-    LoginComponent
+    LoginComponent,
+    LandingpageComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

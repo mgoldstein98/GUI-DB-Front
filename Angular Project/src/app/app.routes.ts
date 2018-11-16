@@ -3,6 +3,7 @@ import { AccountCreationComponent } from './account-creation/account-creation.co
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { MatableComponent } from './matable/matable.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
 
 // import { LoginComponent } from './login/login.component';
 // import { VehicleComponent } from './vehicle/vehicle.component';
@@ -14,11 +15,12 @@ import { MatableComponent } from './matable/matable.component';
 
 
 export const APP_ROUTES: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full'},
+ // { path: '', redirectTo: 'login', pathMatch: 'full'},
+  { path: '', component: LandingpageComponent },
   { path: 'register', component: AccountCreationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home/:userID', component: HomepageComponent },
-  { path: 'manageAnchors/:userID', component: MatableComponent }
+  { path: 'manageAnchors/:userID', component: MatableComponent },
  // { path: 'manageStories/:userID', component: AnstoryComponent }
  // { path: 'manageVehicles/:storyID', component: VehicleComponent },
  // { path: 'manageEquipment/:storyID', component: EquipmentComponent },
