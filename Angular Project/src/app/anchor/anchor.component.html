@@ -1,15 +1,9 @@
-<<<<<<< HEAD
-
-=======
 <!-- <app-navbar></app-navbar>
 <app-welcome></app-welcome> -->
+
+<button [routerLink]="['/manageStories', anchor.userID]" class="btn btn-primary">Manage Stories</button>
+
 <div *ngFor="let story of myStories">
   <app-story [anchor]='anchor' [story]="story"></app-story>
 </div>
 
-
-<!-- MIGHT NEED
-[story] = "story"
--->
-<button class="ROUTE TO CLAIM STORIES PAGE">Manage Stories</button>
->>>>>>> d497c910f415615d5b98fb50553bffdd3e4af34a

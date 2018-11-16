@@ -2,7 +2,6 @@
   <div class="card">
     <div class="card-header clearfix">
       <h5 class="card-title mt-2"> {{story.storyTopic}} </h5>
-      <button type="button" class="btn btn-primary float-right" (click)="unassignAnchor()">Remove</button>
     </div>
     <div class="card-body">
       <div class="row">
@@ -19,7 +18,7 @@
           <div class="card mt-4" style="width: 18rem;">
             <div class="card-header">
               Vehicles
-              <button type="button" class="btn btn-primary float-right">Edit</button>
+              <button type="button" class="btn btn-primary float-right" [routerLink]="['/manageVehicles', story.storyID]">Edit</button>
             </div>
             <div *ngIf="vehicles.length">
               <ul class="list-group list-group-flush">
@@ -35,7 +34,7 @@
           <div class="card mt-4" style="width: 18rem;">
             <div class="card-header">
               Experts
-              <button type="button" class="btn btn-primary float-right">Edit</button>
+              <button type="button" class="btn btn-primary float-right" [routerLink]="['/manageExperts', story.storyID]">Edit</button>
             </div>
             <div *ngIf="experts.length">
               <ul class="list-group list-group-flush">
@@ -53,7 +52,7 @@
           <div class="card mt-4" style="width: 18rem;">
             <div class="card-header">
               Equipment
-              <button type="button" class="btn btn-primary float-right">Edit</button>
+              <button type="button" class="btn btn-primary float-right" [routerLink]="['/manageEquipment', story.storyID]">Edit</button>
             </div>
             <div *ngIf="equipment.length">
               <ul class="list-group list-group-flush ">
