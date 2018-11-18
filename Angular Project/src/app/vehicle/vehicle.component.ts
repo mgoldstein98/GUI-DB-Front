@@ -3,7 +3,7 @@ import { Vehicle } from '../domain/models/vehicle';
 import { Story } from '../domain/models/story';
 import { HttpClientRoutes } from '../domain/http-client-routes.service';
 import { MatTableDataSource } from '@angular/material';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Component({
@@ -18,32 +18,33 @@ export class VehicleComponent implements OnInit {
 
   myVehicles: Vehicle [];
   availableVehicles: Vehicle [];
-  displayedColumns: string[] = ['Type', 'Name', 'Color', 'Model','actionColumn'];
+  displayedColumns: string[] = ['Type', 'Name', 'Color', 'Model', 'actionColumn'];
 
   dataSource = new MatTableDataSource();
-  dataSource_2 = new MatTableDataSource();  
-  
+  dataSource_2 = new MatTableDataSource();
 
-  dataChange: BehaviorSubject<Vehicle[]>
+
+  dataChange: BehaviorSubject<Vehicle[]>;
 
   constructor(private myHttp: HttpClientRoutes) { }
   ngOnInit() {
     this.displayedColumns;
+
     this.thisStory = {
-      "storyID": 2,
-    }
+      'storyID': 2,
+    };
     this.getAvailableVehicles(this.thisStory.storyID);
     this.getCurrVehicles(this.thisStory.storyID);
   }
 
-  addVehicle(index:number){
+  addVehicle(index: number) {
     this.myHttp.claimVehicle(this.availableVehicles[index].vehicleID, this.thisStory.storyID).subscribe((vehicle) => {
-      
+
       this.myVehicles.push(this.availableVehicles[index]);
       this.availableVehicles.splice(index, 1);
       this.dataSource._updateChangeSubscription();
       this.dataSource_2._updateChangeSubscription();
-    })
+    });
   }
 
   removeVehicle(index: number) {
@@ -52,21 +53,21 @@ export class VehicleComponent implements OnInit {
       this.myVehicles.splice(index, 1);
       this.dataSource._updateChangeSubscription();
       this.dataSource_2._updateChangeSubscription();
-    })
+    });
   }
 
   getCurrVehicles(storyID: number) {
     this.myHttp.getReservedVehicles(storyID).subscribe((vehicles) => {
       this.myVehicles = vehicles;
       this.dataSource_2.data = vehicles;
-    })
+    });
   }
 
   getAvailableVehicles(storyID: number) {
     this.myHttp.getAvailableVehicles(storyID).subscribe((vehicles) => {
       this.availableVehicles = vehicles;
       this.dataSource.data = vehicles;
-    })
+    });
   }
 
   applyFilter(filterValue: string) {
@@ -75,5 +76,5 @@ export class VehicleComponent implements OnInit {
 
 
 
-  
+
 }

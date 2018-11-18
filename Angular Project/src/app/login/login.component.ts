@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientRoutes } from './../domain/http-client-routes.service';
-
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,18 +10,25 @@ import { HttpClientRoutes } from './../domain/http-client-routes.service';
 export class LoginComponent implements OnInit {
 
   email: string;
-  password: string;
+  pass: string;
 
-  constructor(private myHttp: HttpClientRoutes) { }
+  constructor(
+    private myHttp: HttpClientRoutes,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+    ) { }
 
-  ngOnInit() {
-    this.email = '';
-    this.password = '';
-  }
+  ngOnInit() {  }
 
   login() {
-    this.myHttp.login(this.email, this.password).subscribe((response) => {
+    this.email = this.email.trim();
+    this.pass = this.pass.trim();
+    console.log(this.email);
+    console.log(this.pass);
+    this.myHttp.login(this.email, this.pass).subscribe((response) => {
       console.log(response);
+      this.router.navigateByUrl(`home/${response}`);
+
     });
   }
 

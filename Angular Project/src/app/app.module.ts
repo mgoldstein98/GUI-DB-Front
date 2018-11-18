@@ -3,6 +3,9 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {MatFormFieldModule, MatInputModule, MatTableModule, MatButtonModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { APP_ROUTES } from './app.routes';
+
 
 import { HttpClientRoutes } from './domain/http-client-routes.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -67,7 +70,8 @@ export class MaterialModule {};
     MatInputModule,
     BrowserAnimationsModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [
    HttpClientRoutes
