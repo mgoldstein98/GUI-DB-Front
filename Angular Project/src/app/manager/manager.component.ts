@@ -18,12 +18,11 @@ export class ManagerComponent implements OnInit {
   ngOnInit() {
     this.manager = {
       userID: 3,
-      userName: "Manager Man",
-      email: "mgmt@anchormanagement.com",
+      userName: 'Manager Man',
+      email: 'mgmt@anchormanagement.com',
       typeFlag: 0,
-      pass: "manager",
-
-    }
+      pass: 'manager',
+    };
     this.getAnchors(this.manager.userID);
   }
 

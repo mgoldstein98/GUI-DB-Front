@@ -3,7 +3,8 @@ import { Vehicle } from '../domain/models/vehicle';
 import { Story } from '../domain/models/story';
 import { HttpClientRoutes } from '../domain/http-client-routes.service';
 import { MatTableDataSource } from '@angular/material';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class VehicleComponent implements OnInit {
 
-  //@Input()
+  // @Input()
   thisStory: Story;
 
   myVehicles: Vehicle [];
@@ -26,15 +27,16 @@ export class VehicleComponent implements OnInit {
 
   dataChange: BehaviorSubject<Vehicle[]>;
 
-  constructor(private myHttp: HttpClientRoutes) { }
+  constructor(private myHttp: HttpClientRoutes, private router: ActivatedRoute) { }
   ngOnInit() {
-    this.displayedColumns;
-
-    this.thisStory = {
-      'storyID': 2,
-    };
-    this.getAvailableVehicles(this.thisStory.storyID);
-    this.getCurrVehicles(this.thisStory.storyID);
+    // this.displayedColumns;
+    this.router.params.subscribe(params => {
+      this.myHttp.getStory(+params['storyID']).subscribe((response) => {
+        this.thisStory = response[0];
+        this.getAvailableVehicles(this.thisStory.storyID);
+        this.getCurrVehicles(this.thisStory.storyID);
+      });
+    });
   }
 
   addVehicle(index: number) {
@@ -48,7 +50,7 @@ export class VehicleComponent implements OnInit {
   }
 
   removeVehicle(index: number) {
-    this.myHttp.unclaimVehicle(this.thisStory.storyID, this.myVehicles[index].vehicleID).subscribe((vehicle)=> {
+    this.myHttp.unclaimVehicle(this.thisStory.storyID, this.myVehicles[index].vehicleID).subscribe((vehicle) => {
       this.availableVehicles.push(this.myVehicles[index]);
       this.myVehicles.splice(index, 1);
       this.dataSource._updateChangeSubscription();

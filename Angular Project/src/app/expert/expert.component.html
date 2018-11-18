@@ -1,65 +1,68 @@
-<div class="filter-bar">
-  <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search...">
-  </mat-form-field>
-</div>
-
-<div class="row">
-<div class=" container col-md-6">
-  <h2 class="sub-header">Available Experts</h2>
-    <mat-table #table id="tables" [dataSource]="dataSource"  class="table table-striped table-condensed" >
-      
-
-      <ng-container matColumnDef="Name">
-        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-        <mat-cell *matCellDef="let e"> {{e.expertName}} </mat-cell>
-      </ng-container>
-    
-      
-      <ng-container matColumnDef="Topic">
-        <mat-header-cell *matHeaderCellDef> Topic</mat-header-cell>
-        <mat-cell *matCellDef="let e"> {{e.expertTopic}} </mat-cell>
-      </ng-container>
-      
-      <ng-container matColumnDef="actionColumn">
-        <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let row; let i = index">
-            <button class="btn btn-success" (click)="addExpert(i)">Add</button>
-        </mat-cell>
-    </ng-container>
-    
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
+<div *ngIf="thisStory">
+  <div class="filter-bar">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search...">
+    </mat-form-field>
   </div>
 
-  <div class="container col-md-6" >
-    <h2 class="sub-header">My Experts</h2>
-      <mat-table #table  [dataSource]="dataSource_2"  class="table table-striped table-condensed">
-        
+  <div class="row">
+    <div class=" container col-md-6">
+      <h2 class="sub-header">Available Experts</h2>
+      <mat-table #table id="tables" [dataSource]="dataSource" class="table table-striped table-condensed">
+
 
         <ng-container matColumnDef="Name">
           <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
           <mat-cell *matCellDef="let e"> {{e.expertName}} </mat-cell>
         </ng-container>
-      
-        
+
+
         <ng-container matColumnDef="Topic">
           <mat-header-cell *matHeaderCellDef> Topic</mat-header-cell>
           <mat-cell *matCellDef="let e"> {{e.expertTopic}} </mat-cell>
         </ng-container>
-  
-        
+
         <ng-container matColumnDef="actionColumn">
           <mat-header-cell *matHeaderCellDef></mat-header-cell>
-          <mat-cell *matCellDef="let row;let i = index">
-              <button class="btn btn-danger" (click)="removeExpert(i)">Remove</button>
+          <mat-cell *matCellDef="let row; let i = index">
+            <button class="btn btn-success" (click)="addExpert(i)">Add</button>
           </mat-cell>
-      </ng-container>
-      
+        </ng-container>
+
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       </mat-table>
     </div>
-</div>
 
+    <div class="container col-md-6">
+      <h2 class="sub-header">My Experts</h2>
+      <mat-table #table [dataSource]="dataSource_2" class="table table-striped table-condensed">
+
+
+        <ng-container matColumnDef="Name">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let e"> {{e.expertName}} </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Topic">
+          <mat-header-cell *matHeaderCellDef> Topic</mat-header-cell>
+          <mat-cell *matCellDef="let e"> {{e.expertTopic}} </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="actionColumn">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let row;let i = index">
+            <button class="btn btn-danger" (click)="removeExpert(i)">Remove</button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+  <button class="btn btn-primary font-weight-bold text-white float-right w-25" [routerLink]="['/home', thisStory.anchorID]">Return
+    to Dashboard</button>
+</div>

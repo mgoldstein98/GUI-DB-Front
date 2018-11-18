@@ -1,10 +1,10 @@
-<div *ngIf="this.user">
+<div *ngIf="user">
   <p>{{this.user.userName}}</p>
   <!--ADD NAV BAR HERE-->
   <div class=container *ngIf="user.typeFlag == 0">
-    <app-manager></app-manager>
+    <app-manager [manager]="user"></app-manager>
   </div>
   <div class=container *ngIf="user.typeFlag == 1">
-    <app-anchor></app-anchor>
+    <app-anchor [anchor]="user"></app-anchor>
   </div>
 </div>
