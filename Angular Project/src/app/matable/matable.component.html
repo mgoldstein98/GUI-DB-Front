@@ -1,4 +1,5 @@
-<div class="container col-xs-6">
+<div class="container col-xs-6" *ngIf="myAnchors">
+  <app-navbar></app-navbar>
   <h2 class="sub-header">My Anchors</h2>
   <div [ngSwitch]="myAnchors?.length">
     <div *ngSwitchCase=0>

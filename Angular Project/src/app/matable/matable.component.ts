@@ -8,10 +8,10 @@ import { Account } from '../domain/models/account';
   styleUrls: ['./matable.component.css']
 })
 export class MatableComponent implements OnInit {
-  managerAccId = 3
-  managerAcc: Account
-  myAnchors: Account[]
-  availableAnchors: Account[]
+  managerAccId = 3;
+  managerAcc: Account;
+  myAnchors: Account[];
+  availableAnchors: Account[];
   constructor(
     private myHttp: HttpClientRoutes
   ) { }
@@ -20,10 +20,10 @@ export class MatableComponent implements OnInit {
     this.myHttp.getMyAnchors(this.managerAccId).subscribe((anchors) => {
       console.log(anchors);
       this.myAnchors = anchors;
-    })
+    });
     this.myHttp.getUnmanagedAnchors().subscribe((anchors) => {
       this.availableAnchors = anchors;
-    })
+    });
   }
 
   addAnchor(index: number) {
