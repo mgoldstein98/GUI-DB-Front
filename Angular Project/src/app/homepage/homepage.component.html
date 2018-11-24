@@ -1,6 +1,6 @@
 <div *ngIf="user">
-  <p>{{this.user.userName}}</p>
-  <!--ADD NAV BAR HERE-->
+  <app-navbar></app-navbar>
+  <p> WELCOME {{this.user.userName}}</p>
   <div class=container *ngIf="user.typeFlag == 0">
     <app-manager [manager]="user"></app-manager>
   </div>

@@ -1,14 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {MatFormFieldModule, MatInputModule, MatTableModule, MatButtonModule} from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatTableModule, MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
 
-
+import { AuthService } from './domain/auth.service';
+import { AuthInterceptor } from './domain/auth-interceptor';
 import { HttpClientRoutes } from './domain/http-client-routes.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AccountCreationComponent } from './account-creation/account-creation.component';
@@ -29,10 +30,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   imports: [
-      MatFormFieldModule,
-      MatInputModule,
-      MatTableModule,
-      MatButtonModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatButtonModule
   ],
   exports: [
     MatFormFieldModule,
@@ -46,7 +47,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     NavbarComponent
   ]
 })
-export class MaterialModule {}
+export class MaterialModule { }
 
 
 @NgModule({
@@ -80,7 +81,13 @@ export class MaterialModule {}
     RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [
-   HttpClientRoutes
+    HttpClientRoutes,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent],
   schemas: [
