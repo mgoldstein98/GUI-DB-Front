@@ -76,7 +76,4 @@ export class VehicleComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-
-
-
 }
