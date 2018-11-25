@@ -17,12 +17,6 @@ export class AuthService {
 
   login(email: string, password: string) {
 
-    // UGH NOT WORKING
-    // return this.myHttp
-    //   .post<Account>(`http://54.203.53.152:8080/login`, { email, password })
-    //   .tap(res => this.setSession)
-    //   .shareReplay();
-
     this.myHttp.login(email, password).subscribe((response) => {
       console.log('hit login');
 
@@ -54,7 +48,8 @@ export class AuthService {
 
     // can clear local storage since we aren't using it
     // anywhere else in the application
-    localStorage.clear();
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('expires_at');
     this.router.navigateByUrl(`/`);
 
 

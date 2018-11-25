@@ -48,12 +48,21 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
-  // Called upon click of plus sign in anchor table by manager
+  // Called upon click of claim in anchor table by manager
   addAnchor(managerID: number, userID: number): Observable<String> {
     return this.httpClient
-      .post<String>(`${this.endPoint}/assignAnchor`, { managerID, userID }, this.httpOptions)
+      .put<String>(`${this.endPoint}/accounts/assignAnchor`, { managerID, userID }, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
+
+  // Called upon click of remove in anchor table by manager
+  removeAnchor(managerID: number, userID: number): Observable<String> {
+    return this.httpClient
+      .put<String>(`${this.endPoint}/accounts/unassignFromManager/${userID}`, managerID, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+
 
   getReservedVehicles(storyID: number): Observable<Vehicle[]> {
     return this.httpClient

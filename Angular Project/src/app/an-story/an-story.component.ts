@@ -11,45 +11,28 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AnStoryComponent implements OnInit {
 
-  // @Input()
-  thisAnchor: Account;
 
+  anchor: Account;
   myStories: Story[];
   availableStories: Story[];
-  constructor(private myHttp: HttpClientRoutes, private route: ActivatedRoute ) { }
+
+  constructor(
+    private myHttp: HttpClientRoutes,
+    private route: ActivatedRoute ) { }
 
   ngOnInit() {
 
     this.route.params.subscribe(params => {
       this.myHttp.getUser(+params['userID']).subscribe((response) => {
-        this.thisAnchor = response[0];
+        this.anchor = response[0];
         this.getAvailableStories();
-        this.getCurrStories(this.thisAnchor.userID);
+        this.getCurrStories();
       });
     });
-
   }
 
-  addStory(index: number) {
-    this.myHttp.claimStory(this.thisAnchor.userID, this.availableStories[index].storyID).subscribe((story) => {
-      console.log(story);
-      this.myStories.push(this.availableStories[index]);
-      this.availableStories.splice(index, 1);
-    });
-
-  }
-
-  removeStory(index: number) {
-    console.log('Sent id = ', this.myStories[index].storyID);
-    this.myHttp.unclaimStory(this.myStories[index].storyID).subscribe((story) => {
-      console.log(story);
-      this.availableStories.push(this.myStories[index]);
-      this.myStories.splice(index, 1);
-    });
-  }
-
-  getCurrStories(userID: number) {
-    this.myHttp.getMyStories(userID).subscribe((stories) => {
+  getCurrStories() {
+    this.myHttp.getMyStories(this.anchor.userID).subscribe((stories) => {
       this.myStories = stories;
     });
   }
@@ -57,6 +40,21 @@ export class AnStoryComponent implements OnInit {
   getAvailableStories() {
     this.myHttp.getAvailableStories().subscribe((stories) => {
       this.availableStories = stories;
+    });
+  }
+
+  addStory(index: number) {
+    this.myHttp.claimStory(this.anchor.userID, this.availableStories[index].storyID).subscribe((story) => {
+      this.myStories.push(this.availableStories[index]);
+      this.availableStories.splice(index, 1);
+    });
+
+  }
+
+  removeStory(index: number) {
+    this.myHttp.unclaimStory(this.myStories[index].storyID).subscribe((story) => {
+      this.availableStories.push(this.myStories[index]);
+      this.myStories.splice(index, 1);
     });
   }
 
