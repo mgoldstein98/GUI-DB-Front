@@ -1,3 +1,10 @@
+.background{
+  box-sizing: border-box;
+  background-color: #52658F !important;
+  height: 1000px;
+  
+}
+
 .btn-circle {
     width: 30px;
     height: 30px;
@@ -7,7 +14,29 @@
     font-size: 12px;
     line-height: 1.42857;
   }
-  
-  #tables{
-    display: inline;
+
+  .headers{
+    color:white;
   }
+  
+  .mat-table{
+    border-style: hidden;
+    table-layout: auto;
+    width: 575px;
+    margin-left:auto; 
+    margin-right:auto;
+    
+  }
+  
+  #filter-bar {
+    width: 35%;
+    top:15px;
+    right:-500px;
+    padding-bottom: 50px;
+  }
+  
+  
+  
+  
+  
+    

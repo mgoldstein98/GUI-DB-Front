@@ -1,15 +1,16 @@
+<div class="background">
 <div *ngIf="thisStory">
   <app-navbar></app-navbar>
   <div class="filter-bar">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    <mat-form-field id="filter-bar">
+      <input  matInput (keyup)="applyFilter($event.target.value)" placeholder="Search...">
     </mat-form-field>
   </div>
 
   <div class="row">
     <div class=" container col-md-6">
-      <h2 class="sub-header">Available Vehicles</h2>
-      <mat-table #table id="tables" [dataSource]="dataSource" class="table table-striped table-condensed">
+      <h2 class="headers sub-header text-center">Available Vehicles</h2>
+      <mat-table #table id="tables" [dataSource]="dataSource" class="table">
         <ng-container matColumnDef="No.">
           <mat-header-cell *matHeaderCellDef></mat-header-cell>
           <mat-cell *matCellDef="let vehicle"></mat-cell>
@@ -52,8 +53,8 @@
     </div>
 
     <div class="container col-md-6">
-      <h2 class="sub-header">My Vehicles</h2>
-      <mat-table #table [dataSource]="dataSource_2" class="table table-striped table-condensed">
+      <h2 class="headers sub-header text-center">My Vehicles</h2>
+      <mat-table #table id="tables" [dataSource]="dataSource_2" class="table">
 
 
         <ng-container matColumnDef="Type">
@@ -92,6 +93,7 @@
       </mat-table>
     </div>
   </div>
-  <button class="btn btn-primary font-weight-bold text-white float-right w-25" [routerLink]="['/home', thisStory.anchorID]">Return
+  <button class="btn font-weight-bold text-white float-right w-25" [routerLink]="['/home', thisStory.anchorID]" >Return
     to Dashboard</button>
 </div>
+</div> 
