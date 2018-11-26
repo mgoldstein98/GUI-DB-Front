@@ -27,6 +27,8 @@ import { ExpertComponent } from './expert/expert.component';
 import { AnStoryComponent } from './an-story/an-story.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { EquipCalendarComponent } from './equip-calendar/equip-calendar.component';
+import { VehicleCalendarComponent } from './vehicle-calendar/vehicle-calendar.component';
 
 @NgModule({
   imports: [
@@ -67,7 +69,9 @@ export class MaterialModule { }
     MatableComponent,
     LoginComponent,
     LandingpageComponent,
-    NavbarComponent
+    NavbarComponent,
+    EquipCalendarComponent,
+    VehicleCalendarComponent
   ],
   imports: [
     BrowserModule,

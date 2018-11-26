@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-
-import * as $ from 'jquery';
-import * as moment from 'moment';
-import 'fullcalendar';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { EquipCalendarComponent } from '../equip-calendar/equip-calendar.component';
+import { VehicleCalendarComponent } from '../vehicle-calendar/vehicle-calendar.component';
+import { Account } from '../domain/models/account';
 
 @Component({
   selector: 'app-calendar',
@@ -11,18 +10,27 @@ import 'fullcalendar';
 })
 export class CalendarComponent implements OnInit {
 
+  equipLoaded: boolean;
+  vehicleLoaded: boolean;
+
+  anchor: Account;
+
   constructor() { }
 
   ngOnInit() {
+    this.equipLoaded = false;
+    this.vehicleLoaded = false;
+  }
 
-    $(function() {
-      // page is now ready, initialize the calendar...
-      $('#calendar').fullCalendar({
-        // put your options and callbacks here
-        defaultView: 'month'
-      });
-    });
+  loadEquipmentCalendar() {
+    this.equipLoaded = true;
+    this.vehicleLoaded = false;
+  }
 
+  loadVehicleCalendar() {
+    this.vehicleLoaded = true;
+    this.equipLoaded = false;
   }
 
 }
+
