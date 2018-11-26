@@ -4,7 +4,7 @@ import { Story } from '../domain/models/story';
 import { HttpClientRoutes } from '../domain/http-client-routes.service';
 import { MatTableDataSource } from '@angular/material';
 import { BehaviorSubject } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-equipment',
@@ -27,12 +27,15 @@ export class EquipmentComponent implements OnInit {
   dataChange: BehaviorSubject<Equipment[]>;
 
 
-  constructor(private myHttp: HttpClientRoutes, private router: ActivatedRoute) { }
+  constructor(
+    private myHttp: HttpClientRoutes,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     // this.displayedColumns;
 
-    this.router.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.myHttp.getStory(+params['storyID']).subscribe((response) => {
         this.thisStory = response[0];
         this.getAvailableEquipment(this.thisStory.storyID);
@@ -77,6 +80,17 @@ export class EquipmentComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  returnToDash() {
+
+    // get logged in id from local storage in case
+    // this is a manager editing stories and not the
+    // anchor himself
+
+    const id = localStorage.getItem('id');
+    this.router.navigateByUrl(`home/${id}`);
+
   }
 
 }

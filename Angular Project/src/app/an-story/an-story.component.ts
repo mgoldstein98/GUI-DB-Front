@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Account } from '../domain/models/account';
 import { Story } from '../domain/models/story';
 import { HttpClientRoutes } from '../domain/http-client-routes.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-an-story',
@@ -18,7 +18,8 @@ export class AnStoryComponent implements OnInit {
 
   constructor(
     private myHttp: HttpClientRoutes,
-    private route: ActivatedRoute ) { }
+    private route: ActivatedRoute,
+    private router: Router ) { }
 
   ngOnInit() {
 
@@ -57,5 +58,17 @@ export class AnStoryComponent implements OnInit {
       this.myStories.splice(index, 1);
     });
   }
+
+  returnToDash() {
+
+    // get logged in id from local storage in case
+    // this is a manager editing stories and not the
+    // anchor himself
+
+    const id = localStorage.getItem('id');
+    this.router.navigateByUrl(`home/${id}`);
+
+  }
+
 
 }

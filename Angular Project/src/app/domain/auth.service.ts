@@ -26,10 +26,16 @@ export class AuthService {
       } else {
         // [1,{"userID":"actualID"}, token] is the response
         // do something with jwt in response[2] here
-        // return response[1]; // function calling service will receive userid upon success
+        // navigate using response[1];
+
+        console.log('HTTP LOGIN RESPONSE' + response);
         console.log('Setting session');
-        this.setSession(response[2]);
-        console.log(response);
+
+        const expiresAt = moment().add(response[2].expiresIn, 'second');
+        localStorage.setItem('id_token', response[2]);
+        localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+        localStorage.setItem('id', response[1].userID);
+
         this.router.navigateByUrl(`home/${response[1].userID}`);
 
       }
@@ -38,18 +44,13 @@ export class AuthService {
     );
   }
 
-  private setSession(authResult) {
-    const expiresAt = moment().add(authResult.expiresIn, 'second');
-    localStorage.setItem('id_token', authResult);
-    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
-  }
-
   logout() {
 
     // can clear local storage since we aren't using it
     // anywhere else in the application
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
+    localStorage.removeItem('id');
     this.router.navigateByUrl(`/`);
 
 
