@@ -7,49 +7,114 @@
           Account Information
         </div>
         <div class="card-body">
-          <div class="form-group">
+
+
+
+
+
+
+
+          <div id="login-forms" class="d-flex justify-content-center">
+            <form [formGroup]="form" (ngSubmit)="createAccount()">
+
+              <div class="form-group">
+                <span class="text-danger asterisk">*</span>
+                <label for="name" class="form-field-labels">Name</label>
+                <input type="text" formControlName="name" class="form-control" [(ngModel)]="account.userName" />
+
+              </div>
+
+              <div class="text-danger" *ngIf="form.controls['name'].touched && form.controls['name'].errors?.required">Name
+                is required</div>
+
+              <div class="form-group">
+                <span class="text-danger asterisk">*</span>
+                <label for="email" class="form-field-labels">Email</label>
+                <input type="text" formControlName="email" class="form-control" [(ngModel)]="account.email" />
+
+              </div>
+              <div class="text-danger" *ngIf="form.controls['email'].touched && form.controls['email'].errors?.required">Email
+                is required</div>
+              <div class="text-danger" *ngIf="form.controls['email'].touched && form.controls['email'].errors?.email">Must
+                be
+                an Email</div>
+              <div class="text-danger" *ngIf="form.controls['email'].touched && form.controls['email'].errors?.min">Must
+                be
+                5 characters long</div>
+              <div class="text-danger" *ngIf="form.controls['email'].touched && form.controls['email'].errors?.max">Must
+                be
+                shorter than 45 characters</div>
+              <div class="form-group">
+                <span class="text-danger asterisk">*</span>
+                <label for="password" class="form-field-labels">Password</label>
+                <input type="password" formControlName="password" class="form-control" />
+
+              </div>
+              <div class="text-danger" *ngIf="form.controls['password'].touched && form.controls['password'].errors?.required">Password
+                is required</div>
+              <div class="text-danger" *ngIf="form.controls['password'].touched && form.controls['password'].errors?.min">Password
+                must be at least 8 characters</div>
+              <div class="text-danger" *ngIf="passCheck">Passwords must match</div>
+              <div class="form-group">
+                <span class="text-danger asterisk">*</span>
+                <label for="confirmPassword" class="form-field-labels">Confirm Password</label>
+                <input type="password" formControlName="confirmPassword" class="form-control" [(ngModel)]="account.pass" />
+              </div>
+              <div class="text-danger" *ngIf="form.controls['confirmPassword'].touched && form.controls['confirmPassword'].errors?.required">Password
+                is required</div>
+              <div class="text-danger" *ngIf="form.controls['confirmPassword'].touched && form.controls['confirmPassword'].errors?.min">Password
+                must be at least 8 characters</div>
+
+
+              <div class="form-group">
+                <span class="text-danger asterisk">*</span>
+                <label for="accType" class="form-field-labels">Account Type</label>
+                <select type="text" formControlName="accType" class="form-control" [(ngModel)]="account.typeFlag">
+                  <option value=1>Anchor</option>
+                  <option value=0>Manager</option>
+                </select>
+
+              </div>
+
+              <div class="text-danger" *ngIf="form.controls['accType'].touched && form.controls['accType'].errors?.required">Account Type
+                is required</div>
+
+            </form>
+          </div>
+
+
+
+          <!-- <div class="form-group">
             <label for="account_name">
               Name
             </label>
-            <input type="text"
-                   id="account_name"
-                   class="form-control"
-                   [(ngModel)]="account.userName" />
+            <input type="text" id="account_name" class="form-control" [(ngModel)]="account.userName" />
           </div>
           <div class="form-group">
             <label for="account_password">
               Password
             </label>
-            <input type="password"
-                   id="account_password"
-                   class="form-control"
-                   [(ngModel)] = "account.pass" />
+            <input type="password" id="account_password" class="form-control" [(ngModel)]="account.pass" />
           </div>
-          <div class = "form-group">
+          <div class="form-group">
             <label for="account_email">
               Email
             </label>
-            <input type="email"
-                   id="account_email"
-                   class="form-control"
-                   [(ngModel)]="account.email" />
+            <input type="email" id="account_email" class="form-control" [(ngModel)]="account.email" />
           </div>
           <div class="form-group">
             <label for="account_jobTItle">
               Account Type
             </label>
-            <select id="account_jobTitle"
-                    class="form-control"
-                    [(ngModel)] = "account.typeFlag"
-                    [ngModelOptions]="{standalone: true}">
+            <select id="account_jobTitle" class="form-control" [(ngModel)]="account.typeFlag" [ngModelOptions]="{standalone: true}">
               <option value=1>Anchor</option>
               <option value=0>Manager</option>
             </select>
-          </div>
+          </div> -->
         </div>
       </div>
       <br />
-      <button class="btn btn-lg btn-success btn-block" type="button" (click)="createAccount()">
+      <button [disabled]="form.invalid" class="btn btn-lg btn-success btn-block" type="button" (click)="createAccount()">
         Create Account
       </button>
     </div>
@@ -59,3 +124,4 @@
   </div>
 </div>
 <br />
+
