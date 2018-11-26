@@ -74,7 +74,8 @@ export class MaterialModule { }
     LandingpageComponent,
     NavbarComponent,
     EquipCalendarComponent,
-    VehicleCalendarComponent
+    VehicleCalendarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
