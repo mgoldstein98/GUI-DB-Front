@@ -1,4 +1,11 @@
-<link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.min.css'>
+<h1 class="text-center" *ngIf="!equipLoaded && !vehicleLoaded">Please select a reservation.</h1>
 
-<h1 style="text-align:center;">This looks like a calendar.<br />Sadly, it just has the appearance of the calendar. You can't add anything.<br />Enjoy knowing what the date is, nerd.</h1>
-<div id='calendar' class="m-4"></div>
+<div class="row justify-content-center btn-toolbar">
+  <button class="btn btn-primary mr-2" (click)="loadVehicleCalendar()" >Vehicles</button>
+  <button class="btn btn-secondary ml-2" (click)="loadEquipmentCalendar()">Equipment</button>
+</div>
+
+<div class="container justify-content-center">
+  <app-vehicle-calendar *ngIf="vehicleLoaded" [anchor]='anchor'></app-vehicle-calendar>
+  <app-equip-calendar *ngIf="equipLoaded" [anchor]='anchor'></app-equip-calendar>
+</div>
