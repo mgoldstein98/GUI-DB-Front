@@ -30,6 +30,7 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EquipCalendarComponent } from './equip-calendar/equip-calendar.component';
 import { VehicleCalendarComponent } from './vehicle-calendar/vehicle-calendar.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { VehicleCalendarComponent } from './vehicle-calendar/vehicle-calendar.co
   declarations: [
     VehicleComponent,
     LandingpageComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProfileComponent
   ]
 })
 export class MaterialModule { }
