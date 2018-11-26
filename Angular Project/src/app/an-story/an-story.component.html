@@ -1,4 +1,4 @@
-<div *ngIf="thisAnchor">
+<div *ngIf="anchor">
   <app-navbar></app-navbar>
   <div class="container col-xs-6">
     <h2 class="sub-header">Stories
@@ -61,7 +61,7 @@
           </tr>
         </tbody>
       </table>
-      <button class="btn btn-primary font-weight-bold text-white float-right w-25" [routerLink]="['/home', thisAnchor.userID]">Return to Dashboard</button>
+      <button (click)="returnToDash()" class="btn btn-primary font-weight-bold text-white float-right w-25">Return to Dashboard</button>
     </div>
   </div>
 </div>

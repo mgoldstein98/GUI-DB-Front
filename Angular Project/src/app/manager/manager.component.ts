@@ -9,26 +9,22 @@ import { HttpClientRoutes } from './../domain/http-client-routes.service';
 })
 export class ManagerComponent implements OnInit {
 
-  // @Input()
+  @Input()
   manager: Account;
-  // myAnchors: Account[];
+
+  myAnchors: Account[];
 
   constructor(private myHttp: HttpClientRoutes) { }
 
   ngOnInit() {
-    this.manager = {
-      userID: 3,
-      userName: 'Manager Man',
-      email: 'mgmt@anchormanagement.com',
-      typeFlag: 0,
-      pass: 'manager',
-    };
-    this.getAnchors(this.manager.userID);
+    console.log('NG oN INIT');
+    this.getAnchors();
   }
 
-  getAnchors(myId: number) {
-    this.myHttp.getMyAnchors(myId).subscribe((returnedAnchors) => {
-      this.manager.myAnchors = returnedAnchors;
+  getAnchors() {
+    this.myHttp.getMyAnchors(this.manager.userID).subscribe((anchors) => {
+      console.log('GETTING ANCHORS ' + anchors);
+      this.myAnchors = anchors;
     });
   }
 

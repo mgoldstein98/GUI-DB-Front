@@ -1,16 +1,3 @@
-.overlay {
-    background: black;
-    position: absolute;
-    opacity: 0.4;
-    width: 100vw;
-    z-index: 1;
-    height: 100vh;
-  }
-  #blueHomeCenter {
-    background-image: url("../../assets/earth.jpg");
-    height: 100vh;
-    background-size: cover;
-  }
 
    h4, th, td, h1 {
       color: #FFFFFF;

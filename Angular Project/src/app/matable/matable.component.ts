@@ -9,18 +9,19 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./matable.component.css']
 })
 export class MatableComponent implements OnInit {
-  managerAcc: Account;
+
+  manager: Account;
   myAnchors: Account[];
   availableAnchors: Account[];
+
   constructor(
     private myHttp: HttpClientRoutes,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.myHttp.getUser(+params['userID']).subscribe((response) => {
-        this.managerAcc = response[0];
+        this.manager = response[0];
         this.getMyAnchors();
         this.getUnmanagedAnchors();
       });
@@ -28,8 +29,8 @@ export class MatableComponent implements OnInit {
   }
 
   getMyAnchors() {
-    this.myHttp.getMyAnchors(this.managerAcc.userID).subscribe((anchors) => {
-      console.log(anchors);
+    this.myHttp.getMyAnchors(this.manager.userID).subscribe((anchors) => {
+      console.log('GETTING ANCHORS ' + anchors);
       this.myAnchors = anchors;
     });
   }
@@ -41,10 +42,16 @@ export class MatableComponent implements OnInit {
   }
 
   addAnchor(index: number) {
-    console.log(index);
+    this.myHttp.addAnchor(this.manager.userID, this.availableAnchors[index].userID).subscribe((response) => {
+      this.myAnchors.push(this.availableAnchors[index]);
+      this.availableAnchors.splice(index, 1);
+    });
   }
 
   removeAnchor(index: number) {
-    console.log(index);
+    this.myHttp.removeAnchor(this.manager.userID, this.myAnchors[index].userID).subscribe((response) => {
+      this.availableAnchors.push(this.myAnchors[index]);
+      this.myAnchors.splice(index, 1);
+    });
   }
 }

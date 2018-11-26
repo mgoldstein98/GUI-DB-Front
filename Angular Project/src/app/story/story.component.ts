@@ -25,7 +25,6 @@ export class StoryComponent implements OnInit {
   equipment: Equipment[];
 
 
-
   constructor(private myHttp: HttpClientRoutes) { }
 
   ngOnInit() {
@@ -34,6 +33,9 @@ export class StoryComponent implements OnInit {
     this.getReservedEquipment();
   }
 
+  onClick(){
+    console.log("hello");
+  }
 
   getReservedVehicles() {
 
