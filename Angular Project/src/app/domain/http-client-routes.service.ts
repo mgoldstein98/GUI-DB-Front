@@ -198,6 +198,18 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
+  getMyReservedVehicles(anchorID: number): Observable<Object> {
+    return this.httpClient
+      .get<Object>(`${this.endPoint}/vehicles/reserved/${anchorID}`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  getMyReservedEquipment(anchorID: number): Observable<Object> {
+    return this.httpClient
+      .get<Object>(`${this.endPoint}/equipment/reserved/${anchorID}`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
   protected handleException(exception: any) {
     const message = `${exception.status} : ${exception.statusText}\r\n${exception.message}`;
     alert(message);
