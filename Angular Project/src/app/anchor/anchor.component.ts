@@ -17,19 +17,14 @@ export class AnchorComponent implements OnInit {
   constructor(private route: ActivatedRoute, private myHttp: HttpClientRoutes) { }
 
   ngOnInit() {
-    // account object passed from login or signup
-    this.route.params.subscribe(params => {
-      this.myHttp.getUser(+params['userID']).subscribe((response) => {
-        this.anchor = response[0];
-      });
 
-      console.log(this.anchor.userID);
+    console.log(this.anchor.userID);
 
-      this.myHttp.getMyStories(this.anchor.userID).subscribe((stories) => {
-        console.log(stories);
-        this.myStories = stories;
-      });
+    this.myHttp.getMyStories(this.anchor.userID).subscribe((stories) => {
+      console.log(stories);
+      this.myStories = stories;
     });
+
   }
 }
 

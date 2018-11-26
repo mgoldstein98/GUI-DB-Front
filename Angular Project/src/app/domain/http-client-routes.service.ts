@@ -26,13 +26,13 @@ export class HttpClientRoutes {
 
   login(email: string, pass: string): Observable<Account> {
     return this.httpClient
-      .post<Account>(`${this.endPoint}/accounts/login`, { email, pass }, this.httpOptions)
+      .post<Account>(`${this.endPoint}/login`, { email, pass }, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
   signup(userName: string, email: string, pass: string, typeFlag: number): Observable<String> {
     return this.httpClient
-      .post<String>(`${this.endPoint}/accounts/newAccount`, { userName, email, pass, typeFlag }, this.httpOptions)
+      .post<String>(`${this.endPoint}/newAccount`, { userName, email, pass, typeFlag }, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
@@ -48,12 +48,21 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
-  // Called upon click of plus sign in anchor table by manager
+  // Called upon click of claim in anchor table by manager
   addAnchor(managerID: number, userID: number): Observable<String> {
     return this.httpClient
-      .post<String>(`${this.endPoint}/assignAnchor`, { managerID, userID }, this.httpOptions)
+      .put<String>(`${this.endPoint}/accounts/assignAnchor`, { managerID, userID }, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
+
+  // Called upon click of remove in anchor table by manager
+  removeAnchor(managerID: number, userID: number): Observable<String> {
+    return this.httpClient
+      .put<String>(`${this.endPoint}/accounts/unassignFromManager/${userID}`, managerID, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+
 
   getReservedVehicles(storyID: number): Observable<Vehicle[]> {
     return this.httpClient

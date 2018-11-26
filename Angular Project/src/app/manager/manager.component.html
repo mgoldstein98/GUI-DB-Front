@@ -1,6 +1,6 @@
 <div *ngIf="manager">
   <div id="accordion">
-    <div class="card" *ngFor="let anchor of manager.myAnchors; let i = index;">
+    <div class="card" *ngFor="let anchor of myAnchors; let i = index;">
       <div class="card-header" id="headingOne">
         <h5 class="mb-0">
           <!-- try to use index for index based attributes like data-target  -->
@@ -21,5 +21,5 @@
 
 
 
-    <button class="mt-3" id="ROUTE-TO-MATABLE-PAGE">Manage Anchors</button>
+    <button class="btn btn-primary" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button>
   </div>
