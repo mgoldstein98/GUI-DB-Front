@@ -50,6 +50,19 @@ export class LoginComponent implements OnInit {
     // });
 
     this.auth.login(this.email, this.pass);
+
+    // this.JWTAuthService.login(this.acc).subscribe( data => {
+    //   console.log(data);
+    //   this.JWTAuthService.setToken(data.token);
+    //   if (data.auth) {
+    //     this.router.navigate(['platforms']);
+    //   } else if(data === 401) {
+    //     this.loginFailed = true;
+    //   }
+    // });
+
+
+
     // .subscribe((response) => {
 
     //   console.log('User is logged in');
