@@ -23,6 +23,7 @@ export class StoryComponent implements OnInit {
   vehicles: Vehicle[];
   experts: Expert[];
   equipment: Equipment[];
+  
 
 
   constructor(private myHttp: HttpClientRoutes) { }
@@ -33,9 +34,7 @@ export class StoryComponent implements OnInit {
     this.getReservedEquipment();
   }
 
-  onClick(){
-    console.log("hello");
-  }
+  
 
   getReservedVehicles() {
 
