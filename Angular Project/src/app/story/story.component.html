@@ -1,80 +1,76 @@
- <div class="container-fluid m-2" *ngIf="vehicles && experts && equipment">
- <div class="row">
- <div class="container">
-  <div class="card-wrapper">
-      <div class="maincard">
-        <div class="face front">
-            <img src="./assets/blue_card.jpeg">
-            <div class="card-body">
-              <h2>Title</h2>
-              
-            </div>
-        </div>
-        <div class="back">
-                <div class="card-header clearfix">
-                  <h5 class="card-title mt-2"> {{story.storyTopic}} </h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text float-left"> {{story.storyDate}}</p>
-                    <p class="card-text float-left"> {{story.startTime}} - {{story.endTime}}</p>
-                    <p class="card-text float-left"> {{story.description}}</p>
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="card mt-4" style="width: 18rem;">
-                      <div class="card-header">
-                        Vehicles
-                        <button type="button" class="btn btn-primary float-right" [routerLink]="['/manageVehicles', story.storyID]">Edit</button>
-                      </div>
-                      <div *ngIf="vehicles.length">
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item" *ngFor="let vehicle of vehicles">{{ vehicle.vehicleName }} </li>
-                        </ul>
-                      </div>
-                      <div *ngIf="!vehicles.length">
-                        <p>There are no vehicles for this story.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="card mt-4" style="width: 18rem;">
-                      <div class="card-header">
-                        Experts
-                        <button type="button" class="btn btn-primary float-right" [routerLink]="['/manageExperts', story.storyID]">Edit</button>
-                      </div>
-                      <div *ngIf="experts.length">
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item" *ngFor="let expert of experts">
-                            {{ expert.expertName }}
-                          </li>
-                        </ul>
-                      </div>
-                      <div *ngIf="!experts.length">
-                        <p>There are no experts for this story.</p>
-                      </div>
-                    </div>
-                  </div>
-              <div class="col-md-4">
-              <div class="card mt-4" style="width: 18rem;">
-                <div class="card-header">
-                  Equipment
-                  <button type="button" class="btn btn-primary float-right" [routerLink]="['/manageEquipment', story.storyID]">Edit</button>
-                </div>
-                <div *ngIf="equipment.length">
-                  <ul class="list-group list-group-flush ">
-                    <li class="list-group-item d-inline" *ngFor="let equip of equipment">{{ equip.equipName }} </li>
+<div class="container-fluid m-2" *ngIf="vehicles && experts && equipment">
+  <div class="card">
+    <div class="card-header clearfix">
+      <h5 class="card-title mt-2"> {{story.storyTopic}} </h5>
+    </div>
+    <div class="card-body">
+      <label class=""> Details</label>
+      <ul>
+        <li>
+          <p class="card-text">Date: {{story.storyDate}}</p>
+        </li>
+      
+        <li>
+          <p class="card-text">Time Slot: {{story.startTime}} - {{story.endTime}}</p>
+        </li>
 
-                  </ul>
-                </div>
-                <div *ngIf="!equipment.length">
-                  <p>There is no equipment for this story.</p>
-                </div>
-              </div>
+        <li>
+          <p class="card-text">Description:  {{story.description}}</p>
+        </li>
+      </ul>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mt-4" style="width: 18rem;">
+            <div class="card-header">
+              Vehicles
+              <button type="button" class="btn btn-primary float-right" [routerLink]="['/manageVehicles', story.storyID]">Edit</button>
             </div>
+            <div *ngIf="vehicles.length">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let vehicle of vehicles">{{ vehicle.vehicleName }} </li>
+              </ul>
+            </div>
+            <div *ngIf="!vehicles.length">
+              <p>There are no vehicles for this story.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mt-4" style="width: 18rem;">
+            <div class="card-header">
+              Experts
+              <button type="button" class="btn btn-primary float-right" [routerLink]="['/manageExperts', story.storyID]">Edit</button>
+            </div>
+            <div *ngIf="experts.length">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let expert of experts">
+                  {{ expert.expertName }}
+                </li>
+              </ul>
+            </div>
+            <div *ngIf="!experts.length">
+              <p>There are no experts for this story.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mt-4" style="width: 18rem;">
+            <div class="card-header">
+              Equipment
+              <button type="button" class="btn btn-primary float-right" [routerLink]="['/manageEquipment', story.storyID]">Edit</button>
+            </div>
+            <div *ngIf="equipment.length">
+              <ul class="list-group list-group-flush ">
+                <li class="list-group-item d-inline" *ngFor="let equip of equipment">{{ equip.equipName }} </li>
+
+              </ul>
+            </div>
+            <div *ngIf="!equipment.length">
+              <p>There is no equipment for this story.</p>
             </div>
           </div>
         </div>
       </div>
-   </div>
-   </div>
-   </div>
+    </div>
+  </div>
 </div>
