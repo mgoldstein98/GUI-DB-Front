@@ -7,3 +7,10 @@
   <app-story [anchor]='anchor' [story]="story"></app-story>
 </div>
 
+<div class="container text-white" style="height:800px;">
+  <div [ngSwitch]="myStories?.length">
+    <hr/>
+    <div *ngSwitchCase=0><h2 class="lead" >No stories claimed.</h2></div>
+  </div>
+</div>
+
