@@ -1,5 +1,6 @@
-<div class="container" *ngIf="account">
-  <h1>Account Creation</h1>
+<div class="background">
+  <img src="./../../assets/room2.jpg">
+  <div class="container" *ngIf="account">
   <div class="row">
     <div class="col-md-8">
       <div class="card">
@@ -7,10 +8,9 @@
           Account Information
         </div>
         <div class="card-body">
-
-
           <div id="login-forms" class="d-flex justify-content-center">
             <form [formGroup]="form" (ngSubmit)="createAccount()">
+
 
               <div class="form-group">
                 <span class="text-danger asterisk">*</span>
@@ -84,6 +84,7 @@
       </button>
     </div>
   </div>
+  
 </div>
 <br />
 

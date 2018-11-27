@@ -1,4 +1,13 @@
 #navbar {
   height: 10vh;
   width: 100vw;
+  background-color: #00303F;
+  color:white;
+  
 }
+
+.nav-link{
+  float:right;
+}
+
+

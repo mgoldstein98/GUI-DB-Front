@@ -1,9 +1,16 @@
 <!-- <app-navbar></app-navbar>
 <app-welcome></app-welcome> -->
 
-<button [routerLink]="['/manageStories', anchor.userID]" class="btn btn-primary">Manage Stories</button>
+<button [routerLink]="['/manageStories', anchor.userID]" id="man-btn" class="btn btn-primary">Manage Stories</button>
 
 <div *ngFor="let story of myStories">
   <app-story [anchor]='anchor' [story]="story"></app-story>
+</div>
+
+<div class="container text-white" style="height:800px;">
+  <div [ngSwitch]="myStories?.length">
+    <hr/>
+    <div *ngSwitchCase=0><h2 class="lead" >No stories claimed.</h2></div>
+  </div>
 </div>
 

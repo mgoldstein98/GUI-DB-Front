@@ -12,16 +12,18 @@ import { Equipment } from './models/equipment';
 export class HttpClientRoutes {
 
   protected endPoint = 'http://54.203.53.152:8080';
+  headers;
 
   protected httpOptions = {
     headers: new HttpHeaders({
-      // ?????
     })
   };
 
   constructor(
     protected httpClient: HttpClient
-  ) { }
+  ) { 
+
+  }
 
 
   login(email: string, pass: string): Observable<Account> {
@@ -138,7 +140,7 @@ export class HttpClientRoutes {
 
   getAvailableEquipment(storyID: number): Observable<Equipment[]> {
     return this.httpClient
-      .get<Equipment[]>(`${this.endPoint}/stories/availableEquipment/${storyID}`, this.httpOptions)
+      .get<Equipment[]>(`${this.endPoint}/stories/availableEquipment/${storyID}`, this.httpOptions )
       .pipe(catchError(this.handleException));
   }
 

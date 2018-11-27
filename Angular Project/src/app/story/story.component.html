@@ -1,22 +1,27 @@
 <div class="container-fluid m-2" *ngIf="vehicles && experts && equipment">
-  <div class="card">
+  <div class="card bg-dark text-white">
     <div class="card-header clearfix">
       <h5 class="card-title mt-2"> {{story.storyTopic}} </h5>
     </div>
     <div class="card-body">
-      <div class="row">
-        <p class="card-text p-3"> {{story.storyDate}}</p>
-      </div>
-      <div class="row">
-        <p class="card-text p-3"> {{story.startTime}} - {{story.endTime}}</p>
-      </div>
-      <div class="row">
-        <p class="card-text p-3"> {{story.description}}</p>
-      </div>
+      <label class=""> Details</label>
+      <ul>
+        <li>
+          <p class="card-text">Date: {{story.storyDate}}</p>
+        </li>
+      
+        <li>
+          <p class="card-text">Time Slot: {{story.startTime}} - {{story.endTime}}</p>
+        </li>
+
+        <li>
+          <p class="card-text">Description:  {{story.description}}</p>
+        </li>
+      </ul>
       <div class="row">
         <div class="col-md-4">
-          <div class="card mt-4" style="width: 18rem;">
-            <div class="card-header">
+          <div class="card bg-dark text-dark mt-4" style="width: 18rem;">
+            <div class="card-header text-white">
               Vehicles
               <button type="button" class="btn btn-primary float-right" [routerLink]="['/manageVehicles', story.storyID]">Edit</button>
             </div>
@@ -31,8 +36,8 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card mt-4" style="width: 18rem;">
-            <div class="card-header">
+          <div class="card bg-dark text-dark mt-4" style="width: 18rem;">
+            <div class="card-header text-white">
               Experts
               <button type="button" class="btn btn-primary float-right" [routerLink]="['/manageExperts', story.storyID]">Edit</button>
             </div>
@@ -49,8 +54,8 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card mt-4" style="width: 18rem;">
-            <div class="card-header">
+          <div class="card bg-dark text-dark mt-4" style="width: 18rem;">
+            <div class="card-header text-white">
               Equipment
               <button type="button" class="btn btn-primary float-right" [routerLink]="['/manageEquipment', story.storyID]">Edit</button>
             </div>

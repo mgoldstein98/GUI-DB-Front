@@ -1,20 +1,21 @@
-.overlay {
-    background: black;
-    position: absolute;
-    opacity: 0.4;
-    width: 100vw;
-    z-index: 1;
-    height: 100vh;
-  }
-  #blueHomeCenter {
-    background-image: url("../../assets/earth.jpg");
-    height: 100vh;
-    background-size: cover;
+.background{
+  box-sizing: border-box;
+    background-color: #52658F;
+    background-size: 100% 100%;
+    height: auto;
+    width: auto;
+}
+
+  h2{
+    padding-top: 30px;
+    padding-left: 100px;
   }
 
-  h2, h4, th, td, h1 {
-      color: #FFFFFF;
-      position: relative;
-      z-index: 10;
+  h1{
+    color: whitesmoke;
   }
 
+#username{
+  padding-left: 200px;
+  font-size: 24px;
+}

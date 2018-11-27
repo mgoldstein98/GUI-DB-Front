@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
 
+
 import { AuthService } from './domain/auth.service';
 import { AuthInterceptor } from './domain/auth-interceptor';
 import { HttpClientRoutes } from './domain/http-client-routes.service';
@@ -29,6 +30,7 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EquipCalendarComponent } from './equip-calendar/equip-calendar.component';
 import { VehicleCalendarComponent } from './vehicle-calendar/vehicle-calendar.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   imports: [
@@ -46,7 +48,8 @@ import { VehicleCalendarComponent } from './vehicle-calendar/vehicle-calendar.co
   declarations: [
     VehicleComponent,
     LandingpageComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProfileComponent
   ]
 })
 export class MaterialModule { }
@@ -71,7 +74,8 @@ export class MaterialModule { }
     LandingpageComponent,
     NavbarComponent,
     EquipCalendarComponent,
-    VehicleCalendarComponent
+    VehicleCalendarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
