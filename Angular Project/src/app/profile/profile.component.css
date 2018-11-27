@@ -36,4 +36,10 @@ body{
 
 .background{
     height:100vh;
+    background-color: #52658F;
+}
+
+.user{
+    margin-top: 5rem;
+    margin-left: 1rem;
 }
