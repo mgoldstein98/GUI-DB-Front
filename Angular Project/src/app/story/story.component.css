@@ -1,22 +1,28 @@
 .maincard{  
-    height: 30rem;
+    height: 10rem;
     width: 60rem;
     transform-style:preserve-3d;
     -webkit-transition: transform 1.5s; /* Safari and Chrome */
     transition: transform 1.5s;
+    position: relative;
+    z-index:1;
+   
   }
   .front{
     backface-visibility: hidden;
     text-align: center;
     font-family: Helvetica;
+    position: relative;
+    z-index: 1;
   }
   .back{
-    position: absolute;
+    position: relative;
     background-color: #999999;
     backface-visibility: hidden;
     
     color: #fff;
     font-family: Helvetica;
+    z-index: 10;
     
     /* rotating the back face of the card */
     -ms-transform: rotateY(-180deg); /* IE 9 */
@@ -29,6 +35,8 @@
   }
 
   .maincard:hover {
+    position: relative;
+    z-index: 11;
     -ms-transform: rotateY(-180deg); /* IE 9 */
     -webkit-transform: rotateY(-180deg); /* Safari Chrome */
     transform: rotateY(-180deg);

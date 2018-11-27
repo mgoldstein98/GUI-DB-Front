@@ -1,9 +1,12 @@
-<button [routerLink]="['/manageStories', anchor.userID]" id="man-btn" class="btn btn-primarymb-2">Manage Stories</button>
 <br />
 <br/>
+<button [routerLink]="['/manageStories', anchor.userID]" id="man-btn" class="btn btn-primarymb-2">Manage Stories</button>
 <div *ngFor="let story of myStories">
+ 
   <app-story [anchor]='anchor' [story]="story"></app-story>
+  
 </div>
+
 
 <div class="container text-white" style="height:800px;">
   <div [ngSwitch]="myStories?.length">

@@ -18,6 +18,9 @@ export class NavbarComponent implements OnInit {
     this.auth.logout();
   }
 
+  navToHome(){
+    this.router.navigateByUrl(`home/${localStorage.getItem('id')}`);
+  }
   navToCal() {
     this.router.navigateByUrl(`calendar/${localStorage.getItem('id')}`);
   }

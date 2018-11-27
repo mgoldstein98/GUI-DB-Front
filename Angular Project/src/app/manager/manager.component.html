@@ -1,4 +1,10 @@
-<button class="btn btn-primary float-right" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button>
+<div class="row">
+ <button class="btn btn-primary float-right" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button>
+ <button class="btn btn-primary float-right" >Add Vehicles</button>
+ <button class="btn btn-primary float-right" >Add Equipment</button>
+ <button class="btn btn-primary float-right" >Add Expert</button>
+</div>
+
 <div class="p-5">
 <div *ngIf="manager">
   <div id="accordion">
@@ -20,4 +26,10 @@
       </div>
     </div>
 
-<button class="btn btn-primary" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button>
+<div class="container text-white" style="height:800px;">
+  <div [ngSwitch]="myAnchors?.length">
+    <hr/>
+    <div *ngSwitchCase=0><h2 class="lead" >No Anchors claimed.</h2></div>
+  </div>
+</div>
+
