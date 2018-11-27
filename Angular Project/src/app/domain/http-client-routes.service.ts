@@ -21,7 +21,7 @@ export class HttpClientRoutes {
 
   constructor(
     protected httpClient: HttpClient
-  ) { 
+  ) {
 
   }
 
@@ -208,6 +208,12 @@ export class HttpClientRoutes {
   getMyReservedEquipment(anchorID: number): Observable<Object> {
     return this.httpClient
       .get<Object>(`${this.endPoint}/equipment/reserved/${anchorID}`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  addVehicle(vehicleName: string, vehicleType: string, color: string, model: string): Observable<String> {
+    return this.httpClient
+      .post<String>(`${this.endPoint}/vehicles/add`, {vehicleName, vehicleType, color, model}, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
