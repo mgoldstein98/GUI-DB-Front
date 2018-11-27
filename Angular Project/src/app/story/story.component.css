@@ -1,4 +1,4 @@
-.maincard{  
+.maincard{
     position:relative;
     width:900px;
     height:900px;
@@ -24,12 +24,12 @@
     width:100%;
     background-color: #999999;
     backface-visibility: hidden;
-    
+
     color: #fff;
     text-align: center;
     line-height: 208px;
     font-family: Helvetica;
-    
+
     /* rotating the back face of the card */
     -ms-transform: rotateY(-180deg); /* IE 9 */
     -webkit-transform: rotateY(-180deg); /* Safari */

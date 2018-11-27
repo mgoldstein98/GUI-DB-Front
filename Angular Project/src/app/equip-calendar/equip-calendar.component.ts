@@ -23,12 +23,12 @@ export class EquipCalendarComponent implements OnInit {
   ngOnInit() {
     this.myHttp.getMyReservedEquipment(this.anchor.userID).subscribe((reservations) => {
       for (let entry in reservations) {
-        console.log(reservations[entry]);
         this.dates.push(new Event(reservations[entry].storyTopic.concat(" ", reservations[entry].equipName), reservations[entry].storyDate, reservations[entry].model));
       }
       if (this.dates.length === 7) {
         $('#calendar').fullCalendar({
           // put your options and callbacks here
+          showNonCurrentDates: false,
           height: 10,
           contentHeight: 600,
           events:
@@ -69,12 +69,13 @@ export class EquipCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#32CD32'
+          eventColor: '#7a8cb3'
         });
       }
       if (this.dates.length === 6) {
         $('#calendar').fullCalendar({
           // put your options and callbacks here
+          showNonCurrentDates: false,
           height: 10,
           contentHeight: 600,
           events:
@@ -110,12 +111,13 @@ export class EquipCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#32CD32'
+          eventColor: '#7a8cb3'
         });
       }
       if (this.dates.length === 5) {
         $('#calendar').fullCalendar({
           // put your options and callbacks here
+          showNonCurrentDates: false,
           height: 10,
           contentHeight: 600,
           events:
@@ -146,12 +148,13 @@ export class EquipCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#32CD32'
+          eventColor: '#7a8cb3'
         });
       }
       if (this.dates.length === 4) {
         $('#calendar').fullCalendar({
           // put your options and callbacks here
+          showNonCurrentDates: false,
           height: 10,
           contentHeight: 600,
           events:
@@ -177,12 +180,13 @@ export class EquipCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#32CD32'
+          eventColor: '#7a8cb3'
         });
       }
       if (this.dates.length === 3) {
         $('#calendar').fullCalendar({
           // put your options and callbacks here
+          showNonCurrentDates: false,
           height: 10,
           contentHeight: 600,
           events:
@@ -203,12 +207,13 @@ export class EquipCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#32CD32'
+          eventColor: '#7a8cb3'
         });
       }
       if (this.dates.length === 2) {
         $('#calendar').fullCalendar({
           // put your options and callbacks here
+          showNonCurrentDates: false,
           height: 10,
           contentHeight: 600,
           events:
@@ -224,12 +229,13 @@ export class EquipCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#32CD32'
+          eventColor: '#7a8cb3'
         });
       }
       if (this.dates.length === 1) {
         $('#calendar').fullCalendar({
           // put your options and callbacks here
+          showNonCurrentDates: false,
           height: 10,
           contentHeight: 600,
           events:
@@ -240,12 +246,13 @@ export class EquipCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#32CD32',
+          eventColor: '#7a8cb3',
         });
       }
       if (this.dates.length === 0) {
         $('#calendar').fullCalendar({
           // put your options and callbacks here
+          showNonCurrentDates: false,
           height: 10,
           contentHeight: 600,
           events:
