@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+<div class="background bg-dark">
 <div class="container" *ngIf="account">
         <div class="row">
             <div class="col-12">
@@ -14,8 +15,7 @@
                                     </div>
                                 </div>
                                 <div class="userData ml-3">
-                                    <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a href="javascript:void(0);">Some Name</a></h2>
-
+                                    <h2 class="d-block" style="font-weight: bold; top: 50px;">{{ account.userName }}</h2>
                                 </div>
                                 <div class="ml-auto">
                                     <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
@@ -71,4 +71,5 @@
                 </div>
             </div>
         </div>
+</div>
 </div>
