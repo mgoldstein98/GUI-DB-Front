@@ -57,7 +57,12 @@ export class AuthService {
   }
 
   public isLoggedIn() {
-    return moment().isBefore(this.getExpiration());
+
+    // need to do this with expiry time
+    // return moment().isBefore(this.getExpiration());
+
+    // for now checks for id_tok
+    return localStorage.getItem('id_token') != null;
   }
 
   isLoggedOut() {
