@@ -7,8 +7,7 @@
 <div *ngFor="let story of myStories; let i = index">
   <br/>
   <app-story [anchor]='anchor' [story]="story"></app-story>
-  <br/>
-  <button class="btn btn-danger" (click)="markDone(i)">WE B-O-O-L-I-N</button>
+  <button class="btn btn-secondary ml-4 w-75 float-center text-center" (click)="markDone(i)">Mark Story As Done</button>
 </div>
 
 
