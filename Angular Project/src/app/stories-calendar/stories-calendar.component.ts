@@ -24,10 +24,6 @@ export class StoriesCalendarComponent implements OnInit {
   constructor(private route: ActivatedRoute, private myHttp: HttpClientRoutes) { }
 
   ngOnInit() {
-    this.anchor = {
-      userID: 1,
-      userName: "Bob McBob"
-    }
     this.myHttp.getMyStories(this.anchor.userID).subscribe((stories) => {
       for (let entry in stories) {
         this.dates.push(new Event(stories[entry].storyTopic, stories[entry].storyDate, stories[entry].description));
