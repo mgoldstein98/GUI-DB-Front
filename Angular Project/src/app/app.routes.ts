@@ -8,15 +8,19 @@ import { AnStoryComponent } from './an-story/an-story.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { ExpertComponent } from './expert/expert.component';
 import { EquipmentComponent } from './equipment/equipment.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 export const APP_ROUTES: Routes = [
   { path: '', component: LandingpageComponent },
   { path: 'register', component: AccountCreationComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'profile/:userID', component: ProfileComponent},
   { path: 'home/:userID', component: HomepageComponent },
   { path: 'manageAnchors/:userID', component: MatableComponent },
   { path: 'manageStories/:userID', component: AnStoryComponent },
   { path: 'manageVehicles/:storyID', component: VehicleComponent },
   { path: 'manageEquipment/:storyID', component: EquipmentComponent },
-  { path: 'manageExperts/:storyID', component: ExpertComponent }
+  { path: 'manageExperts/:storyID', component: ExpertComponent },
+  { path: 'calendar/:userID', component: CalendarComponent}
 ];

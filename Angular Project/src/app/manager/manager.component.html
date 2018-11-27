@@ -20,10 +20,4 @@
       </div>
     </div>
 
-<div class="container text-white" style="height:800px;">
-  <div [ngSwitch]="myAnchors?.length">
-    <hr/>
-    <div *ngSwitchCase=0><h2 class="lead" >No Anchors claimed.</h2></div>
-  </div>
-</div>
-</div>
+<button class="btn btn-primary" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button>

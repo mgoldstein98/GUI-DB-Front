@@ -10,10 +10,13 @@
         <div class="card-body">
           <div id="login-forms" class="d-flex justify-content-center">
             <form [formGroup]="form" (ngSubmit)="createAccount()">
+
+
               <div class="form-group">
                 <span class="text-danger asterisk">*</span>
                 <label for="name" class="form-field-labels">Name</label>
                 <input type="text" formControlName="name" class="form-control" [(ngModel)]="account.userName" />
+
               </div>
 
               <div class="text-danger" *ngIf="form.controls['name'].touched && form.controls['name'].errors?.required">Name

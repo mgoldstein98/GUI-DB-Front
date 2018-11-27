@@ -1,8 +1,11 @@
-<div class="container-fluid m-2" *ngIf="vehicles && experts && equipment">
-  <div class="card">
+<div class="container-fluid" *ngIf="vehicles && experts && equipment">
+  <div class="maincard">
+    <div class="front">
     <div class="card-header bg-dark text-white clearfix">
-      <h5 class="card-title mt-2"> {{story.storyTopic}} </h5>
+      <h5 class="card-title"> {{story.storyTopic}} </h5>
     </div>
+    </div>
+    <div class="back">
     <div class="card-body text-dark bg-light">
       <label class=""> Details</label>
       <ul>
@@ -73,4 +76,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
