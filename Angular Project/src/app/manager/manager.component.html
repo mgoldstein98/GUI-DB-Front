@@ -1,29 +1,17 @@
 <button class="btn btn-primary" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button>
 <div *ngIf="manager">
-  <div class="panel-group" [attr.id]="'accordion_' + i" *ngFor="let anchor of myAnchors; let i = index;">
-    <div class="panel panel-default">
-      <div class="panel-heading bg-light">
-        <div class="card-header">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i">
-                {{anchor.userName }}</a>
-              </h4>
-        </div>
+<div class="card" *ngFor="let anchor of myAnchors;let i = index;">
+      <div class="card-header">
+          <h4>{{anchor.userName }}</h4>
       </div>
-      <div [attr.id]="'collapseOne_' + i" class="panel-collapse collapse in">
-        <div class="panel-body">
-          <div class="card-body">
-            <app-anchor [anchor]="this.anchor"></app-anchor>
-          </div>
-        </div>
+      <div class="card-body bg-light ">
+        <app-anchor [anchor]="this.anchor"></app-anchor>
       </div>
-    </div>
   </div>
 </div>
 
 <div class="container text-white" style="height:800px;">
   <div [ngSwitch]="myAnchors?.length">
-    <hr/>
     <div *ngSwitchCase=0><h2 class="lead" >No Anchors claimed.</h2></div>
   </div>
 </div>
