@@ -9,7 +9,7 @@
 .container{
   position: absolute; 
   top:300px;
-  right: 0px;
+  right: -200px;
 }
 
 h2 {
