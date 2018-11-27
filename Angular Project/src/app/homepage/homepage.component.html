@@ -1,7 +1,7 @@
-<div *ngIf="user">
+<div class="background" *ngIf="user">
   <app-navbar></app-navbar>
-  <h1> WELCOME,</h1>
-   <p id="username" class="lead font-italic">{{this.user.userName}}</p>
+  <h1 class="text-dark"> WELCOME,</h1>
+   <p id="username" class="lead font-italic text-white">{{this.user.userName}}</p>
   <div class=container *ngIf="user.typeFlag == 0">
     <app-manager [manager]="user"></app-manager>
   </div>
