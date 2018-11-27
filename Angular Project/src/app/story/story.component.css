@@ -45,3 +45,7 @@
     -webkit-transform: rotateY(-180deg); /* Safari Chrome */
     transform: rotateY(-180deg);
   }
+
+  .card{
+    color: lightblue;
+  }

@@ -12,7 +12,8 @@
   }
 
   h1{
-    color: whitesmoke;
+    color: darkgray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
 #username{
