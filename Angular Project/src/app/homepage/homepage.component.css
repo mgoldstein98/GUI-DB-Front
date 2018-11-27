@@ -1,19 +1,14 @@
 .background{
-  box-sizing: border-box;
+  
     background-color: #52658F;
-    background-size: 100% 100%;
-    height: auto;
-    width: auto;
+    height: 100%;
+    
 }
 
-  h2{
-    padding-top: 30px;
-    padding-left: 100px;
-  }
-
-  h1{
-    color: whitesmoke;
-  }
+h1{
+  color: darkgray;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
 #username{
   padding-left: 200px;

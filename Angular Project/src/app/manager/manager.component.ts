@@ -8,7 +8,7 @@ import { HttpClientRoutes } from './../domain/http-client-routes.service';
   styleUrls: ['./manager.component.css']
 })
 export class ManagerComponent implements OnInit {
-  step = 0;
+  
   @Input()
   manager: Account;
 
@@ -21,7 +21,7 @@ export class ManagerComponent implements OnInit {
     this.getAnchors();
   }
 
-  
+
   getAnchors() {
     this.myHttp.getMyAnchors(this.manager.userID).subscribe((anchors) => {
       console.log('GETTING ANCHORS ' + anchors);
