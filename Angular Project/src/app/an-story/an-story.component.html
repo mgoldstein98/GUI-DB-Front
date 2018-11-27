@@ -1,7 +1,9 @@
 <div class="background">
   <div *ngIf="anchor">
     <app-navbar></app-navbar>
-    <div class="container col-xs-6">
+    <div class="p-5">
+    <div class="row">
+    <div class="container text-white col-xs-6 p-6">
       <h2 class="sub-header">Stories
       </h2>
       <div [ngSwitch]="myStories?.length">
@@ -33,7 +35,7 @@
         </table>
       </div>
     </div>
-    <div class="container col-xs-6">
+    <div class="container text-white col-xs-6">
       <h2 class="sub-header">Available Stories</h2>
       <div [ngSwitch]="availableStories?.length">
         <div *ngSwitchCase=0>
@@ -66,5 +68,7 @@
       </div>
     </div>
   </div>
+  </div>
+</div>
 </div>
 
