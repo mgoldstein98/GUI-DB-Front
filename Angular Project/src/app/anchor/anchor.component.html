@@ -1,12 +1,11 @@
-<br />
-<br/>
-<button [routerLink]="['/manageStories', anchor.userID]" id="man-btn" class="btn btn-primarymb-2">Manage Stories</button>
-<br/>
-<br/>
-<div *ngFor="let story of myStories">
- 
+<!-- <app-navbar></app-navbar>
+<app-welcome></app-welcome> -->
+
+<button [routerLink]="['/manageStories', anchor.userID]" id="man-btn" class="btn btn-primary">Manage Stories</button>
+
+<div *ngFor="let story of myStories; let i = index">
   <app-story [anchor]='anchor' [story]="story"></app-story>
-  
+  <button class="btn btn-danger" (click)="markDone(i)">WE B-O-O-L-I-N</button>
 </div>
 
 
