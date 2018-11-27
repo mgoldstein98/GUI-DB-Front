@@ -1,3 +1,4 @@
+<button class="btn btn-primary" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button>
 <div *ngIf="manager">
   <div class="panel-group" [attr.id]="'accordion_' + i" *ngFor="let anchor of myAnchors; let i = index;">
     <div class="panel panel-default">
@@ -19,3 +20,11 @@
     </div>
   </div>
 </div>
+
+<div class="container text-white" style="height:800px;">
+  <div [ngSwitch]="myAnchors?.length">
+    <hr/>
+    <div *ngSwitchCase=0><h2 class="lead" >No Anchors claimed.</h2></div>
+  </div>
+</div>
+
