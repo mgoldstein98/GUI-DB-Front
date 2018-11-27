@@ -1,9 +1,9 @@
-<div *ngIf="manager">
+<!-- <div *ngIf="manager">
   <div id="accordion">
     <div class="card" *ngFor="let anchor of myAnchors; let i = index;">
       <div class="card-header" id="headingOne">
         <h5 class="mb-0">
-          <!-- try to use index for index based attributes like data-target  -->
+
           <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
             aria-controls="collapseOne">
             {{anchor.userName}}
@@ -18,4 +18,26 @@
       </div>
     </div>
 
-<button class="btn btn-primary" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button>
+<button class="btn btn-primary" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button> -->
+<div *ngIf="manager">
+  <div class="panel-group" [attr.id]="'accordion_' + i" *ngFor="let anchor of myAnchors; let i = index;">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="card-header">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i">{{
+                  anchor.userName }}</a>
+              </h4>
+        </div>
+
+      </div>
+      <div [attr.id]="'collapseOne_' + i" class="panel-collapse collapse in">
+        <div class="panel-body">
+          <div class="card-body">
+            <app-anchor [anchor]="this.anchor"></app-anchor>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

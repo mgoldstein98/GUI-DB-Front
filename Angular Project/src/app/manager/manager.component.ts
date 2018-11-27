@@ -21,7 +21,7 @@ export class ManagerComponent implements OnInit {
     this.getAnchors();
   }
 
-  
+
   getAnchors() {
     this.myHttp.getMyAnchors(this.manager.userID).subscribe((anchors) => {
       console.log('GETTING ANCHORS ' + anchors);
