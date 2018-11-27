@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { EquipCalendarComponent } from '../equip-calendar/equip-calendar.component';
 import { VehicleCalendarComponent } from '../vehicle-calendar/vehicle-calendar.component';
 import { Account } from '../domain/models/account';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClientRoutes } from '../domain/http-client-routes.service';
 
 @Component({
   selector: 'app-calendar',
@@ -15,9 +17,17 @@ export class CalendarComponent implements OnInit {
 
   anchor: Account;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private myHttp: HttpClientRoutes) { }
 
   ngOnInit() {
+
+    this.route.params.subscribe(params => {
+       this.myHttp.getUser(+params['userID']).subscribe((response) => {
+         this.anchor = response[0];
+       });
+    });
     this.equipLoaded = false;
     this.vehicleLoaded = false;
   }
