@@ -42,6 +42,8 @@ export class MatableComponent implements OnInit {
   }
 
   addAnchor(index: number) {
+    console.log("man ID", this.manager.userID);
+    console.log("anchor moving", this.availableAnchors[index]);
     this.myHttp.addAnchor(this.manager.userID, this.availableAnchors[index].userID).subscribe((response) => {
       this.myAnchors.push(this.availableAnchors[index]);
       this.availableAnchors.splice(index, 1);
@@ -49,7 +51,10 @@ export class MatableComponent implements OnInit {
   }
 
   removeAnchor(index: number) {
+    console.log("man ID", this.manager.userID);
+    console.log("anchor moving", this.myAnchors[index]);
     this.myHttp.removeAnchor(this.manager.userID, this.myAnchors[index].userID).subscribe((response) => {
+      console.log(response);
       this.availableAnchors.push(this.myAnchors[index]);
       this.myAnchors.splice(index, 1);
     });
