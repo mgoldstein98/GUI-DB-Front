@@ -3,8 +3,10 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule, MatTableModule, MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
+import { CanActivateRouteGuard } from './can-activate-route.guard';
 
 
 import { AuthService } from './domain/auth.service';
@@ -92,6 +94,7 @@ export class MaterialModule { }
   providers: [
     HttpClientRoutes,
     AuthService,
+    CanActivateRouteGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
