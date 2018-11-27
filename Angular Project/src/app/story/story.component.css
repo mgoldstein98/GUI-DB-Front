@@ -1,6 +1,7 @@
 .maincard{  
     height: 10rem;
     width: 60rem;
+
     transform-style:preserve-3d;
     -webkit-transition: transform 1.5s; /* Safari and Chrome */
     transition: transform 1.5s;
@@ -19,7 +20,7 @@
     position: relative;
     background-color: #999999;
     backface-visibility: hidden;
-    
+
     color: #fff;
     font-family: Helvetica;
     z-index: 10;
@@ -41,7 +42,6 @@
     -webkit-transform: rotateY(-180deg); /* Safari Chrome */
     transform: rotateY(-180deg);
   }
-
   .card{
     color: lightblue;
   }

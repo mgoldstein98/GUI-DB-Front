@@ -12,6 +12,7 @@ import { HttpClientRoutes } from '../domain/http-client-routes.service';
 })
 export class CalendarComponent implements OnInit {
 
+  storiesLoaded: boolean;
   equipLoaded: boolean;
   vehicleLoaded: boolean;
 
@@ -28,6 +29,7 @@ export class CalendarComponent implements OnInit {
          this.anchor = response[0];
        });
     });
+    this.storiesLoaded = false;
     this.equipLoaded = false;
     this.vehicleLoaded = false;
   }
@@ -35,11 +37,19 @@ export class CalendarComponent implements OnInit {
   loadEquipmentCalendar() {
     this.equipLoaded = true;
     this.vehicleLoaded = false;
+    this.storiesLoaded = false;
   }
 
   loadVehicleCalendar() {
     this.vehicleLoaded = true;
     this.equipLoaded = false;
+    this.storiesLoaded = false;
+  }
+
+  loadStoriesCalendar() {
+    this.vehicleLoaded = false;
+    this.equipLoaded = false;
+    this.storiesLoaded = true;
   }
 
 }
