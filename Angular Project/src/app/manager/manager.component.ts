@@ -32,7 +32,11 @@ export class ManagerComponent implements OnInit {
       vehicleName: ['', [Validators.required]],
       vehicleType: ['', [Validators.required]],
       vehicleColor: ['', [Validators.required]],
-      vehicleModel: ['', [Validators.required]]
+      vehicleModel: ['', [Validators.required]],
+      equipmentName: ['', [Validators.required]],
+      equipmentType: ['', [Validators.required]],
+      expertName: ['', [Validators.required]],
+      expertTopic: ['', [Validators.required]]
     });
 
     console.log('NG oN INIT');
@@ -54,12 +58,34 @@ export class ManagerComponent implements OnInit {
   addVehicle() {
     this.myHttp.addVehicle(this.vehicle.vehicleName, this.vehicle.vehicleType, this.vehicle.color, this.vehicle.model)
     .subscribe((response) => {
-      console.log('Vehicle added ' + response);
+      console.log('Vehicle added ', response);
     });
   }
 
   closeVehicle() {
     this.vehicle = {};
+  }
+
+  addEquipment() {
+    this.myHttp.addEquipment(this.equipment.equipName, this.equipment.equipType)
+    .subscribe((response) => {
+      console.log('Equipment added ', response);
+    });
+  }
+
+  closeEquipment() {
+    this.equipment = {};
+  }
+
+  addExpert() {
+    this.myHttp.addExpert(this.expert.expertName, this.expert.expertTopic)
+    .subscribe((response) => {
+      console.log('Expert added ', response);
+    });
+  }
+
+  closeExpert() {
+    this.expert = {};
   }
 
 }
