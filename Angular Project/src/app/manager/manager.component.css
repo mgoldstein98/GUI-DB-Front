@@ -1,4 +1,9 @@
-.card-body{
+.card{
+    margin-bottom: 10px;
+    height: 12rem;
+}
 
-    height: auto;
+#man-btn{
+    position: relative;
+    float: right;
 }
