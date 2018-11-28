@@ -59,7 +59,7 @@ export class HttpClientRoutes {
 
   // Called upon click of remove in anchor table by manager
   removeAnchor(managerID: number, userID: number): Observable<String> {
-    console.log("route ", managerID, ", ", userID);
+    console.log('route ', managerID, ', ', userID);
     return this.httpClient
       .put<String>(`${this.endPoint}/accounts/unassignFromManager/${userID}`, this.httpOptions)
       .pipe(catchError(this.handleException));
@@ -211,6 +211,24 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
+  addVehicle(vehicleName: string, vehicleType: string, color: string, model: string): Observable<String> {
+    return this.httpClient
+      .post<String>(`${this.endPoint}/vehicles/add`, {vehicleName, vehicleType, color, model}, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  addEquipment(equipType: string, equipName: string): Observable<String> {
+    return this.httpClient
+      .post<String>(`${this.endPoint}/equipment/add`, {equipName, equipType}, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  addExpert(expertName: string, expertTopic: string): Observable<String> {
+    return this.httpClient
+      .post<String>(`${this.endPoint}/experts/add`, {expertName, expertTopic}, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+  
   updatePoints(userID: number, storyID: number): Observable<Object> {
     return this.httpClient
       .put(`${this.endPoint}/accounts/updatePoints/${userID}/${storyID}`, this.httpOptions)
