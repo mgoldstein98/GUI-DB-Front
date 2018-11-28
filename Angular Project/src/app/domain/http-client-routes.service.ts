@@ -228,7 +228,7 @@ export class HttpClientRoutes {
       .post<String>(`${this.endPoint}/experts/add`, {expertName, expertTopic}, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
-  
+
   updatePoints(userID: number, storyID: number): Observable<Object> {
     return this.httpClient
       .put(`${this.endPoint}/accounts/updatePoints/${userID}/${storyID}`, this.httpOptions)
