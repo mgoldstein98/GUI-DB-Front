@@ -17,12 +17,12 @@ export const APP_ROUTES: Routes = [
   { path: '', component: LandingpageComponent },
   { path: 'register', component: AccountCreationComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'profile/:userID', component: ProfileComponent, canActivate: [CanActivateRouteGuard], redirectTo: ''},
-  { path: 'home/:userID', component: HomepageComponent, canActivate: [CanActivateRouteGuard], redirectTo: '' },
-  { path: 'manageAnchors/:userID', component: MatableComponent, canActivate: [CanActivateRouteGuard], redirectTo: '' },
-  { path: 'manageStories/:userID', component: AnStoryComponent, canActivate: [CanActivateRouteGuard], redirectTo: '' },
-  { path: 'manageVehicles/:storyID', component: VehicleComponent, canActivate: [CanActivateRouteGuard], redirectTo: '' },
-  { path: 'manageEquipment/:storyID', component: EquipmentComponent, canActivate: [CanActivateRouteGuard], redirectTo: '' },
-  { path: 'manageExperts/:storyID', component: ExpertComponent, canActivate: [CanActivateRouteGuard], redirectTo: '' },
-  { path: 'calendar/:userID', component: CalendarComponent, canActivate: [CanActivateRouteGuard], redirectTo: ''}
+  { path: 'profile/:userID', component: ProfileComponent, canActivate: [CanActivateRouteGuard]},
+  { path: 'home/:userID', component: HomepageComponent, canActivate: [CanActivateRouteGuard]},
+  { path: 'manageAnchors/:userID', component: MatableComponent, canActivate: [CanActivateRouteGuard]},
+  { path: 'manageStories/:userID', component: AnStoryComponent, canActivate: [CanActivateRouteGuard]},
+  { path: 'manageVehicles/:storyID', component: VehicleComponent, canActivate: [CanActivateRouteGuard]},
+  { path: 'manageEquipment/:storyID', component: EquipmentComponent, canActivate: [CanActivateRouteGuard]},
+  { path: 'manageExperts/:storyID', component: ExpertComponent, canActivate: [CanActivateRouteGuard]},
+  { path: 'calendar/:userID', component: CalendarComponent, canActivate: [CanActivateRouteGuard]}
 ];

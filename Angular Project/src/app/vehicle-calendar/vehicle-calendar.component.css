@@ -1,0 +1,11 @@
+.color-grey {
+  background-color: #52658f;
+}
+
+:host {
+  background: #52658f;
+}
+
+*.fc-today {
+  background: #8a9abc !important;
+}
