@@ -1,12 +1,16 @@
 <app-navbar></app-navbar>
-<h1 class="text-center" *ngIf="!equipLoaded && !vehicleLoaded">Please select a reservation.</h1>
+<div class="color-grey">
+  <h1 class="text-center" *ngIf="!equipLoaded && !vehicleLoaded && !storiesLoaded">Please select a reservation.</h1>
 
-<div class="row justify-content-center btn-toolbar">
-  <button class="btn btn-primary mr-2" (click)="loadVehicleCalendar()" >Vehicles</button>
-  <button class="btn btn-secondary ml-2" (click)="loadEquipmentCalendar()">Equipment</button>
-</div>
+  <div class="row justify-content-center btn-toolbar">
+    <button class="btn color-light-grey mr-2" (click)="loadVehicleCalendar()" >Vehicles</button>
+    <button class="btn color-light-grey ml-2 mr-2" (click)="loadEquipmentCalendar()">Equipment</button>
+    <button class="btn color-light-grey ml-2" (click)="loadStoriesCalendar()">Stories</button>
+  </div>
 
-<div class="container justify-content-center">
-  <app-vehicle-calendar *ngIf="vehicleLoaded" [anchor]='anchor'></app-vehicle-calendar>
-  <app-equip-calendar *ngIf="equipLoaded" [anchor]='anchor'></app-equip-calendar>
+  <div class="container justify-content-center">
+    <app-vehicle-calendar *ngIf="vehicleLoaded" [anchor]='anchor'></app-vehicle-calendar>
+    <app-equip-calendar *ngIf="equipLoaded" [anchor]='anchor'></app-equip-calendar>
+    <app-stories-calendar *ngIf="storiesLoaded" [anchor]='anchor'></app-stories-calendar>
+  </div>
 </div>

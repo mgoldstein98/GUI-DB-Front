@@ -1,3 +1,4 @@
+
 <div class="row">
   <button class="btn btn-primary float-right mr-3" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button>
   <button class="btn btn-light float-right mr-1" data-toggle="modal" data-target="#vehicleModal">Add Vehicles</button>
@@ -57,7 +58,7 @@
                 name is required</div>
 
               <div class="form-group">
-                <label for="vehicleType" class="form-field-labels">Vehicle Type: </label>
+                <label for="vehicleType" class="form-field-labels">Vehicle Make: </label>
                 <input type="text" formControlName="vehicleType" class="form-control" [(ngModel)]="vehicle.vehicleType" />
               </div>
 
@@ -131,9 +132,10 @@
             </div>
           </form>
         </div>
-      </div>
-    </div>
 
+      </div>
+  </div>
+</div>
   </div>
 
 

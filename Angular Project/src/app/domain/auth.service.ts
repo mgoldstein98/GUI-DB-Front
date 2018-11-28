@@ -18,7 +18,7 @@ export class AuthService {
   login(email: string, password: string) {
 
     this.myHttp.login(email, password).subscribe((response) => {
-      console.log('hit login');
+
 
       if (response[0] === 0) {
         console.log('INVALID CREDENTIALS. LOGIN FAILED.');
@@ -27,9 +27,6 @@ export class AuthService {
         // [1,{"userID":"actualID"}, token] is the response
         // do something with jwt in response[2] here
         // navigate using response[1];
-
-        console.log('HTTP LOGIN RESPONSE' + response);
-        console.log('Setting session');
 
         const expiresAt = moment().add(response[2].expiresIn, 'second');
         localStorage.setItem('id_token', response[2]);
@@ -57,7 +54,19 @@ export class AuthService {
   }
 
   public isLoggedIn() {
-    return moment().isBefore(this.getExpiration());
+
+    // need to do this with expiry time
+    // return moment().isBefore(this.getExpiration());
+
+    // for now checks for id_tok
+    if (localStorage.getItem('id_token') === null) {
+      this.router.navigateByUrl('');
+      return false;
+    } else {
+      return true;
+    }
+
+    // return localStorage.getItem('id_token') !== null;
   }
 
   isLoggedOut() {

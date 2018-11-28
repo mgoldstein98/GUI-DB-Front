@@ -1,33 +1,34 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Event } from '../domain/models/event';
-import { Account } from '../domain/models/account';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClientRoutes } from '../domain/http-client-routes.service';
+import { Account } from '../domain/models/account';
+import { Story } from '../domain/models/story';
+import { Event } from '../domain/models/event';
 
 import * as $ from 'jquery';
 import * as moment from 'moment';
 import 'fullcalendar';
 
 @Component({
-  selector: 'app-vehicle-calendar',
-  templateUrl: './vehicle-calendar.component.html',
-  styleUrls: ['./vehicle-calendar.component.css']
+  selector: 'app-stories-calendar',
+  templateUrl: './stories-calendar.component.html',
+  styleUrls: ['./stories-calendar.component.css']
 })
-export class VehicleCalendarComponent implements OnInit {
+export class StoriesCalendarComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private myHttp: HttpClientRoutes) { }
-  dates: Event[] = [];
-
+  myStories: Story[] = []
+  dates: Event[] = []
   @Input()
   anchor: Account;
 
+  constructor(private route: ActivatedRoute, private myHttp: HttpClientRoutes) { }
+
   ngOnInit() {
-    this.myHttp.getMyReservedVehicles(this.anchor.userID).subscribe((reservations) => {
-      console.log(reservations);
-      for (let entry in reservations) {
-        this.dates.push(new Event(reservations[entry].storyTopic.concat(", using ", reservations[entry].model).concat(" ", reservations[entry].vehicleType), reservations[entry].storyDate, reservations[entry].model));
+    this.myHttp.getMyStories(this.anchor.userID).subscribe((stories) => {
+      for (let entry in stories) {
+        this.dates.push(new Event(stories[entry].storyTopic, stories[entry].storyDate, stories[entry].description));
       }
-      if (this.dates.length >= 7) {
+      if (this.dates.length === 7) {
         $('#calendar').fullCalendar({
           // put your options and callbacks here
           showNonCurrentDates: false,
@@ -71,7 +72,7 @@ export class VehicleCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#9aa8c6'
+          eventColor: '#32CD32'
         });
       }
       if (this.dates.length === 6) {
@@ -113,7 +114,7 @@ export class VehicleCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#9aa8c6'
+          eventColor: '#32CD32'
         });
       }
       if (this.dates.length === 5) {
@@ -150,7 +151,7 @@ export class VehicleCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#9aa8c6'
+          eventColor: '#32CD32'
         });
       }
       if (this.dates.length === 4) {
@@ -182,7 +183,7 @@ export class VehicleCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#9aa8c6'
+          eventColor: '#32CD32'
         });
       }
       if (this.dates.length === 3) {
@@ -209,7 +210,7 @@ export class VehicleCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#9aa8c6'
+          eventColor: '#32CD32'
         });
       }
       if (this.dates.length === 2) {
@@ -231,7 +232,7 @@ export class VehicleCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#9aa8c6'
+          eventColor: '#32CD32'
         });
       }
       if (this.dates.length === 1) {
@@ -248,7 +249,7 @@ export class VehicleCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#9aa8c6',
+          eventColor: '#32CD32',
         });
       }
       if (this.dates.length === 0) {
@@ -263,5 +264,7 @@ export class VehicleCalendarComponent implements OnInit {
         });
       }
     })
+
   }
+
 }

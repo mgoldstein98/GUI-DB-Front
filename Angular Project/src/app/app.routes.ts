@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { CanActivateRouteGuard } from './can-activate-route.guard';
+
 import { AccountCreationComponent } from './account-creation/account-creation.component';
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -15,12 +17,13 @@ export const APP_ROUTES: Routes = [
   { path: '', component: LandingpageComponent },
   { path: 'register', component: AccountCreationComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'profile/:userID', component: ProfileComponent},
-  { path: 'home/:userID', component: HomepageComponent },
-  { path: 'manageAnchors/:userID', component: MatableComponent },
-  { path: 'manageStories/:userID', component: AnStoryComponent },
-  { path: 'manageVehicles/:storyID', component: VehicleComponent },
-  { path: 'manageEquipment/:storyID', component: EquipmentComponent },
-  { path: 'manageExperts/:storyID', component: ExpertComponent },
-  { path: 'calendar/:userID', component: CalendarComponent}
+  { path: 'profile/:userID', component: ProfileComponent, canActivate: [CanActivateRouteGuard]},
+  { path: 'home/:userID', component: HomepageComponent, canActivate: [CanActivateRouteGuard]},
+  { path: 'manageAnchors/:userID', component: MatableComponent, canActivate: [CanActivateRouteGuard]},
+  { path: 'manageStories/:userID', component: AnStoryComponent, canActivate: [CanActivateRouteGuard]},
+  { path: 'manageVehicles/:storyID', component: VehicleComponent, canActivate: [CanActivateRouteGuard]},
+  { path: 'manageEquipment/:storyID', component: EquipmentComponent, canActivate: [CanActivateRouteGuard]},
+  { path: 'manageExperts/:storyID', component: ExpertComponent, canActivate: [CanActivateRouteGuard]},
+  { path: 'calendar/:userID', component: CalendarComponent, canActivate: [CanActivateRouteGuard]}
+
 ];
