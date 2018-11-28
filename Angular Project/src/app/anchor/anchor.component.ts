@@ -28,7 +28,7 @@ export class AnchorComponent implements OnInit {
 
   markDone(index: number) {
     this.myHttp.updatePoints(this.anchor.userID, this.myStories[index].storyID).subscribe((points) => {
-      console.log("Points have been updated.");
+      console.log('Points have been updated.');
       this.myHttp.deleteStory(this.myStories[index].storyID).subscribe((deleted) => {
         this.myStories.splice(index, 1);
       })
