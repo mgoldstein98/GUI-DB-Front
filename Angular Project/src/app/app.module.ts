@@ -3,8 +3,10 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule, MatTableModule, MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
+import { CanActivateRouteGuard } from './can-activate-route.guard';
 
 
 import { AuthService } from './domain/auth.service';
@@ -31,6 +33,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { EquipCalendarComponent } from './equip-calendar/equip-calendar.component';
 import { VehicleCalendarComponent } from './vehicle-calendar/vehicle-calendar.component';
 import { ProfileComponent } from './profile/profile.component';
+import { StoriesCalendarComponent } from './stories-calendar/stories-calendar.component';
 
 @NgModule({
   imports: [
@@ -49,7 +52,8 @@ import { ProfileComponent } from './profile/profile.component';
     VehicleComponent,
     LandingpageComponent,
     NavbarComponent,
-    ProfileComponent
+    ProfileComponent,
+    StoriesCalendarComponent
   ]
 })
 export class MaterialModule { }
@@ -75,7 +79,8 @@ export class MaterialModule { }
     NavbarComponent,
     EquipCalendarComponent,
     VehicleCalendarComponent,
-    ProfileComponent
+    ProfileComponent,
+    StoriesCalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -92,6 +97,7 @@ export class MaterialModule { }
   providers: [
     HttpClientRoutes,
     AuthService,
+    CanActivateRouteGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

@@ -228,6 +228,18 @@ export class HttpClientRoutes {
       .post<String>(`${this.endPoint}/experts/add`, {expertName, expertTopic}, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
+  
+  updatePoints(userID: number, storyID: number): Observable<Object> {
+    return this.httpClient
+      .put(`${this.endPoint}/accounts/updatePoints/${userID}/${storyID}`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
+
+  deleteStory(storyID: number): Observable<Object> {
+    return this.httpClient
+      .delete(`${this.endPoint}/stories/deleteEvent/${storyID}`, this.httpOptions)
+      .pipe(catchError(this.handleException));
+  }
 
   protected handleException(exception: any) {
     const message = `${exception.status} : ${exception.statusText}\r\n${exception.message}`;

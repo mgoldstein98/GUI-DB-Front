@@ -34,8 +34,6 @@ export class LoginComponent implements OnInit {
   login() {
     this.email = this.email.trim();
     this.pass = this.pass.trim();
-    console.log('Email sent: ' + this.email);
-    console.log('Pass sent:' + this.pass);
 
     // this.myHttp.login(this.email, this.pass).subscribe((response) => {
     //   console.log(response);
@@ -50,26 +48,6 @@ export class LoginComponent implements OnInit {
     // });
 
     this.auth.login(this.email, this.pass);
-
-    // this.JWTAuthService.login(this.acc).subscribe( data => {
-    //   console.log(data);
-    //   this.JWTAuthService.setToken(data.token);
-    //   if (data.auth) {
-    //     this.router.navigate(['platforms']);
-    //   } else if(data === 401) {
-    //     this.loginFailed = true;
-    //   }
-    // });
-
-
-
-    // .subscribe((response) => {
-
-    //   console.log('User is logged in');
-    //   //this.router.navigateByUrl(`home/${response[1][0].userID}`);
-    // }
-    // );
-
   }
 
 }
