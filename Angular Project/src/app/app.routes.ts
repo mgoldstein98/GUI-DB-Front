@@ -25,4 +25,5 @@ export const APP_ROUTES: Routes = [
   { path: 'manageEquipment/:storyID', component: EquipmentComponent, canActivate: [CanActivateRouteGuard]},
   { path: 'manageExperts/:storyID', component: ExpertComponent, canActivate: [CanActivateRouteGuard]},
   { path: 'calendar/:userID', component: CalendarComponent, canActivate: [CanActivateRouteGuard]}
+
 ];
