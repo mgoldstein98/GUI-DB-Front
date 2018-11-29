@@ -15,6 +15,11 @@
   height: 100vh;
 }
 
+.btn-success {
+  background-color: blueviolet;
+  border: none;
+}
+
 #everything {
   background-image: url("./../../assets/interview.jpg");
   height: 100vh;

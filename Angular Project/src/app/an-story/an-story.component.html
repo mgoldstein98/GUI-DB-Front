@@ -27,7 +27,7 @@
                 {{story.storyTopic}}
               </td>
               <td>
-                {{story.storyDate}}
+                {{story.storyDate | date: 'mediumDate'}}
                 <button (click)="removeStory(i)" class="btn btn-danger font-weight-bold text-white float-right w-25">Remove</button>
               </td>
             </tr>
