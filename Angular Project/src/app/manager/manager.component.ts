@@ -36,7 +36,14 @@ export class ManagerComponent implements OnInit {
       equipmentName: ['', [Validators.required]],
       equipmentType: ['', [Validators.required]],
       expertName: ['', [Validators.required]],
-      expertTopic: ['', [Validators.required]]
+      expertTopic: ['', [Validators.required]],
+      storyName: ['', [Validators.required]],
+      storyDescription: ['', [Validators.required]],
+      storyDate: ['', [Validators.required]],
+      storyStart: ['', [Validators.required]],
+      storyEnd: ['', [Validators.required]],
+      storyPoints: ['', [Validators.required]]
+
     });
 
     console.log('NG oN INIT');
@@ -86,6 +93,23 @@ export class ManagerComponent implements OnInit {
 
   closeExpert() {
     this.expert = {};
+  }
+
+  addStory() {
+    this.myHttp.addStory(
+      this.story.storyTopic,
+      (this.story.storyDate).toISOString(),
+      (this.story.startTime).toISOString(),
+      (this.story.endTime).toISOString(),
+      this.story.description,
+      this.story.points)
+    .subscribe((response) => {
+      console.log('Story added ', response);
+    });
+  }
+
+  closeStory() {
+    this.story = {};
   }
 
 }
