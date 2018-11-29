@@ -7,10 +7,24 @@
     border-top: none;
 } */
 
-#done{
+#done-btn{
     position: relative;
-    /* right: -7rem; */
+    border-radius: 0px;
+    background: #efefef;
+    color: #17252A;
 }
+
+#done-btn:hover{
+  position: relative;
+  border-radius: 0px;
+  color: white;
+  background: #3AAFA9;
+}
+
+
+/* .card {
+  border-radius: 10px 10px 0px 0px;
+} */
 
 
 .text-white {
@@ -20,3 +34,7 @@
 #noStory {
   color: #3AAFA9;
 }
+
+/* .bg-our-light {
+  background: #efefef;
+} */
