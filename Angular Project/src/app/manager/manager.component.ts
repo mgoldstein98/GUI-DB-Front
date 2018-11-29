@@ -96,11 +96,14 @@ export class ManagerComponent implements OnInit {
   }
 
   addStory() {
+    console.log(this.story.storyDate);
+    console.log(this.story.startTime);
+    console.log(this.story.endTime);
     this.myHttp.addStory(
       this.story.storyTopic,
-      (this.story.storyDate).toISOString(),
-      (this.story.startTime).toISOString(),
-      (this.story.endTime).toISOString(),
+      (this.story.storyDate).toString(),
+      ((this.story.startTime).toString() + ':00'),
+      ((this.story.endTime).toString() + ':00'),
       this.story.description,
       this.story.points)
     .subscribe((response) => {

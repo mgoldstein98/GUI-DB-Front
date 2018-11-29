@@ -255,7 +255,7 @@
 
               <div class="form-group">
                 <label for="storyEnd" class="form-field-labels">Story End Time: </label>
-                <input type="date" formControlName="storyEnd" class="form-control" [(ngModel)]="story.endTime" />
+                <input type="time" formControlName="storyEnd" class="form-control" [(ngModel)]="story.endTime" />
               </div>
 
               <div class="text-danger mb-2" *ngIf="form.controls['storyEnd'].touched && form.controls['storyEnd'].errors?.required">Story
