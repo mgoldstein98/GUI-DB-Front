@@ -9,7 +9,7 @@
             <div *ngSwitchCase=0 class="mb-4 mt-4 ml-3">
               No stories claimed.
             </div>
-            <table *ngSwitchDefault class="table">
+            <table *ngSwitchDefault class="table table-striped">
               <thead>
                 <tr>
                   <th>
@@ -46,7 +46,7 @@
                   </td>
                   <td>
                     {{story.points}}
-                    <button (click)="removeStory(i)" class="btn btn-danger font-weight-bold text-white float-right w-25">Remove</button>
+                    <button (click)="removeStory(i)" class="btn btn-danger font-weight-bold text-white float-right">Remove</button>
                   </td>
                 </tr>
               </tbody>
@@ -95,7 +95,7 @@
                   </td>
                   <td>
                     {{story.points}}
-                    <button (click)="addStory(i)" class="btn btn-success font-weight-bold text-white float-right w-25">Add</button>
+                    <button (click)="addStory(i)" class="btn btn-success font-weight-bold text-white float-right">Add</button>
                   </td>
                 </tr>
               </tbody>
