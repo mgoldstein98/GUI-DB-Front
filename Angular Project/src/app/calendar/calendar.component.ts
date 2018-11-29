@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { EquipCalendarComponent } from '../equip-calendar/equip-calendar.component';
 import { VehicleCalendarComponent } from '../vehicle-calendar/vehicle-calendar.component';
-import { ExpertTableComponent } from '../expert-table/expert-table.component';
 import { Account } from '../domain/models/account';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClientRoutes } from '../domain/http-client-routes.service';

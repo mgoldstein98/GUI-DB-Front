@@ -21,10 +21,9 @@ export class ExpertTableComponent implements OnInit {
   anchor: Account;
 
   ngOnInit() {
-    this.myHttp.getMyReservedExperts(this.anchor.userID).subscribe((reservations) => {
+    this.myHttp.getMyReservedVehicles(this.anchor.userID).subscribe((reservations) => {
       console.log(reservations);
       for (let entry in reservations) {
-        console.log(entry);
         this.dates.push(new Event(reservations[entry].storyTopic, reservations[entry].storyDate, reservations[entry].expertName));
       }
       if (this.dates.length >= 7) {
@@ -71,7 +70,7 @@ export class ExpertTableComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#3AAFA9'
+          eventColor: '#9aa8c6'
         });
       }
       if (this.dates.length === 6) {
@@ -113,7 +112,7 @@ export class ExpertTableComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#3AAFA9'
+          eventColor: '#9aa8c6'
         });
       }
       if (this.dates.length === 5) {
@@ -150,7 +149,7 @@ export class ExpertTableComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#3AAFA9'
+          eventColor: '#9aa8c6'
         });
       }
       if (this.dates.length === 4) {
@@ -182,7 +181,7 @@ export class ExpertTableComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#3AAFA9'
+          eventColor: '#9aa8c6'
         });
       }
       if (this.dates.length === 3) {
@@ -209,7 +208,7 @@ export class ExpertTableComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#3AAFA9'
+          eventColor: '#9aa8c6'
         });
       }
       if (this.dates.length === 2) {
@@ -231,7 +230,7 @@ export class ExpertTableComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#3AAFA9'
+          eventColor: '#9aa8c6'
         });
       }
       if (this.dates.length === 1) {
@@ -248,7 +247,7 @@ export class ExpertTableComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#3AAFA9',
+          eventColor: '#9aa8c6',
         });
       }
       if (this.dates.length === 0) {

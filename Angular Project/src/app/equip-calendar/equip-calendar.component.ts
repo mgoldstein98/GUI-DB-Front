@@ -69,7 +69,7 @@ export class EquipCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#3AAFA9'
+          eventColor: '#7a8cb3'
         });
       }
       if (this.dates.length === 6) {
@@ -111,7 +111,7 @@ export class EquipCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#3AAFA9'
+          eventColor: '#7a8cb3'
         });
       }
       if (this.dates.length === 5) {
@@ -148,7 +148,7 @@ export class EquipCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#3AAFA9'
+          eventColor: '#7a8cb3'
         });
       }
       if (this.dates.length === 4) {
@@ -180,7 +180,7 @@ export class EquipCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#3AAFA9'
+          eventColor: '#7a8cb3'
         });
       }
       if (this.dates.length === 3) {
@@ -207,7 +207,7 @@ export class EquipCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#3AAFA9'
+          eventColor: '#7a8cb3'
         });
       }
       if (this.dates.length === 2) {
@@ -229,7 +229,7 @@ export class EquipCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#3AAFA9'
+          eventColor: '#7a8cb3'
         });
       }
       if (this.dates.length === 1) {
@@ -246,7 +246,7 @@ export class EquipCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#3AAFA9',
+          eventColor: '#7a8cb3',
         });
       }
       if (this.dates.length === 0) {
