@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="color-grey">
-  <h1 class="text-center" *ngIf="!equipLoaded && !vehicleLoaded && !storiesLoaded">Please select a reservation.</h1>
+  <h1 class="text-center" *ngIf="!equipLoaded && !vehicleLoaded && !storiesLoaded && !expertLoaded">Please select a reservation.</h1>
 
   <div class="row justify-content-center btn-toolbar">
     <button class="btn color-light-grey mr-2" (click)="loadExpertCalendar()">Experts</button>
@@ -13,6 +13,6 @@
     <app-vehicle-calendar *ngIf="vehicleLoaded" [anchor]='anchor'></app-vehicle-calendar>
     <app-equip-calendar *ngIf="equipLoaded" [anchor]='anchor'></app-equip-calendar>
     <app-stories-calendar *ngIf="storiesLoaded" [anchor]='anchor'></app-stories-calendar>
-    <app-expert-calendar *ngIf="expertLoaded" [anchor]='anchor'></app-expert-calendar>
+    <app-expert-table *ngIf="expertLoaded" [anchor]='anchor'></app-expert-table>
   </div>
 </div>

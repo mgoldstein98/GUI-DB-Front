@@ -82,7 +82,8 @@ export class MaterialModule { }
     EquipCalendarComponent,
     VehicleCalendarComponent,
     ProfileComponent,
-    StoriesCalendarComponent
+    StoriesCalendarComponent,
+    ExpertTableComponent
   ],
   imports: [
     BrowserModule,
