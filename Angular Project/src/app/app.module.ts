@@ -34,6 +34,7 @@ import { EquipCalendarComponent } from './equip-calendar/equip-calendar.componen
 import { VehicleCalendarComponent } from './vehicle-calendar/vehicle-calendar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { StoriesCalendarComponent } from './stories-calendar/stories-calendar.component';
+import { ExpertTableComponent } from './expert-table/expert-table.component';
 
 @NgModule({
   imports: [
@@ -53,7 +54,8 @@ import { StoriesCalendarComponent } from './stories-calendar/stories-calendar.co
     LandingpageComponent,
     NavbarComponent,
     ProfileComponent,
-    StoriesCalendarComponent
+    StoriesCalendarComponent,
+    ExpertTableComponent
   ]
 })
 export class MaterialModule { }
@@ -80,7 +82,8 @@ export class MaterialModule { }
     EquipCalendarComponent,
     VehicleCalendarComponent,
     ProfileComponent,
-    StoriesCalendarComponent
+    StoriesCalendarComponent,
+    ExpertTableComponent
   ],
   imports: [
     BrowserModule,

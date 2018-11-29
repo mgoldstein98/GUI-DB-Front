@@ -15,6 +15,7 @@ export class CalendarComponent implements OnInit {
   storiesLoaded: boolean;
   equipLoaded: boolean;
   vehicleLoaded: boolean;
+  expertLoaded: boolean;
 
   anchor: Account;
 
@@ -32,24 +33,35 @@ export class CalendarComponent implements OnInit {
     this.storiesLoaded = false;
     this.equipLoaded = false;
     this.vehicleLoaded = false;
+    this.expertLoaded = false;
   }
 
   loadEquipmentCalendar() {
     this.equipLoaded = true;
     this.vehicleLoaded = false;
     this.storiesLoaded = false;
+    this.expertLoaded = false;
   }
 
   loadVehicleCalendar() {
     this.vehicleLoaded = true;
     this.equipLoaded = false;
     this.storiesLoaded = false;
+    this.expertLoaded = false;
   }
 
   loadStoriesCalendar() {
     this.vehicleLoaded = false;
     this.equipLoaded = false;
     this.storiesLoaded = true;
+    this.expertLoaded = false;
+  }
+
+  loadExpertCalendar() {
+    this.vehicleLoaded = false;
+    this.equipLoaded = false;
+    this.storiesLoaded = false;
+    this.expertLoaded = true;
   }
 
 }
