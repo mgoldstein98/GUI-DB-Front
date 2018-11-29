@@ -41,6 +41,7 @@ export class AnStoryComponent implements OnInit {
   getAvailableStories() {
     this.myHttp.getAvailableStories().subscribe((stories) => {
       this.availableStories = stories;
+      console.log(typeof(this.availableStories[0].storyDate));
     });
   }
 
