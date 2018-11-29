@@ -19,24 +19,27 @@
         </li>
       </ul>
       <div class="row">
-        <div class="col-md-4">
-          <div class="card card-head mt-4" style="width: 18rem;">
-            <div class="card-header">
-              <div class="d-flex justify-content-between">
-                <h5>Vehicles</h5>
-                <button type="button" class="btn btn-primary" [routerLink]="['/manageVehicles', story.storyID]">Edit</button>
+          <div class="col-md-4">
+              <div class="card card-head mt-4" style="width: 18rem;">
+                <div class="card-header">
+                  <div class="d-flex justify-content-between">
+                    <h5>Vehicles</h5>
+                    <button type="button" class="btn btn-primary" [routerLink]="['/manageVehicles', story.storyID]">Edit</button>
+                  </div>
+                </div>
+                <div *ngIf="vehicles.length">
+                  <ul class="list-group list-group-flush ">
+                    <li class="list-group-item" *ngFor="let vehicle of vehicles">
+                      {{ vehicle.vehicleName }}
+                    </li>
+
+                  </ul>
+                </div>
+                <div *ngIf="!vehicles.length">
+                  <p class="text-center">There are no vehicles for this story.</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div *ngIf="vehicles.length">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item" *ngFor="let vehicle of vehicles">{{ vehicle.vehicleName }} </li>
-            </ul>
-          </div>
-          <div *ngIf="!vehicles.length">
-            <p class="text-center">There are no vehicles for this story.</p>
-          </div>
-        </div>
 
         <div class="col-md-4">
           <div class="card card-head mt-4" style="width: 18rem;">
@@ -68,8 +71,9 @@
             </div>
             <div *ngIf="equipment.length">
               <ul class="list-group list-group-flush ">
-                <li class="list-group-item d-inline color-lightgrey" *ngFor="let equip of equipment">{{ equip.equipName
-                  }} </li>
+                <li class="list-group-item" *ngFor="let equip of equipment">
+                  {{ equip.equipName }}
+                </li>
 
               </ul>
             </div>

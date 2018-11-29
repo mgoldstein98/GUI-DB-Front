@@ -1,28 +1,28 @@
 
   /* .card{
     color: lightblue;
+    border-color: #000000;
   } */
 
   #card-head {
     background: #3AAFA9;
   }
 
-
-  /* .card {
-    border-color: #000000;
-  } */
-
   .storycard {
     border-color: #3AAFA9;
     border-bottom: none;
   }
 
-
-
   .btn-primary {
     background-color: #3AAFA9;
     color: #FFFFFF;
   }
+
+
+.text-light {
+  color: #DEF2F1;
+}
+
   .very-light-blue {
     color: #DEF2F1;
   }
