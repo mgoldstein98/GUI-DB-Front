@@ -1,7 +1,7 @@
 <div *ngIf="myStories">
     <br />
     <br/>
-    <button [routerLink]="['/manageStories', anchor.userID]" id="man-btn" class="btn btn-primary mb-2">Manage Stories</button>
+    <button [routerLink]="['/manageStories', anchor.userID]" id="man-btn" class="btn btn-primary mb-2 float-left">Manage Stories</button>
     <br/>
     <br/>
     <div *ngFor="let story of myStories; let i = index">

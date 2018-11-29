@@ -19,7 +19,7 @@
       </div>
       <div class="card" *ngFor="let anchor of myAnchors;let i = index;">
         <div class="card-header">
-          <h4 class="very-light-blue">{{anchor.userName}}</h4>
+          <h4 class="text-dark">{{anchor.userName}} - {{anchor.points}} points</h4>
         </div>
         <div class="card-body">
           <app-anchor [anchor]="anchor"></app-anchor>
