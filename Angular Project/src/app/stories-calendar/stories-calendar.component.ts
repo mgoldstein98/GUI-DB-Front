@@ -72,7 +72,7 @@ export class StoriesCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#32CD32'
+          eventColor: '#9aa8c6'
         });
       }
       if (this.dates.length === 6) {
@@ -114,7 +114,7 @@ export class StoriesCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#32CD32'
+          eventColor: '#9aa8c6'
         });
       }
       if (this.dates.length === 5) {
@@ -151,7 +151,7 @@ export class StoriesCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#32CD32'
+          eventColor: '#9aa8c6'
         });
       }
       if (this.dates.length === 4) {
@@ -183,7 +183,7 @@ export class StoriesCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#32CD32'
+          eventColor: '#9aa8c6'
         });
       }
       if (this.dates.length === 3) {
@@ -210,7 +210,7 @@ export class StoriesCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#32CD32'
+          eventColor: '#9aa8c6'
         });
       }
       if (this.dates.length === 2) {
@@ -232,7 +232,7 @@ export class StoriesCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#32CD32'
+          eventColor: '#9aa8c6'
         });
       }
       if (this.dates.length === 1) {
@@ -249,7 +249,7 @@ export class StoriesCalendarComponent implements OnInit {
               allDay: true
             }
           ],
-          eventColor: '#32CD32',
+          eventColor: '#9aa8c6',
         });
       }
       if (this.dates.length === 0) {

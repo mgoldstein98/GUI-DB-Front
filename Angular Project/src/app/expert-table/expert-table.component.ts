@@ -9,12 +9,11 @@ import * as moment from 'moment';
 import 'fullcalendar';
 
 @Component({
-  selector: 'app-vehicle-calendar',
-  templateUrl: './vehicle-calendar.component.html',
-  styleUrls: ['./vehicle-calendar.component.css']
+  selector: 'app-expert-table',
+  templateUrl: './expert-table.component.html',
+  styleUrls: ['./expert-table.component.css']
 })
-export class VehicleCalendarComponent implements OnInit {
-
+export class ExpertTableComponent implements OnInit {
   constructor(private route: ActivatedRoute, private myHttp: HttpClientRoutes) { }
   dates: Event[] = [];
 
@@ -22,10 +21,10 @@ export class VehicleCalendarComponent implements OnInit {
   anchor: Account;
 
   ngOnInit() {
-    this.myHttp.getMyReservedEquipment(this.anchor.userID).subscribe((reservations) => {
+    this.myHttp.getMyReservedVehicles(this.anchor.userID).subscribe((reservations) => {
       console.log(reservations);
       for (let entry in reservations) {
-        this.dates.push(new Event(reservations[entry].storyTopic.concat(", using ", reservations[entry].model).concat(" ", reservations[entry].vehicleType), reservations[entry].storyDate, reservations[entry].model));
+        this.dates.push(new Event(reservations[entry].storyTopic, reservations[entry].storyDate, reservations[entry].expertName));
       }
       if (this.dates.length >= 7) {
         $('#calendar').fullCalendar({
