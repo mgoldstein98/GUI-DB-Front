@@ -1,13 +1,8 @@
- <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Anchor Management</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-
+ <nav class="navbar navbar-dark bg-dark" *ngIf="user">
+    <a class="navbar-brand" href="javascript:void(0);" (click)="navToHome()">ANCHOR MANAGEMENT</a>
     <div class="dropdown show">
-        <a class="btn btn-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
+        <a class="btn btn-link dropdown-toggle text-light" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ user.userName }}
         </a>
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -18,21 +13,4 @@
           <a class="dropdown-item" href="#" aria-haspopup="true" aria-expanded="false" (click)="logout()">Logout</a>
         </div>
       </div>
-
-    <!-- <div class="collapse navbar-collapse" id="navbarToggle">
-    <div class="float-right">
-    <div class="row">
-        <a class="nav-link" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" (click)="navToHome()">Homepage</a>
-      </div>
-      <div class="row">
-        <a class="nav-link" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" (click)="navToProfile()">Profile</a>
-      </div>
-      <div class="row">
-        <a class="nav-link" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" (click)="navToCal()">Calendar</a>
-      </div>
-      <div class="row">
-        <a class="nav-link" href="#" aria-haspopup="true" aria-expanded="false" (click)="logout()">Logout</a>
-      </div>
-    </div>
-    </div> -->
   </nav>

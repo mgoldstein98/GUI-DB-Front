@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../domain/auth.service';
 import { Router } from '@angular/router';
+import { Account } from '../domain/models/account';
+import { HttpClientRoutes } from '../domain/http-client-routes.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,9 +11,17 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private myHttp: HttpClientRoutes) { }
+
+  user: Account;
 
   ngOnInit() {
+    this.myHttp.getUser(+localStorage.getItem('id')).subscribe((response) => {
+      this.user = response[0];
+    });
   }
 
   logout() {
