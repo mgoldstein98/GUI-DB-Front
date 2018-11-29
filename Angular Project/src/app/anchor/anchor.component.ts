@@ -25,6 +25,7 @@ export class AnchorComponent implements OnInit {
       console.log(stories);
       this.myStories = stories;
     });
+    // console.log("f", this.myStories);
   }
 
   markDone(index: number) {

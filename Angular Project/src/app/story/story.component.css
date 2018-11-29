@@ -1,4 +1,4 @@
-.maincard{  
+.maincard{
     height: 10rem;
     width: 60rem;
 
@@ -7,7 +7,7 @@
     transition: transform 1.5s;
     position: relative;
     z-index:1;
-   
+
   }
   .front{
     backface-visibility: hidden;
@@ -24,7 +24,7 @@
     color: #fff;
     font-family: Helvetica;
     z-index: 10;
-    
+
     /* rotating the back face of the card */
     -ms-transform: rotateY(-180deg); /* IE 9 */
     -webkit-transform: rotateY(-180deg); /* Safari */
@@ -42,6 +42,20 @@
     -webkit-transform: rotateY(-180deg); /* Safari Chrome */
     transform: rotateY(-180deg);
   }
-  .card{
+  /* .card{
     color: lightblue;
+  } */
+
+  #card-head {
+    color: #DEF2F1;
+    background: #17252A;
   }
+
+  .very-light-blue {
+    color: #DEF2F1;
+  }
+
+  .kinda-light-blue {
+    background: #17252A;
+  }
+  /* 2B7A78 */
