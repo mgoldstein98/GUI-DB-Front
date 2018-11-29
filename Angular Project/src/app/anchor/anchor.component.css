@@ -1,5 +1,14 @@
-#man-btn{
+#man-btn {
     width: 18rem;
+    background: #efefef;
+    color: #17252A;
+}
+
+#man-btn:hover {
+  width: 18rem;
+  color: white;
+  background: #3AAFA9;
+
 }
 
 /* #done-btn{
@@ -12,6 +21,8 @@
     border-radius: 0px;
     background: #efefef;
     color: #17252A;
+    border-color: #3AAFA9;
+    border-top: none;
 }
 
 #done-btn:hover{
