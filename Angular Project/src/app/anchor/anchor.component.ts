@@ -19,11 +19,13 @@ export class AnchorComponent implements OnInit {
   ngOnInit() {
 
     console.log(this.anchor.userID);
+    console.log(this.myStories);
 
     this.myHttp.getMyStories(this.anchor.userID).subscribe((stories) => {
       console.log(stories);
       this.myStories = stories;
     });
+    // console.log("f", this.myStories);
   }
 
   markDone(index: number) {
@@ -31,8 +33,8 @@ export class AnchorComponent implements OnInit {
       console.log('Points have been updated.');
       this.myHttp.deleteStory(this.myStories[index].storyID).subscribe((deleted) => {
         this.myStories.splice(index, 1);
-      })
-    })
+      });
+    });
   }
 }
 

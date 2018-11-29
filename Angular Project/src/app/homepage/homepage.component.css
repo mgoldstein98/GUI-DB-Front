@@ -1,10 +1,4 @@
-.background{
-  
-    background-color: #52658F;
-    height: 100%;
-    
-}
-
+/*
 h1{
   color: darkgray;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -13,4 +7,27 @@ h1{
 #username{
   padding-left: 200px;
   font-size: 24px;
+} */
+
+/* .background{
+
+    background-color: #52658F;
+    height: 100%;
+
+} */
+
+/* #header-text{
+  color: dodgerblue;
+  font-family: "Nunito";
+} */
+
+#username{
+  font-size: 24px;
 }
+
+/* #header-text {
+  fon
+} */
+
+
+

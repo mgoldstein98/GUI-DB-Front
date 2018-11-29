@@ -1,10 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-color-grey {
+/* color-grey {
   background-color: #52658f;
 }
 
 html {
   background-color: #52658f;
+} */
+
+
+/* .btn-primary {
+  background-color: #2B7A78;
+} */
+
+/* .btn-primary:hover {
+
+} */
+
+.btn-primary:hover {
+  color: #2B7A78;
+  background-color: #DEF2F1;
+  border-color: #2B7A78;
+}
+
+.btn-primary {
+  background-color: #2B7A78;
+  color: #DEF2F1;
+  border-color: #2B7A78;
 }

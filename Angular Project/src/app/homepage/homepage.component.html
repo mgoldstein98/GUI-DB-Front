@@ -1,13 +1,15 @@
 <div class="background" *ngIf="user">
   <app-navbar></app-navbar>
-  <h1 > WELCOME,</h1>
-   <p id="username" class="lead font-italic text-white">{{this.user.userName}}</p>
+  <!-- <div class="m-3">
+    <h2 class="d-inline" id="welcome-text"> Welcome, </h2>
+    <p id="username" class="lead font-italic text-black ml-2 d-inline">{{this.user.userName}}</p>
+  </div> -->
   <div class=container *ngIf="user.typeFlag == 0">
+      <!-- <h1 class="text-center mt-3 display-3" id="header-text"> Your Anchors</h1> -->
     <app-manager [manager]="user"></app-manager>
   </div>
   <div class=container *ngIf="user.typeFlag == 1">
+      <h1 class="text-center mt-3 display-3" id="header-text"> Your Stories</h1>
     <app-anchor [anchor]="user"></app-anchor>
   </div>
 </div>
-
-

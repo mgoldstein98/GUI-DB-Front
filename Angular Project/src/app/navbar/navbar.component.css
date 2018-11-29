@@ -1,13 +1,26 @@
-#navbar {
+nav {
   height: 10vh;
   width: 100vw;
-  background-color: #00303F;
+  /* background-color: #2B7A78; */
+  background-color: #3AAFA9;
   color:white;
-  
+}
+
+#title {
+  font-size: 1.5rem;
+}
+
+#dropdownMenuLink {
+  font-size: 1.25rem;
 }
 
 .nav-link{
   float:right;
+}
+
+
+.very-light-blue {
+  color: #DEF2F1;
 }
 
 

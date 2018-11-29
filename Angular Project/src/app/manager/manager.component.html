@@ -1,165 +1,248 @@
-<div class="row">
-  <button class="btn btn-primary float-right mr-3" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button>
-  <button class="btn btn-light float-right mr-1" data-toggle="modal" data-target="#vehicleModal">Add Vehicles</button>
-  <button class="btn btn-warning float-right mr-1" data-toggle="modal" data-target="#expertModal">Add Expert</button>
-  <button class="btn btn-info float-right mr" data-toggle="modal" data-target="#equipmentModal">Add Equipment</button>
+<div *ngIf="myAnchors">
+  <h1 class="text-center mt-3 display-3" id="header-text"> Your Anchors</h1>
+
+
+  <div class="d-flex flex-row justify-content-around m-5">
+    <button class="btn btn-dark btn-lg btn-add" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button>
+    <button class="btn btn-dark btn-lg btn-add" data-toggle="modal" data-target="#vehicleModal">Add Vehicles</button>
+    <button class="btn btn-dark btn-lg btn-add" data-toggle="modal" data-target="#expertModal">Add Expert</button>
+    <button class="btn btn-dark btn-lg btn-add" data-toggle="modal" data-target="#equipmentModal">Add Equipment</button>
+    <button class="btn btn-dark btn-lg btn-add" data-toggle="modal" data-target="#storyModal">Add Story</button>
+  </div>
+
+
+
+  <div class="p-3">
+    <div>
+      <div *ngIf="myAnchors.length==0">
+        <h2 class="lead text-black">No Anchors claimed.</h2>
+      </div>
+      <div class="card" *ngFor="let anchor of myAnchors;let i = index;">
+        <div class="card-header">
+          <h3 class="text-light">{{anchor.userName}} - {{anchor.points}} points</h3>
+        </div>
+        <div class="card-body bg-dark p-5">
+          <app-anchor [anchor]="anchor"></app-anchor>
+        </div>
+
+      </div>
+
+      <div class="modal fade" id="vehicleModal" tabindex="-1" role="dialog" aria-labelledby="vehicleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="vehicleModalLabel">Add a Vehicle</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="form" (ngSubmit)="addVehicle()">
+                <div class="form-group">
+                  <label for="vehicleName" class="form-field-labels">Vehicle Name: </label>
+                  <input type="text" formControlName="vehicleName" class="form-control" [(ngModel)]="vehicle.vehicleName" />
+                </div>
+
+                <div class="text-danger mb-2" *ngIf="form.controls['vehicleName'].touched && form.controls['vehicleName'].errors?.required">Vehicle
+                  name is required</div>
+
+                <div class="form-group">
+                  <label for="vehicleType" class="form-field-labels">Vehicle Make: </label>
+                  <input type="text" formControlName="vehicleType" class="form-control" [(ngModel)]="vehicle.vehicleType" />
+                </div>
+
+                <div class="text-danger mb-2" *ngIf="form.controls['vehicleType'].touched && form.controls['vehicleType'].errors?.required">Vehicle
+                  type is required</div>
+
+                <div class="form-group">
+                  <label for="vehicleColor" class="form-field-labels">Vehicle Color: </label>
+                  <input type="text" formControlName="vehicleColor" class="form-control" [(ngModel)]="vehicle.color" />
+                </div>
+
+                <div class="text-danger mb-2" *ngIf="form.controls['vehicleColor'].touched && form.controls['vehicleColor'].errors?.required">Vehicle
+                  color is required</div>
+
+                <div class="form-group">
+                  <label for="vehicleModel" class="form-field-labels">Vehicle Model: </label>
+                  <input type="text" formControlName="vehicleModel" class="form-control" [(ngModel)]="vehicle.model" />
+                </div>
+
+                <div class="text-danger mb-2" *ngIf="form.controls['vehicleModel'].touched && form.controls['vehicleModel'].errors?.required">Vehicle
+                  model is required</div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeVehicle()">Close</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addVehicle()">Add</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+
+
+      <div class="modal fade" id="equipmentModal" tabindex="-1" role="dialog" aria-labelledby="equipmentModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="vehicleModalLabel">Add Equipment</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="form" (ngSubmit)="addEquipment()">
+                <div class="form-group">
+                  <label for="equipmentName" class="form-field-labels">Equipment Name: </label>
+                  <input type="text" formControlName="equipmentName" class="form-control" [(ngModel)]="equipment.equipName" />
+                </div>
+
+                <div class="text-danger mb-2" *ngIf="form.controls['equipmentName'].touched && form.controls['equipmentName'].errors?.required">Equipment
+                  name is required</div>
+
+                <div class="form-group">
+                  <label for="equipmentType" class="form-field-labels">Equipment Type: </label>
+                  <input type="text" formControlName="equipmentType" class="form-control" [(ngModel)]="equipment.equipType" />
+                </div>
+
+                <div class="text-danger mb-2" *ngIf="form.controls['equipmentType'].touched && form.controls['equipmentType'].errors?.required">Equipement
+                  type is required</div>
+
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeEquipment()">Close</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addEquipment()">Add</button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+        <br />
+      </div>
+      <!-- </div> -->
+
+
+
+      <div class="modal fade" id="expertModal" tabindex="-1" role="dialog" aria-labelledby="expertModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="expertModalLabel">Add Expert</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="form" (ngSubmit)="addExpert()">
+                <div class="form-group">
+                  <label for="expertName" class="form-field-labels">Expert Name: </label>
+                  <input type="text" formControlName="expertName" class="form-control" [(ngModel)]="expert.expertName" />
+                </div>
+
+                <div class="text-danger mb-2" *ngIf="form.controls['expertName'].touched && form.controls['expertName'].errors?.required">Expert
+                  name is required
+                </div>
+
+                <div class="form-group">
+                  <label for="equipmentType" class="form-field-labels">Expert Topic: </label>
+                  <input type="text" formControlName="expertTopic" class="form-control" [(ngModel)]="expert.expertTopic" />
+                </div>
+
+                <div class="text-danger mb-2" *ngIf="form.controls['expertTopic'].touched && form.controls['expertTopic'].errors?.required">Expert
+                  topic is required</div>
+
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeExpert()">Close</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addExpert()">Add</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal fade" id="storyModal" tabindex="-1" role="dialog" aria-labelledby="storyModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="storyModalLabel">Add Story</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="form" (ngSubmit)="addStory()">
+                <div class="form-group">
+                  <label for="storyName" class="form-field-labels">Story Name: </label>
+                  <input type="text" formControlName="storyName" class="form-control" [(ngModel)]="story.storyTopic" />
+                </div>
+
+                <div class="text-danger mb-2" *ngIf="form.controls['storyName'].touched && form.controls['storyName'].errors?.required">Story
+                  name is required</div>
+
+                <div class="form-group">
+                  <label for="storyDescription" class="form-field-labels">Story Description: </label>
+                  <textarea formControlName="storyDescription" class="form-control" [(ngModel)]="story.description"></textarea>
+                </div>
+
+                <div class="text-danger mb-2" *ngIf="form.controls['storyDescription'].touched && form.controls['storyDescription'].errors?.required">Story
+                  description is required</div>
+
+                <div class="form-group">
+                  <label for="storyDate" class="form-field-labels">Story Date: </label>
+                  <input type="date" formControlName="storyDate" class="form-control" [(ngModel)]="story.storyDate" />
+                </div>
+
+                <div class="text-danger mb-2" *ngIf="form.controls['storyDate'].touched && form.controls['storyDate'].errors?.required">Story
+                  date is required</div>
+
+                <div class="form-group">
+                  <label for="storyStart" class="form-field-labels">Story Start Time: </label>
+                  <input type="time" formControlName="storyStart" class="form-control" [(ngModel)]="story.startTime" />
+                </div>
+
+                <div class="text-danger mb-2" *ngIf="form.controls['storyStart'].touched && form.controls['storyStart'].errors?.required">Story
+                  start time is required</div>
+
+                <div class="form-group">
+                  <label for="storyEnd" class="form-field-labels">Story End Time: </label>
+                  <input type="time" formControlName="storyEnd" class="form-control" [(ngModel)]="story.endTime" />
+                </div>
+
+                <div class="text-danger mb-2" *ngIf="form.controls['storyEnd'].touched && form.controls['storyEnd'].errors?.required">Story
+                  date is required</div>
+
+                <div class="form-group">
+                  <label for="storyPoints" class="form-field-labels">Story Points: </label>
+                  <input type="number" formControlName="storyPoints" class="form-control" [(ngModel)]="story.points" />
+                </div>
+
+                <div class="text-danger mb-2" *ngIf="form.controls['storyPoints'].touched && form.controls['storyPoints'].errors?.required">Story
+                  points is required</div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeStory()">Close</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addStory()">Add</button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
+
+  </div>
 </div>
-
-<div class="p-5">
-  <div *ngIf="manager">
-    <div class="card " *ngFor="let anchor of myAnchors;let i = index;">
-      <div class="card-header">
-        <h4>{{anchor.userName }}</h4>
-      </div>
-      <div class="container text-white" style="height:800px;">
-        <div [ngSwitch]="myAnchors?.length">
-          <hr />
-          <div *ngSwitchCase=0>
-            <h2 class="lead">No Anchors claimed.</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="vehicleModal" tabindex="-1" role="dialog" aria-labelledby="vehicleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="vehicleModalLabel">Add a Vehicle</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form [formGroup]="form" (ngSubmit)="addVehicle()">
-              <div class="form-group">
-                <label for="vehicleName" class="form-field-labels">Vehicle Name: </label>
-                <input type="text" formControlName="vehicleName" class="form-control" [(ngModel)]="vehicle.vehicleName" />
-              </div>
-
-              <div class="text-danger mb-2" *ngIf="form.controls['vehicleName'].touched && form.controls['vehicleName'].errors?.required">Vehicle
-                name is required</div>
-
-              <div class="form-group">
-                <label for="vehicleType" class="form-field-labels">Vehicle Make: </label>
-                <input type="text" formControlName="vehicleType" class="form-control" [(ngModel)]="vehicle.vehicleType" />
-              </div>
-
-              <div class="text-danger mb-2" *ngIf="form.controls['vehicleType'].touched && form.controls['vehicleType'].errors?.required">Vehicle
-                type is required</div>
-
-              <div class="form-group">
-                <label for="vehicleColor" class="form-field-labels">Vehicle Color: </label>
-                <input type="text" formControlName="vehicleColor" class="form-control" [(ngModel)]="vehicle.color" />
-              </div>
-
-              <div class="text-danger mb-2" *ngIf="form.controls['vehicleColor'].touched && form.controls['vehicleColor'].errors?.required">Vehicle
-                color is required</div>
-
-              <div class="form-group">
-                <label for="vehicleModel" class="form-field-labels">Vehicle Model: </label>
-                <input type="text" formControlName="vehicleModel" class="form-control" [(ngModel)]="vehicle.model" />
-              </div>
-
-              <div class="text-danger mb-2" *ngIf="form.controls['vehicleModel'].touched && form.controls['vehicleModel'].errors?.required">Vehicle
-                model is required</div>
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeVehicle()">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addVehicle()">Add</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-
-
-    </div>
-
-
-
-
-    <div class="modal fade" id="equipmentModal" tabindex="-1" role="dialog" aria-labelledby="equipmentModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="vehicleModalLabel">Add Equipment</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form [formGroup]="form" (ngSubmit)="addEquipment()">
-              <div class="form-group">
-                <label for="equipmentName" class="form-field-labels">Equipement Name: </label>
-                <input type="text" formControlName="equipmentName" class="form-control" [(ngModel)]="equipment.equipName" />
-              </div>
-
-              <div class="text-danger mb-2" *ngIf="form.controls['equipmentName'].touched && form.controls['equipmentName'].errors?.required">Equipment
-                name is required</div>
-
-              <div class="form-group">
-                <label for="equipmentType" class="form-field-labels">Equipment Type: </label>
-                <input type="text" formControlName="equipmentType" class="form-control" [(ngModel)]="equipment.equipType" />
-              </div>
-
-              <div class="text-danger mb-2" *ngIf="form.controls['equipmentType'].touched && form.controls['equipmentType'].errors?.required">Equipement
-                type is required</div>
-
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeEquipment()">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addEquipment()">Add</button>
-              </div>
-            </form>
-          </div>
-
-        </div>
-      </div>
-      <br />
-    </div>
-  </div>
-
-
-
-  <div class="modal fade" id="expertModal" tabindex="-1" role="dialog" aria-labelledby="expertModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="expertModalLabel">Add Expert</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form [formGroup]="form" (ngSubmit)="addExpert()">
-            <div class="form-group">
-              <label for="expertName" class="form-field-labels">Expert Name: </label>
-              <input type="text" formControlName="expertName" class="form-control" [(ngModel)]="expert.expertName" />
-            </div>
-
-            <div class="text-danger mb-2" *ngIf="form.controls['expertName'].touched && form.controls['expertName'].errors?.required">Expert
-              name is required
-            </div>
-
-            <div class="form-group">
-              <label for="equipmentType" class="form-field-labels">Expert Topic: </label>
-              <input type="text" formControlName="expertTopic" class="form-control" [(ngModel)]="expert.expertTopic" />
-            </div>
-
-            <div class="text-danger mb-2" *ngIf="form.controls['expertTopic'].touched && form.controls['expertTopic'].errors?.required">Expert
-              topic is required</div>
-
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeExpert()">Close</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addExpert()">Add</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
