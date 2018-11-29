@@ -1,9 +1,14 @@
-<div class="row">
-  <button class="btn btn-primary float-right mr-3" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button>
-  <button class="btn btn-light float-right mr-1" data-toggle="modal" data-target="#vehicleModal">Add Vehicles</button>
-  <button class="btn btn-warning float-right mr-1" data-toggle="modal" data-target="#expertModal">Add Expert</button>
-  <button class="btn btn-info float-right mr" data-toggle="modal" data-target="#equipmentModal">Add Equipment</button>
-</div>
+<!-- <div class="justify-content-center"> -->
+    <div class="d-flex flex-column float-right m-5">
+        <button class="btn btn-primary mb-3 btn-lg btn-add" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button>
+        <button class="btn btn-dark mb-3 btn-lg btn-add" data-toggle="modal" data-target="#vehicleModal">Add Vehicles</button>
+        <button class="btn btn-warning  mb-3 btn-lg btn-add" data-toggle="modal" data-target="#expertModal">Add Expert</button>
+        <button class="btn btn-info btn-lg btn-add" data-toggle="modal" data-target="#equipmentModal">Add Equipment</button>
+    </div>
+<!-- </div> -->
+
+
+<h1 class="text-center mt-3 display-3" id="header-text"> Your Anchors</h1>
 
 <div class="p-5">
   <div *ngIf="manager">

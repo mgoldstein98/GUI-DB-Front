@@ -1,8 +1,12 @@
 .card{
     margin-bottom: 10rem;
-    
+
 }
 #man-btn{
     position: relative;
     float: right;
+}
+
+.btn-add {
+  width: 12rem;
 }
