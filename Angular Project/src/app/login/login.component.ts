@@ -25,28 +25,24 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    console.log('Ng on init of login component');
+
+    // pass through this page if user is already logged in
+    if (localStorage.getItem('id') != null) {
+      this.router.navigateByUrl(`home/${localStorage.getItem('id')}`);
+    }
+
     this.form = this.formBuilder.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
-   }
+  }
 
   login() {
+    console.log('Login component login function');
     this.email = this.email.trim();
     this.pass = this.pass.trim();
-
-    // this.myHttp.login(this.email, this.pass).subscribe((response) => {
-    //   console.log(response);
-    //   // response[0] contains status flag
-    //   if (response[0] === 1) {
-    //     // response[1] contains object of user object
-
-    //   } else {
-    //     console.log('INVALID CREDENTIALS. LOGIN FAILED.');
-    //   }
-
-    // });
-
     this.auth.login(this.email, this.pass);
   }
 

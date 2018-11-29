@@ -5,8 +5,8 @@
   <div class="container col-xs-6 p-6">
     <h2 class="sub-header">My Anchors</h2>
     <div [ngSwitch]="myAnchors?.length">
-      <div *ngSwitchCase=0>
-        You do not have any anchors
+      <div *ngSwitchCase=0 class="mb-4 mt-4 ml-3">
+        No anchors claimed.
       </div>
       <table *ngSwitchDefault class="table table-striped table-condensed">
         <thead>
@@ -37,8 +37,8 @@
   <div class="container col-xs-6">
     <h2 class="sub-header">Available Anchors</h2>
     <div [ngSwitch]="availableAnchors?.length">
-      <div *ngSwitchCase=0>
-        No available anchors
+      <div *ngSwitchCase=0 class="mb-4 mt-4 ml-3">
+        No anchors available.
       </div>
       <table *ngSwitchDefault class="table">
         <thead>

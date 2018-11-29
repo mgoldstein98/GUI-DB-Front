@@ -1,0 +1,15 @@
+
+.btn-add:hover {
+  width: 8rem;
+  color: #DEF2F1;
+  background-color: #2B7A78;
+  border-color: #DEF2F1
+
+}
+
+.btn-add {
+  width: 8rem;
+  color: white;
+  background-color: #17252A;
+  border-color: #17252A;
+}
