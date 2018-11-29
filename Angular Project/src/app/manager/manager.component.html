@@ -1,65 +1,27 @@
-<!-- <div class="container"> -->
-  <!-- <div class="row">
-    <div class="col-lg-2">
-
-    </div>
-    <div class="col-lg-8">
-        <h1 class="text-center mt-3 display-3" id="header-text"> Your Anchors</h1>
-          <div *ngIf="manager">
-            <div class="card " *ngFor="let anchor of myAnchors;let i = index;">
-              <div class="card-header">
-                <h4>{{anchor.userName }}</h4>
-              </div>
-              <div class="container text-white" style="height:800px;">
-                <div [ngSwitch]="myAnchors?.length">
-                  <hr />
-                  <div *ngSwitchCase=0>
-                    <h2 class="lead">No Anchors claimed.</h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </div>
-    </div>
-
-    <div class="col-lg-2">
-        <div class="mt-3 pt-3">
-            <button class="btn btn-primary mb-3 btn-md btn-add" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button>
-            <button class="btn btn-dark mb-3 btn-md btn-add" data-toggle="modal" data-target="#vehicleModal">Add Vehicles</button>
-            <button class="btn btn-warning  mb-3 btn-md btn-add" data-toggle="modal" data-target="#expertModal">Add Expert</button>
-            <button class="btn btn-info btn-md btn-add" data-toggle="modal" data-target="#equipmentModal">Add Equipment</button>
-        </div>
-    </div>
-  </div> -->
-
-<!-- </div> -->
 
 
+<div *ngIf="myAnchors">
+    <h1 class="text-center mt-3 display-3" id="header-text"> Your Anchors</h1>
 
-
-<!-- <div class="justify-content-center"> -->
     <div class="d-flex flex-row justify-content-around m-5">
-        <button class="btn btn-primary  btn-lg btn-add" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button>
+        <button class="btn btn-dark btn-lg btn-add" [routerLink]="['/manageAnchors', manager.userID]">Manage Anchors</button>
         <button class="btn btn-dark btn-lg btn-add" data-toggle="modal" data-target="#vehicleModal">Add Vehicles</button>
-        <button class="btn btn-warning btn-lg btn-add" data-toggle="modal" data-target="#expertModal">Add Expert</button>
-        <button class="btn btn-info btn-lg btn-add" data-toggle="modal" data-target="#equipmentModal">Add Equipment</button>
+        <button class="btn btn-dark btn-lg btn-add" data-toggle="modal" data-target="#expertModal">Add Expert</button>
+        <button class="btn btn-dark btn-lg btn-add" data-toggle="modal" data-target="#equipmentModal">Add Equipment</button>
     </div>
-<!-- </div> -->
 
-
-<h1 class="text-center mt-3 display-3" id="header-text"> Your Anchors</h1>
 
 <div class="p-5">
   <div *ngIf="manager">
     <div class="card " *ngFor="let anchor of myAnchors;let i = index;">
       <div class="card-header">
-        <h4>{{anchor.userName }}</h4>
+        <h4 class="very-light-blue">{{anchor.userName }}</h4>
       </div>
-      <div class="container text-white" style="height:800px;">
+      <div class="container">
         <div [ngSwitch]="myAnchors?.length">
           <hr />
           <div *ngSwitchCase=0>
-            <h2 class="lead">No Anchors claimed.</h2>
+            <h2 class="lead text-black">No Anchors claimed.</h2>
           </div>
         </div>
       </div>
@@ -207,3 +169,7 @@
       </div>
     </div>
   </div>
+
+</div>
+</div>
+</div>

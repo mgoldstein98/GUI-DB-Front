@@ -19,6 +19,7 @@ export class AnchorComponent implements OnInit {
   ngOnInit() {
 
     console.log(this.anchor.userID);
+    console.log(this.myStories);
 
     this.myHttp.getMyStories(this.anchor.userID).subscribe((stories) => {
       console.log(stories);

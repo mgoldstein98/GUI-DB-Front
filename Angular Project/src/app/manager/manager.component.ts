@@ -39,12 +39,12 @@ export class ManagerComponent implements OnInit {
       expertTopic: ['', [Validators.required]]
     });
 
-    console.log('NG oN INIT');
     this.getAnchors();
     this.vehicle = {};
     this.equipment = {};
     this.expert = {};
     this.story = {};
+    console.log(this.myAnchors);
   }
 
 

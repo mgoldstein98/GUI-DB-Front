@@ -1,13 +1,18 @@
-#navbar {
+nav {
   height: 10vh;
   width: 100vw;
-  background-color: #00303F;
+  /* background-color: #2B7A78; */
+  background-color: #3AAFA9;
   color:white;
-  
+
 }
 
 .nav-link{
   float:right;
+}
+
+#title {
+  color: white
 }
 
 
