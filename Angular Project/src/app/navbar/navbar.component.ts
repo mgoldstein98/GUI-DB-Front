@@ -19,9 +19,12 @@ export class NavbarComponent implements OnInit {
   user: Account;
 
   ngOnInit() {
-    this.myHttp.getUser(+localStorage.getItem('id')).subscribe((response) => {
-      this.user = response[0];
-    });
+
+    if (localStorage.getItem('id') != null) {
+      this.myHttp.getUser(+localStorage.getItem('id')).subscribe((response) => {
+        this.user = response[0];
+      });
+    }
   }
 
   logout() {

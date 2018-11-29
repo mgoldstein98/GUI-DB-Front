@@ -1,15 +1,9 @@
 
- <nav class="navbar" *ngIf="user">
+ <nav class="navbar">
     <a class="navbar-brand very-light-blue" id="title" href="javascript:void(0);" (click)="navToHome()">Anchor Management</a>
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button> -->
-
-
-    <div class="dropdown show">
+    <div class="dropdown show" *ngIf="user" >
         <a class="btn btn-link dropdown-toggle very-light-blue" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{ user.userName }}
-
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" (click)="navToHome()">Homepage</a>
