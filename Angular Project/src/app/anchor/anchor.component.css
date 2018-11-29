@@ -1,7 +1,10 @@
 #man-btn{
+    position: relative;
     float: right;
-    
-    
 }
 
 
+#done{
+    position: relative;
+    right: -7rem;
+}

@@ -1,13 +1,10 @@
 <div class="container-fluid" *ngIf="vehicles && experts && equipment">
-  <div class="maincard">
-    <div class="front">
+  <div class="card">
     <div class="card-header bg-dark text-white clearfix">
       <h5 class="card-title"> {{story.storyTopic}} </h5>
     </div>
-    </div>
-    <div class="back">
     <div class="card-body text-dark bg-light">
-      <label class=""> Details</label>
+      <label class="">Details</label>
       <ul>
         <li>
           <p class="card-text">Date: {{story.storyDate}}</p>
@@ -74,7 +71,8 @@
           </div>
         </div>
       </div>
+      <button id="done" class="btn btn-secondary ml-4 w-75 float-center text-center" (click)="markDone(i)">Mark Story As Done</button>
     </div>
   </div>
 </div>
-</div>
+
