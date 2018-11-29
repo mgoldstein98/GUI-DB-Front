@@ -3,9 +3,8 @@
     <app-navbar></app-navbar>
     <div class="p-5">
     <div class="row">
-    <div class="container text-white col-xs-6 p-6">
-      <h2 class="sub-header">Stories
-      </h2>
+    <div class="container col-xs-6 p-6">
+      <h2 class="sub-header">Claimed Stories</h2>
       <div [ngSwitch]="myStories?.length">
         <div *ngSwitchCase=0>
           No stories claimed.
@@ -35,7 +34,7 @@
         </table>
       </div>
     </div>
-    <div class="container text-white col-xs-6">
+    <div class="container col-xs-6">
       <h2 class="sub-header">Available Stories</h2>
       <div [ngSwitch]="availableStories?.length">
         <div *ngSwitchCase=0>
