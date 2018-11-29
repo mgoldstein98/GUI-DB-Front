@@ -26,8 +26,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
+    console.log('Ng on init of login component');
+
     // pass through this page if user is already logged in
-    if (this.auth.isLoggedIn()) {
+    if (localStorage.getItem('id') != null) {
       this.router.navigateByUrl(`home/${localStorage.getItem('id')}`);
     }
 
@@ -38,6 +40,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    console.log('Login component login function');
     this.email = this.email.trim();
     this.pass = this.pass.trim();
     this.auth.login(this.email, this.pass);
