@@ -21,10 +21,9 @@ export class ExpertTableComponent implements OnInit {
   anchor: Account;
 
   ngOnInit() {
-    this.myHttp.getMyReservedExperts(this.anchor.userID).subscribe((reservations) => {
+    this.myHttp.getMyReservedVehicles(this.anchor.userID).subscribe((reservations) => {
       console.log(reservations);
       for (let entry in reservations) {
-        console.log(entry);
         this.dates.push(new Event(reservations[entry].storyTopic, reservations[entry].storyDate, reservations[entry].expertName));
       }
       if (this.dates.length >= 7) {
