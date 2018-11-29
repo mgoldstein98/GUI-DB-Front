@@ -4,7 +4,14 @@ nav {
   /* background-color: #2B7A78; */
   background-color: #3AAFA9;
   color:white;
+}
 
+#title {
+  font-size: 1.5rem;
+}
+
+#dropdownMenuLink {
+  font-size: 1.25rem;
 }
 
 .nav-link{

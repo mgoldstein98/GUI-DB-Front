@@ -19,9 +19,9 @@
       </div>
       <div class="card" *ngFor="let anchor of myAnchors;let i = index;">
         <div class="card-header">
-          <h4 class="text-dark">{{anchor.userName}} - {{anchor.points}} points</h4>
+          <h3 class="text-light">{{anchor.userName}} - {{anchor.points}} points</h3>
         </div>
-        <div class="card-body">
+        <div class="card-body bg-dark p-5">
           <app-anchor [anchor]="anchor"></app-anchor>
         </div>
 

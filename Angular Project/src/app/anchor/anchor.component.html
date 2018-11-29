@@ -1,20 +1,14 @@
-<div *ngIf="myStories">
-    <br />
-    <br/>
-    <button [routerLink]="['/manageStories', anchor.userID]" id="man-btn" class="btn btn-primary mb-2 float-left">Manage Stories</button>
-    <br/>
-    <br/>
-    <div *ngFor="let story of myStories; let i = index">
-      <br/>
+<div class="d-flex flex-column" *ngIf="myStories">
+    <button [routerLink]="['/manageStories', anchor.userID]" id="man-btn" class="btn mb-2 float-left">Manage Stories</button>
+    <div  *ngFor="let story of myStories; let i = index">
       <app-story class="mt-5" [anchor]='anchor' [story]="story"></app-story>
-      <button class="btn btn-secondary w-75 mt-2 text-center" (click)="markDone(i)">Mark Story As Done</button>
+      <button class="btn btn-block text-center" id="done-btn" (click)="markDone(i)">Mark Story As Done</button>
     </div>
 
 
-    <div class="container text-white">
+    <div class="container">
       <div [ngSwitch]="myStories?.length">
-        <hr/>
-        <div *ngSwitchCase=0><h2 class="lead" >No stories claimed.</h2></div>
+        <div *ngSwitchCase=0><h2 class="lead mt-4 text-light" >No stories claimed. Click the button above to see available stories.</h2></div>
       </div>
     </div>
 

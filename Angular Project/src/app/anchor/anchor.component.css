@@ -1,10 +1,11 @@
 #man-btn{
-    position: relative;
-    float: right;
-    background-color: #DEF2F1;
-    color: #17252A;
+    width: 18rem;
 }
 
+/* #done-btn{
+    border-color: #000000;
+    border-top: none;
+} */
 
 #done{
     position: relative;

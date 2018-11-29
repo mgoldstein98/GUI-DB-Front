@@ -1,6 +1,5 @@
 .card{
     margin-bottom: 5rem;
-
 }
 #man-btn{
     position: relative;
@@ -41,16 +40,8 @@
   border-color: #17252A;
 }
 
-.card-body {
-  background-color: #17252A;
-}
 
-
-/* .card-header {
-  background-color: #3AAFA9;
-} */
 
 .card-header {
-  background-color: #DEF2F1;
-  color: #17252A;
+  background-color: #3AAFA9;
 }
