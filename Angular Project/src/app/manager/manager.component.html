@@ -15,11 +15,11 @@
   <div class="p-3">
     <div>
       <div *ngIf="myAnchors.length==0">
-        <h2 class="lead text-black">No Anchors claimed.</h2>
+        <h2 class="lead text-black text-center">No Anchors claimed. Click on 'Manage Anchors' above to see available anchors.</h2>
       </div>
       <div class="card" *ngFor="let anchor of myAnchors;let i = index;">
         <div class="card-header">
-          <h3 class="text-light">{{anchor.userName}} - {{anchor.points}} points</h3>
+          <h3 class="text-light">{{anchor.userName}}</h3>
         </div>
         <div class="card-body bg-dark p-5">
           <app-anchor [anchor]="anchor"></app-anchor>
