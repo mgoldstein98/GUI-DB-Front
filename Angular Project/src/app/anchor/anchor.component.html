@@ -2,7 +2,7 @@
     <button [routerLink]="['/manageStories', anchor.userID]" id="man-btn" class="btn mb-2 float-left">Manage Stories</button>
     <div  *ngFor="let story of myStories; let i = index">
       <app-story class="mt-5" [anchor]='anchor' [story]="story"></app-story>
-      <button class="btn btn-block text-center" id="done-btn" (click)="markDone(i)">Mark Story As Done</button>
+      <button class="btn btn-block text-center mb-3" id="done-btn" (click)="markDone(i)">Mark Story As Done</button>
     </div>
 
 

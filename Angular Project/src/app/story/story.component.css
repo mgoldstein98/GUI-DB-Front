@@ -30,3 +30,12 @@
   .kinda-light-blue {
     background: #17252A;
   }
+
+  #whole-card {
+    border-radius: 5px 5px 0px 0px;
+    border: none;
+  }
+
+  .bg-our-light {
+    background: #efefef;
+  }
