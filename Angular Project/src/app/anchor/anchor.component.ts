@@ -31,8 +31,8 @@ export class AnchorComponent implements OnInit {
       console.log('Points have been updated.');
       this.myHttp.deleteStory(this.myStories[index].storyID).subscribe((deleted) => {
         this.myStories.splice(index, 1);
-      })
-    })
+      });
+    });
   }
 }
 
