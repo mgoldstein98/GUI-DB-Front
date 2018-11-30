@@ -20,8 +20,8 @@ export class AuthService {
     this.myHttp.login(email, password).subscribe((response) => {
 
 
-      if (response[0] === 0) {
-        console.log('INVALID CREDENTIALS. LOGIN FAILED.');
+      if (response === 0) {
+        window.alert('Invalid Credentials. Please try again!');
 
       } else {
         // [1,{"userID":"actualID"}, token] is the response

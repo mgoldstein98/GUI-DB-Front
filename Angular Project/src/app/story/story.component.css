@@ -13,10 +13,10 @@
     border-bottom: none;
   }
 
-  .btn-primary {
+  /* .btn-primary {
     background-color: #3AAFA9;
     color: #FFFFFF;
-  }
+  } */
 
 
 .text-light {
@@ -29,4 +29,14 @@
 
   .kinda-light-blue {
     background: #17252A;
+  }
+
+  #whole-card {
+    border-radius: 5px 5px 0px 0px;
+    border-color: #3AAFA9;
+    border-bottom: none;
+  }
+
+  .bg-our-light {
+    background: #efefef;
   }

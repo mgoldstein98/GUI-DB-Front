@@ -5,12 +5,12 @@
   opacity: 0.4;
   width: 100vw;
   z-index: 1;
-  height: 100vh;
+  height: 90vh;
 }
 
 #everything {
   background-image: url("./../../assets/newspaper.jpg");
-  height: 100vh;
+  height: 90vh;
   width: 100vw;
   background-size: cover;
 
@@ -36,7 +36,12 @@
 
 .btn-success {
   background-color: #3AAFA9;
+  border: none;
 }
+
+/* .btn-success {
+  background-color: #3AAFA9;
+} */
 
   /* .container{
       position: absolute;

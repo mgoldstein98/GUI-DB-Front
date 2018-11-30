@@ -27,6 +27,12 @@ export class AccountCreationComponent implements OnInit {
 
 
   ngOnInit() {
+
+    // pass through this page if user is already logged in
+    if (localStorage.getItem('id') != null) {
+      this.router.navigateByUrl(`home/${localStorage.getItem('id')}`);
+    }
+
     this.account = {};
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],

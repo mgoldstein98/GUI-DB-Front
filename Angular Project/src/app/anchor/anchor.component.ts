@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Story } from './../domain/models/story';
 import { HttpClientRoutes } from './../domain/http-client-routes.service';
 import { Account } from './../domain/models/account';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-anchor',
@@ -14,7 +14,10 @@ export class AnchorComponent implements OnInit {
   anchor: Account;
   myStories: Story[];
 
-  constructor(private route: ActivatedRoute, private myHttp: HttpClientRoutes) { }
+  constructor(
+    private route: ActivatedRoute,
+    private myHttp: HttpClientRoutes,
+    private router: Router) { }
 
   ngOnInit() {
 
@@ -33,6 +36,7 @@ export class AnchorComponent implements OnInit {
       console.log('Points have been updated.');
       this.myHttp.deleteStory(this.myStories[index].storyID).subscribe((deleted) => {
         this.myStories.splice(index, 1);
+        this.router.navigateByUrl(`home/${localStorage.getItem('id')}`); // HOW DO I GET HOME TO REFRESH
       });
     });
   }
