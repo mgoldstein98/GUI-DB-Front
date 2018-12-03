@@ -51,22 +51,18 @@ export class ManagerComponent implements OnInit {
     this.equipment = {};
     this.expert = {};
     this.story = {};
-    console.log(this.myAnchors);
   }
 
 
   getAnchors() {
     this.myHttp.getMyAnchors(this.manager.userID).subscribe((anchors) => {
-      console.log('GETTING ANCHORS ' + anchors);
       this.myAnchors = anchors;
     });
   }
 
   addVehicle() {
     this.myHttp.addVehicle(this.vehicle.vehicleName, this.vehicle.vehicleType, this.vehicle.color, this.vehicle.model)
-    .subscribe((response) => {
-      console.log('Vehicle added ', response);
-    });
+    .subscribe((response) => {});
   }
 
   closeVehicle() {
@@ -75,9 +71,7 @@ export class ManagerComponent implements OnInit {
 
   addEquipment() {
     this.myHttp.addEquipment(this.equipment.equipName, this.equipment.equipType)
-    .subscribe((response) => {
-      console.log('Equipment added ', response);
-    });
+    .subscribe((response) => {});
   }
 
   closeEquipment() {
@@ -86,9 +80,7 @@ export class ManagerComponent implements OnInit {
 
   addExpert() {
     this.myHttp.addExpert(this.expert.expertName, this.expert.expertTopic)
-    .subscribe((response) => {
-      console.log('Expert added ', response);
-    });
+    .subscribe((response) => {});
   }
 
   closeExpert() {
@@ -96,9 +88,6 @@ export class ManagerComponent implements OnInit {
   }
 
   addStory() {
-    console.log(this.story.storyDate);
-    console.log(this.story.startTime);
-    console.log(this.story.endTime);
     this.myHttp.addStory(
       this.story.storyTopic,
       (this.story.storyDate).toString(),
@@ -106,9 +95,7 @@ export class ManagerComponent implements OnInit {
       ((this.story.endTime).toString() + ':00'),
       this.story.description,
       this.story.points)
-    .subscribe((response) => {
-      console.log('Story added ', response);
-    });
+    .subscribe((response) => {});
   }
 
   closeStory() {

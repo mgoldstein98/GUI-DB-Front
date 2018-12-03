@@ -59,7 +59,7 @@ export class HttpClientRoutes {
 
   // Called upon click of remove in anchor table by manager
   removeAnchor(managerID: number, userID: number): Observable<String> {
-    console.log('route ', managerID, ', ', userID);
+
     return this.httpClient
       .put<String>(`${this.endPoint}/accounts/unassignFromManager/${userID}`, this.httpOptions)
       .pipe(catchError(this.handleException));
