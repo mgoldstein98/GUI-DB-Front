@@ -235,10 +235,8 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
-  // tslint:disable-next-line:max-line-length
   addStory(storyTopic: string, storyDate: string, startTime: string, endTime: string, description: string, points: number): Observable<String> {
     return this.httpClient
-      // tslint:disable-next-line:max-line-length
       .post<String>(`${this.endPoint}/stories/createNew`, {storyTopic, storyDate, startTime, endTime, description, points}, this.httpOptions)
       .pipe(catchError(this.handleException));
   }

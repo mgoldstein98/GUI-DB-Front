@@ -23,9 +23,8 @@ export class VehicleCalendarComponent implements OnInit {
 
   ngOnInit() {
     this.myHttp.getMyReservedVehicles(this.anchor.userID).subscribe((reservations) => {
-      console.log(reservations);
-      for (let entry in reservations) {
-        this.dates.push(new Event(reservations[entry].storyTopic.concat(", using ", reservations[entry].model).concat(" ", reservations[entry].vehicleType), reservations[entry].storyDate, reservations[entry].model));
+      for (const entry in reservations) {
+        this.dates.push(reservations[entry].vehicleType, reservations[entry].storyDate, reservations[entry].model);
       }
       if (this.dates.length >= 7) {
         $('#calendar').fullCalendar({
