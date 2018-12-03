@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.myHttp.getUser(+params['userID']).subscribe((response) => {
+        console.log(response[0]);
         this.account = response[0];
       });
    });

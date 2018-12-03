@@ -69,7 +69,7 @@ export class HttpClientRoutes {
 
   getReservedVehicles(storyID: number): Observable<Vehicle[]> {
     return this.httpClient
-      .get<Vehicle[]>(`${this.endPoint}/stories/reservedVehicles/${storyID}`, this.httpOptions)
+      .get<Object[]>(`${this.endPoint}/stories/reservedVehicles/${storyID}`, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
@@ -81,7 +81,7 @@ export class HttpClientRoutes {
 
   getReservedEquipment(storyID: number): Observable<Equipment[]> {
     return this.httpClient
-      .get<Equipment[]>(`${this.endPoint}/stories/reservedEquipment/${storyID}`, this.httpOptions)
+      .get<Object[]>(`${this.endPoint}/stories/reservedEquipment/${storyID}`, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
@@ -196,6 +196,12 @@ export class HttpClientRoutes {
   unclaimExpert(storyID: number, expertID: number): Observable<Expert> {
     return this.httpClient
       .delete<Expert>(`${this.endPoint}/experts/deleteReservation/${storyID}/${expertID}`)
+      .pipe(catchError(this.handleException));
+  }
+
+  getMyReservedExperts(anchorID: number): Observable<Object> {
+    return this.httpClient
+      .get<Object>(`${this.endPoint}/experts/reserved/${anchorID}`, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
