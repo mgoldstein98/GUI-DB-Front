@@ -22,6 +22,7 @@ export class HomepageComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.myHttp.getUser(+params['userID']).subscribe((response) => {
+        console.log("Response = ", response[0])
         this.user = response[0];
       });
     });
