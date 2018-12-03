@@ -28,8 +28,7 @@ export class AccountCreationComponent implements OnInit {
 
   ngOnInit() {
 
-    // pass through this page if user is already logged in
-    if (localStorage.getItem('id') != null) {
+    if (localStorage.getItem('id_token') != null) {
       this.router.navigateByUrl(`home/${localStorage.getItem('id')}`);
     }
 
@@ -50,9 +49,7 @@ export class AccountCreationComponent implements OnInit {
       return;
     }
 
-    console.log(this.account);
     this.myHttp.signup(this.account.userName, this.account.email, this.account.pass, this.account.typeFlag).subscribe((response) => {
-      console.log(response);
       this.auth.login(this.account.email, this.account.pass);
 
     });

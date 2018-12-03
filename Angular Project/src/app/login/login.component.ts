@@ -26,8 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
-    // pass through this page if user is already logged in
-    if (localStorage.getItem('id') != null) {
+    if (localStorage.getItem('id_token') != null) {
       this.router.navigateByUrl(`home/${localStorage.getItem('id')}`);
     }
 

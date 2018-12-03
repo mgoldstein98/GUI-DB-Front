@@ -11,11 +11,8 @@ import { HttpClientRoutes } from '../domain/http-client-routes.service';
 })
 export class HomepageComponent implements OnInit {
 
-  // take in from login or sign up
   user: Account = {};
 
-
-  // some injectable service here to populate user
   constructor(private route: ActivatedRoute, private myHttp: HttpClientRoutes) { }
 
   ngOnInit() {

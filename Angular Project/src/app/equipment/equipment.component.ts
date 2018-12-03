@@ -13,7 +13,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EquipmentComponent implements OnInit {
 
-  // @Input()
   thisStory: Story;
 
   myEquipment: Equipment [];
@@ -33,7 +32,6 @@ export class EquipmentComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    // this.displayedColumns;
 
     this.route.params.subscribe(params => {
       this.myHttp.getStory(+params['storyID']).subscribe((response) => {
@@ -43,7 +41,7 @@ export class EquipmentComponent implements OnInit {
       });
     });
 
-  }// end of ng
+  }
 
   addEquipment(index: number) {
     this.myHttp.claimEquipment(this.availableEquipment[index].equipID, this.thisStory.storyID).subscribe((equipment) => {
@@ -83,10 +81,6 @@ export class EquipmentComponent implements OnInit {
   }
 
   returnToDash() {
-
-    // get logged in id from local storage in case
-    // this is a manager editing stories and not the
-    // anchor himself
 
     const id = localStorage.getItem('id');
     this.router.navigateByUrl(`home/${id}`);

@@ -27,7 +27,7 @@ export class ExpertTableComponent implements OnInit {
       }
       if (this.dates.length >= 7) {
         $('#calendar').fullCalendar({
-          // put your options and callbacks here
+
           showNonCurrentDates: false,
           height: 10,
           contentHeight: 600,
@@ -74,7 +74,7 @@ export class ExpertTableComponent implements OnInit {
       }
       if (this.dates.length === 6) {
         $('#calendar').fullCalendar({
-          // put your options and callbacks here
+
           showNonCurrentDates: false,
           height: 10,
           contentHeight: 600,
@@ -116,7 +116,7 @@ export class ExpertTableComponent implements OnInit {
       }
       if (this.dates.length === 5) {
         $('#calendar').fullCalendar({
-          // put your options and callbacks here
+
           showNonCurrentDates: false,
           height: 10,
           contentHeight: 600,
@@ -153,7 +153,7 @@ export class ExpertTableComponent implements OnInit {
       }
       if (this.dates.length === 4) {
         $('#calendar').fullCalendar({
-          // put your options and callbacks here
+
           showNonCurrentDates: false,
           height: 10,
           contentHeight: 600,
@@ -185,7 +185,7 @@ export class ExpertTableComponent implements OnInit {
       }
       if (this.dates.length === 3) {
         $('#calendar').fullCalendar({
-          // put your options and callbacks here
+
           showNonCurrentDates: false,
           height: 10,
           contentHeight: 600,
@@ -212,7 +212,7 @@ export class ExpertTableComponent implements OnInit {
       }
       if (this.dates.length === 2) {
         $('#calendar').fullCalendar({
-          // put your options and callbacks here
+
           showNonCurrentDates: false,
           height: 10,
           contentHeight: 600,
@@ -234,7 +234,7 @@ export class ExpertTableComponent implements OnInit {
       }
       if (this.dates.length === 1) {
         $('#calendar').fullCalendar({
-          // put your options and callbacks here
+
           showNonCurrentDates: false,
           height: 10,
           contentHeight: 600,
@@ -251,7 +251,7 @@ export class ExpertTableComponent implements OnInit {
       }
       if (this.dates.length === 0) {
         $('#calendar').fullCalendar({
-          // put your options and callbacks here
+
           showNonCurrentDates: false,
           height: 10,
           contentHeight: 600,

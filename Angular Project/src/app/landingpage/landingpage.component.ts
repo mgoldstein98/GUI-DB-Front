@@ -13,8 +13,8 @@ export class LandingpageComponent implements OnInit {
   constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
-    // pass through this page if user is already logged in
-    if (localStorage.getItem('id') != null) {
+
+    if (localStorage.getItem('id_token') != null) {
       this.router.navigateByUrl(`home/${localStorage.getItem('id')}`);
     }
   }

@@ -41,7 +41,6 @@ export class AnStoryComponent implements OnInit {
   getAvailableStories() {
     this.myHttp.getAvailableStories().subscribe((stories) => {
       this.availableStories = stories;
-      console.log(typeof(this.availableStories[0].storyDate));
     });
   }
 
@@ -61,10 +60,6 @@ export class AnStoryComponent implements OnInit {
   }
 
   returnToDash() {
-
-    // get logged in id from local storage in case
-    // this is a manager editing stories and not the
-    // anchor himself
 
     const id = localStorage.getItem('id');
     this.router.navigateByUrl(`home/${id}`);

@@ -50,22 +50,18 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
-  // Called upon click of claim in anchor table by manager
   addAnchor(managerID: number, userID: number): Observable<String> {
     return this.httpClient
       .put<String>(`${this.endPoint}/accounts/assignAnchor`, { managerID, userID }, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
-  // Called upon click of remove in anchor table by manager
   removeAnchor(managerID: number, userID: number): Observable<String> {
 
     return this.httpClient
       .put<String>(`${this.endPoint}/accounts/unassignFromManager/${userID}`, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
-
-
 
   getReservedVehicles(storyID: number): Observable<Vehicle[]> {
     return this.httpClient
@@ -91,35 +87,22 @@ export class HttpClientRoutes {
       .pipe(catchError(this.handleException));
   }
 
-  // Not in backend
-  // Only called by managers to populate dashboard cards
   getMyAnchors(managerID: number): Observable<Account[]> {
     return this.httpClient
       .get<Account[]>(`${this.endPoint}/accounts/myAnchors/${managerID}`, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
-  // Not in backend
-  // Used to populate 'add an anchor' table in manager component
   getUnmanagedAnchors(): Observable<Account[]> {
     return this.httpClient
       .get<Account[]>(`${this.endPoint}/accounts/unmanagedAnchors`, this.httpOptions)
       .pipe(catchError(this.handleException));
   }
 
-  // Not in backend
-  // Only called by anchors in profile page
   getMyManager(email: string): Observable<Account> {
     return this.httpClient
       .get<Account>(`${this.endPoint}/accounts/myManager/${email}`);
   }
-
-  // // Return all stories for a given anchor to populate anchor card
-  // getStories(userID: number): Observable<Story[]> {
-  //   return this.httpClient
-  //     .get<Story[]>(`${this.endPoint}/stories/myStories/${userID}`, this.httpOptions)
-  //     .pipe(catchError(this.handleException));
-  // }
 
   unassignAnchorStory(anchorID: number, storyID: number): Observable<String> {
     return this.httpClient

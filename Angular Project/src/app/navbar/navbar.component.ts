@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
 
-    if (localStorage.getItem('id') != null) {
+    if (localStorage.getItem('id_token') != null) {
       this.myHttp.getUser(+localStorage.getItem('id')).subscribe((response) => {
         this.user = response[0];
       });

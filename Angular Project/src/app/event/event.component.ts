@@ -7,14 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventComponent implements OnInit {
 
-  // events = [
+  constructor() {}
 
-  // ];
-  constructor() {
-
-   }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

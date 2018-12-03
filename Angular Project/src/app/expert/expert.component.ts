@@ -32,7 +32,6 @@ export class ExpertComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    // this.displayedColumns;
     this.route.params.subscribe(params => {
       this.myHttp.getStory(+params['storyID']).subscribe((response) => {
         this.thisStory = response[0];
@@ -80,10 +79,6 @@ export class ExpertComponent implements OnInit {
   }
 
   returnToDash() {
-
-    // get logged in id from local storage in case
-    // this is a manager editing stories and not the
-    // anchor himself
 
     const id = localStorage.getItem('id');
     this.router.navigateByUrl(`home/${id}`);
